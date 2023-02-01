@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
@@ -22,5 +23,6 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
         AuthLoginRoutingModule,
         AuthRegistroModule,AuthRegistroRoutingModule
     ]
+
 })
 export class AppModule { }
