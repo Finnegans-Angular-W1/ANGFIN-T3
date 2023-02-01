@@ -26,3 +26,11 @@
   .links_footer:hover::before {
     width: calc(100% - 0px);
   }
+  @media (max-width:650px){
+    .Links_Container{
+        position: relative;
+    }
+    .links_footer{
+      font-size: small;
+    }
+  }
