@@ -1,0 +1,33 @@
+<div class="contenedor">
+
+    <div class="loginForm">
+
+        <h2 class="titulo">Iniciar sesión</h2>
+
+        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+
+            <label for="emailInput">Correo electrónico</label>
+
+            <input formControlName="email" class="box" type="email"  id="emailInput"
+                placeholder="example@example.com">
+
+            <label for="passwordInput">Contraseña</label>
+
+            <input formControlName="password" class="box" type="password"id="passwordInput"
+                placeholder="Ingresa tu contraseña">
+
+                
+            <div class="recordarme">
+                <input type="checkbox" id="recordarme"> <span
+                    style="font-size: 13px;">Recordarme</span>
+            </div>
+
+            <button class="btnLogin">Acceder</button>
+
+            <a href="/register" class="btnRegister">Registrarse</a>
+
+        </form>
+        <a class="olvideContra">Olvidé mi contraseña</a>
+
+    </div>
+</div>

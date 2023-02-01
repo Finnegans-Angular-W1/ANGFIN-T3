@@ -1,0 +1,79 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    color: #FAFAFB;
+    font-family: 'Barlow', sans-serif;
+   background-color:#433578 ;
+    // background-image: linear-gradient(#433578 0%, #574A8D 20%);
+}
+
+.titulo,
+label,
+.olvideContra {
+    text-shadow: 0 2px rgba(0, 0, 0, 0.651);
+}
+
+.loginForm {
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.212);
+    width: 25rem;
+    height: 25rem;
+    padding: 35px;
+    background-image: linear-gradient(#433578, #574A8D, #433578);
+    border-radius: 20px;
+ 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.box {
+    width: 70%;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    background-color: EAEAEC;
+    border-radius: 4px;
+}
+
+form input {
+    margin: 10px;
+
+}
+
+.recordarme {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.loginForm .btnLogin,
+.loginForm .btnRegister {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgba(48, 48, 48, 0.557);
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+
+.loginForm .btnLogin:hover,
+.loginForm .btnRegister:hover {
+    background-color: #373737;
+
+}
+
