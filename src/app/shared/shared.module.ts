@@ -3,16 +3,21 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 
 import { MaterialModule } from './material/material.module';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SideBarComponent
+  ],
   imports: [
     CommonModule,
     SharedRoutingModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     MaterialModule,
-    SharedRoutingModule]
+    SharedRoutingModule,
+    SideBarComponent
+  ]
 })
 export class SharedModule { }

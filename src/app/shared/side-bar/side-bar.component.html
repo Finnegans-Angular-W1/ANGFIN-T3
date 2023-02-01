@@ -1,0 +1,48 @@
+
+
+    <section class="sideBar">
+
+
+        <div class="sideBarTop"
+             [routerLink]="menuTop.route"
+             routerLinkActive="active">
+            <mat-icon [routerLink]="menuTop.route"
+                      routerLinkActive="active">
+                {{menuTop.icon}}
+            </mat-icon>
+            <p class="animate__animated animate__fadeIn animate__slow">{{menuTop.title}}</p>
+        </div>
+    
+        <hr>
+    
+    
+        <div class="sideBarMain">
+            <ul>
+                <li *ngFor="let option of menuOptions"
+                    routerLinkActive="active"
+                    [routerLink]="option.route">
+                    <mat-icon
+                    >
+                    {{option.icon}} 
+                    </mat-icon>
+                    <p >{{option.title}}</p>
+                   
+                </li>
+            </ul>
+    
+        </div>
+    
+        <hr>
+    
+        <div class="sideBarBottom">
+            <mat-icon routerLinkActive="active" 
+            routerLink="menuBottom.route">
+                {{menuBottom.icon}}
+            </mat-icon>
+            <p class="animate__animated animate__fadeIn animate__slow">{{menuBottom.title}}</p>
+        </div>
+    
+    
+    </section>
+
+
