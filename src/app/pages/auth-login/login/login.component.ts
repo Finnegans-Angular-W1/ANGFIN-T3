@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { group } from 'console';
 
 
 @Component({
@@ -10,25 +11,28 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-
-  public myForm!: FormGroup;
+  loginForm = this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required,Validators.minLength(4)]]
+      });
 
   constructor(private fb: FormBuilder) { }
 
-
   ngOnInit(): void {
-    this.myForm = this.crearFormulario();
   }
 
-  private crearFormulario(): FormGroup {
-    return this.fb.group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required]
-    })
+  public onSubmit() {
+    if(this.loginForm.invalid){
+     alert('usuario invalido')
+    }
+    else console.log(this.loginForm.value);
   }
 
-  public submitForm() {
-    console.log(this.myForm.value);
-
+  public  emailVacio(){
+    return this.loginForm.value.email =='' ;
   }
+  public  passwordVacio(){
+    return this.loginForm.value.password ==''; 
+  }
+
 }

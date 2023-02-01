@@ -6,7 +6,7 @@
     text-align: center;
     color: #FAFAFB;
     font-family: 'Barlow', sans-serif;
-   background-color:#433578 ;
+   background-color: #FAFAFB;
     // background-image: linear-gradient(#433578 0%, #574A8D 20%);
 }
 
@@ -23,7 +23,8 @@ label,
     padding: 35px;
     background-image: linear-gradient(#433578, #574A8D, #433578);
     border-radius: 20px;
- 
+    
+    
 }
 
 form {
@@ -42,30 +43,28 @@ form {
     padding: 10px;
     background-color: EAEAEC;
     border-radius: 4px;
+    background-color:#ffffff;
+    border-bottom: 1px solid black;
 }
+
 
 form input {
     margin: 10px;
 
 }
 
-.recordarme {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
 
 .loginForm .btnLogin,
 .loginForm .btnRegister {
     border: none;
     padding: 10px;
     cursor: pointer;
-    background-color: rgba(48, 48, 48, 0.557);
+    background-color: rgb(21, 19, 19);
     text-decoration: none;
     color: white;
     font-size: 0.9rem;
     margin: 5px;
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 16px;
 }
 
@@ -77,3 +76,13 @@ form input {
 
 }
 
+.loginForm .btnLogin:disabled{
+    background-color: #b0b0b0;
+    cursor: auto;
+}
+
+.campos{
+    
+    color: rgb(255, 0, 0);
+    font-size: 14px;
+}

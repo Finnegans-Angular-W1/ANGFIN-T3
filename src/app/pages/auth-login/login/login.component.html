@@ -4,30 +4,39 @@
 
         <h2 class="titulo">Iniciar sesión</h2>
 
-        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
             <label for="emailInput">Correo electrónico</label>
 
-            <input formControlName="email" class="box" type="email"  id="emailInput"
-                placeholder="example@example.com">
+            <div>
+            <span *ngIf="emailVacio()" class="campos">
+                *
+            </span>
+            <input formControlName="email" class="box" type="email" id="emailInput" placeholder="example@example.com"
+                required>
 
-            <label for="passwordInput">Contraseña</label>
-
-            <input formControlName="password" class="box" type="password"id="passwordInput"
-                placeholder="Ingresa tu contraseña">
-
-                
-            <div class="recordarme">
-                <input type="checkbox" id="recordarme"> <span
-                    style="font-size: 13px;">Recordarme</span>
             </div>
 
-            <button class="btnLogin">Acceder</button>
-            <button mat-raised-button color="primary">Primary</button>
+            <label for="passwordInput">Contraseña</label>
+            <div>
+
+                <span *ngIf="passwordVacio()" class="campos">
+                    *
+                </span>
+                <input formControlName="password" class="box" type="password" id="passwordInput"
+                placeholder="Ingresa tu contraseña" required minlength="8">
+            </div>
+
+
+            <button class="btnLogin">Ingresar</button>
             <a href="/register" class="btnRegister">Registrarse</a>
 
+
+
+            <a class="olvideContra">Olvidé mi contraseña</a>
+
+
         </form>
-        <a class="olvideContra">Olvidé mi contraseña</a>
 
     </div>
 </div>
