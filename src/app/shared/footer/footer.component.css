@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    place-items: center;
   }
   .img_container img {
     width: 6rem;
@@ -29,6 +30,9 @@
     border-radius: 50%;
     contain: inline-size;
     cursor: pointer;
+  }
+  .logo_container p{
+    font-weight: bold;
   }
   .links_container{
     display: flex;
@@ -61,7 +65,7 @@
     height: 4rem;
   }
   .logo_container p {
-    font-size: smaller;
+    font-size: small;
     width: 70%;
   }
   .footer_container{
@@ -71,6 +75,18 @@
     gap: 0.3rem;
   }
   .list_conditions li {
+    font-size: inherit;
+  }
+  
+}
+@media (max-width:450px){
+  .logo_container {
+    width: 47%;
+  }
+  .list_conditions li {
+    font-size: smaller;
+  }
+  .logo_container p{
     font-size: smaller;
   }
 }

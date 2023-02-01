@@ -29,8 +29,15 @@
   @media (max-width:650px){
     .Links_Container{
         position: relative;
+        justify-content: space-evenly;
+        right: 10%;
     }
     .links_footer{
       font-size: small;
+    }
+  }
+  @media (max-width:450px){
+    .Links_Container{
+        right:0;
     }
   }
