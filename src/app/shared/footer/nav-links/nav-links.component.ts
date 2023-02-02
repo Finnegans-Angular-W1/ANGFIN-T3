@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-
 export  interface Link {
   label: string;
   path: string;
@@ -13,7 +12,7 @@ export  interface Link {
   styleUrls: ['./nav-links.component.css']
 })
 export class NavLinksComponent {
-
+  
   @Input() links?: Link[];
 
 }
