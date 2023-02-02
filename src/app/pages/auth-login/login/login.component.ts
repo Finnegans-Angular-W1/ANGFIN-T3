@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 
 
@@ -16,33 +18,43 @@ export class LoginComponent implements OnInit {
   public passwordInvalid = false;
 
   loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required,Validators.minLength(4)]]
-      });
+    email: ['juanperez@example.com', [Validators.required, Validators.email]],
+    password: ['abc123', [Validators.required, Validators.minLength(6)]]
+  });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
   public onSubmit() {
-    if(!this.loginForm.valid){
-      Object.values(this.loginForm.controls).forEach(control=>{
+    if (!this.loginForm.valid) {
+      Object.values(this.loginForm.controls).forEach(control => {
         control.markAllAsTouched();
       })
-    }else{
+    } else {
       console.log('Usuario valido')
+      
     }
   }
 
-  public  emailVacio(){
-    return this.loginForm.value.email == '' ;
+  public emailVacio() {
+    return this.loginForm.value.email == '';
   }
-  public  passwordVacio(){
-   
-    return this.loginForm.value.password ==''; 
+  public passwordVacio() {
+
+    return this.loginForm.value.password == '';
   }
 
+  login(){
+    
+    this.loginService.login(this.loginForm).subscribe({
+      next:(res:any) =>{
+        this.router.navigateByUrl('')
+        localStorage.setItem('token',res.accessToken)
 
-
+      },
+      error: err=>{console.log(err)}
+    })
+  }
 }

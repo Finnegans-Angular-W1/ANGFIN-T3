@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
+import { SharedModule } from "./shared/shared.module";
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [
         AppComponent
@@ -21,8 +23,8 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
         AppRoutingModule,
         AuthLoginModule,
         AuthLoginRoutingModule,
-        AuthRegistroModule,AuthRegistroRoutingModule
+        AuthRegistroModule, AuthRegistroRoutingModule,
+        SharedModule,HttpClientModule
     ]
-
 })
 export class AppModule { }

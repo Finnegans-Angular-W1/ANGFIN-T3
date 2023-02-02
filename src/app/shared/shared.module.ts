@@ -14,7 +14,7 @@ import { NgModule } from '@angular/core';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    MaterialModule,
+    MaterialModule
   ],
   exports: [
     MaterialModule,
