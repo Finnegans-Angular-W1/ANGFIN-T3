@@ -9,10 +9,12 @@ import { Link } from './nav-links/nav-links.component';
 })
 
 export class FooterComponent {
+  
   navLinks: Link[] = [
-    { label: 'Ig', path: '/home', icon: 'fab fa-instagram' },
-    { label: 'About', path: '/about', icon: 'fas fa-info-circle' },
-    { label: 'social', path: '/contact', icon: 'fab fa-facebook-f' }
+    { label: '', path: '/home', icon: 'bx bxl-linkedin-square' },
+    { label: '', path: '/about', icon: 'bx bxl-whatsapp' },
+    { label: '', path: '/contact', icon: 'bx bxl-facebook-circle' },
+    { label: '', path: '/contact', icon: 'bx bx-envelope' }
   ];
   
   @Input() logoUrl: string ='https://i.ytimg.com/vi/bkqI_RKS8aU/hqdefault.jpg';

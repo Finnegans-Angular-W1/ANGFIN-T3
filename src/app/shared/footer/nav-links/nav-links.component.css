@@ -5,7 +5,7 @@
 .links_footer{
     text-decoration: none;
     color: violet;
-    font: message-box;
+    font-size: 27px;
 }
 .links_footer:hover{
     scale: 1.1;
@@ -33,11 +33,15 @@
         right: 10%;
     }
     .links_footer{
-      font-size: small;
+      font-size: 20px;
     }
   }
   @media (max-width:450px){
     .Links_Container{
-        right:0;
+        justify-content: center;
+        gap: 13px;
+    }
+    .links_footer{
+      font-size: initial;
     }
   }
