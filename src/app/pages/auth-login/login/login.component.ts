@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { group } from 'console';
+
 
 
 @Component({
@@ -10,6 +10,10 @@ import { group } from 'console';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+
+  public emailInvalid = false;
+  public passwordInvalid = false;
 
   loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
@@ -22,17 +26,23 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit() {
-    if(this.loginForm.invalid){
-     alert('usuario invalido')
+    if(!this.loginForm.valid){
+      Object.values(this.loginForm.controls).forEach(control=>{
+        control.markAllAsTouched();
+      })
+    }else{
+      console.log('Usuario valido')
     }
-    else console.log(this.loginForm.value);
   }
 
   public  emailVacio(){
-    return this.loginForm.value.email =='' ;
+    return this.loginForm.value.email == '' ;
   }
   public  passwordVacio(){
+   
     return this.loginForm.value.password ==''; 
   }
+
+
 
 }

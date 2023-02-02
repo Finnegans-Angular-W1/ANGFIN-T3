@@ -7,7 +7,7 @@
     color: #FAFAFB;
     font-family: 'Barlow', sans-serif;
    background-color: #FAFAFB;
-   background-image: linear-gradient(#433578 0%, #574A8D 20%,#433578 80%,#433578 100%);
+   background-image: linear-gradient(#362a62 0%, #433578 80%,#4f3d8e 100%);
 }
 
 .titulo,
@@ -17,11 +17,11 @@ label,
 }
 
 .loginForm {
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.212);
+     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.717);
     width: 25rem;
     height: 25rem;
     padding: 35px;
-    background-image: linear-gradient(#433578, #574A8D, #433578);
+    background-image: linear-gradient( #574A8D, #36296a);
     border-radius: 20px;
     
     
@@ -40,6 +40,7 @@ form {
     width: 70%;
     border: none;
     margin: 20px;
+    margin-bottom: 0;
     padding: 10px;
     background-color: EAEAEC;
     border-radius: 4px;
@@ -81,8 +82,8 @@ form input {
     cursor: auto;
 }
 
-.campos{
-    
-    color: rgb(255, 0, 0);
-    font-size: 14px;
+.invalid{
+    color: red;
+    margin: 0;
+    padding: 0;
 }
