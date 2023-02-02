@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
 import { NavLinksComponent } from './shared/footer/nav-links/nav-links.component';
 
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,7 @@ import { NavLinksComponent } from './shared/footer/nav-links/nav-links.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatNativeDateModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
