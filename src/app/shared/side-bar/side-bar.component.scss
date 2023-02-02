@@ -1,0 +1,112 @@
+$blueViolet :#6A5DAE;
+$gradiant:linear-gradient(30deg,#483D74,#7367B3,#6A5DAE,#574A8D,#483D74);
+
+
+hr{
+    width: 50%;
+    margin:0
+}
+
+
+
+
+.sideBar{
+    position: absolute;
+    z-index: 1000;
+    background-image: $gradiant;
+    border-radius: 20px;
+    margin-bottom: 0.48rem;
+    padding-left: 1.5rem;
+    margin-left: 5px;
+    margin-top: 0.48rem;
+    height: 98%;
+    width: 4.5rem;
+
+    transition: all 400ms ease;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    p{
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+        margin: 0;
+        visibility: hidden;
+        width: 100%;
+    }
+
+}
+
+.sideBarTop{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    height: 15%;
+    justify-content: center;
+}
+
+.sideBarMain{
+    
+    height: 70%;
+   
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }  
+
+    li{
+        
+        align-items: center;
+        display: flex;
+        gap: 15px;
+        height: 35px;
+        width: auto;
+    }
+}
+
+
+
+.sideBarBottom{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    height: 15%;
+    justify-content: center;
+}
+
+.sideBar:hover{
+    width: 13rem;
+
+    hr{
+        width: 90%;
+    }
+    p{
+        visibility: visible;
+    }
+}
+
+
+.active{
+    color: black;
+}
+
+mat-icon{
+    cursor: pointer;
+    color: white;
+    font-size: 35px;
+    height: 35px;
+    width: 70px;
+    text-align: center;
+}
