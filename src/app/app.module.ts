@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './pages/auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
 
   declarations: [
@@ -22,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     PagesModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
 
 })
