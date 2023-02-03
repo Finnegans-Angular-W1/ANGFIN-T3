@@ -15,7 +15,6 @@
     
         <hr>
     
-    
         <div class="sideBarMain">
             <ul>
                 <li *ngFor="let option of menuOptions"
@@ -25,10 +24,12 @@
                     >
                     {{option.icon}} 
                     </mat-icon>
-                    <p >{{option.title}}</p>
+                    <p 
+                    (click)="titleSend(option.title)"
+                    >{{option.title}}</p>
                    
                 </li>
-            </ul>
+            </ul>   
     
         </div>
     
