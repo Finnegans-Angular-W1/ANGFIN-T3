@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SideBarMenu } from './interface/menu.interface';
 import { MenuBarService } from './services/menu-bar.service';
+import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,12 +14,18 @@ export class SideBarComponent implements OnInit {
   menuTop! : SideBarMenu;
   menuBottom! : SideBarMenu;
 
-  constructor( private menuServices : MenuBarService) { }
+  constructor( private menuServices : MenuBarService,
+               private authSerive : AuthService) { }
 
   ngOnInit(): void {
     this.menuOptions = this.menuServices.menuBar
     this.menuTop = this.menuServices.menuTop
     this.menuBottom = this.menuServices.menuBottom
+  }
+
+
+  logout(){
+    this.authSerive.logout()
   }
 
 }
