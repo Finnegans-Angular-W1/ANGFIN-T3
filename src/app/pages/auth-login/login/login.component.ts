@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     
     this.loginService.login(this.loginForm).subscribe({
       next:(res:any) =>{
-        this.router.navigateByUrl('')
+        this.router.navigateByUrl('/home')
         localStorage.setItem('token',res.accessToken)
       },
       error: err=>{
