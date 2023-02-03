@@ -1,16 +1,15 @@
 
 
     <section class="sideBar">
-
-
         <div class="sideBarTop"
              [routerLink]="menuTop.route"
              routerLinkActive="active">
-            <mat-icon [routerLink]="menuTop.route"
-                      routerLinkActive="active">
+            <div class="hover">
+                <mat-icon >
                 {{menuTop.icon}}
-            </mat-icon>
-            <p class="animate__animated animate__fadeIn animate__slow">{{menuTop.title}}</p>
+                </mat-icon>
+                <p>{{menuTop.title}}</p>
+            </div> 
         </div>
     
         <hr>
@@ -29,17 +28,20 @@
                    
                 </li>
             </ul>
-    
         </div>
     
         <hr>
     
-        <div class="sideBarBottom">
-            <mat-icon routerLinkActive="active" 
-            routerLink="menuBottom.route">
-                {{menuBottom.icon}}
-            </mat-icon>
-            <p class="animate__animated animate__fadeIn animate__slow">{{menuBottom.title}}</p>
+        <div class="sideBarBottom"
+             [routerLink]="menuTop.route"
+             routerLinkActive="active">
+            <div class="hover">
+                <mat-icon routerLinkActive="active" 
+                routerLink="menuBottom.route">
+                    {{menuBottom.icon}}
+                </mat-icon>
+                <p >{{menuBottom.title}}</p>
+            </div>
         </div>
     
     

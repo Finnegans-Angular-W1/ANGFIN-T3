@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthRegistroRoutingModule } from './auth-registro-routing.module';
+import { SharedModule } from '../../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+
 
 
 @NgModule({
   declarations: [
+    LoginComponent,
     RegistroComponent
   ],
   imports: [
     CommonModule,
-    AuthRegistroRoutingModule,FormsModule,ReactiveFormsModule,MaterialModule
+    ReactiveFormsModule,
+    SharedModule,
+    HttpClientModule
   ]
 })
-export class AuthRegistroModule { }
+export class AuthModule { }
