@@ -16,6 +16,10 @@ label,
     text-shadow: 0 2px rgba(0, 0, 0, 0.651);
 }
 
+.titulo{
+    font-size: 28px;
+}
+
 .loginForm {
      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.717);
     width: 25rem;
@@ -78,7 +82,7 @@ form input {
 }
 
 .loginForm .btnLogin:disabled{
-    background-color: #b0b0b0;
+    background-color: #545454;
     cursor: auto;
 }
 

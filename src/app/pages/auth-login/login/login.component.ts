@@ -18,24 +18,13 @@ export class LoginComponent implements OnInit {
   public passwordInvalid = false;
 
   loginForm = this.fb.group({
-    email: ['juanperez@example.com', [Validators.required, Validators.email]],
-    password: ['abc123', [Validators.required, Validators.minLength(6)]]
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
-  }
-
-  public onSubmit() {
-    if (!this.loginForm.valid) {
-      Object.values(this.loginForm.controls).forEach(control => {
-        control.markAllAsTouched();
-      })
-    } else {
-      console.log('Usuario valido')
-      
-    }
   }
 
   public emailVacio() {
@@ -52,9 +41,11 @@ export class LoginComponent implements OnInit {
       next:(res:any) =>{
         this.router.navigateByUrl('')
         localStorage.setItem('token',res.accessToken)
-
       },
-      error: err=>{console.log(err)}
+      error: err=>{
+        console.log(err);
+        
+      }
     })
   }
 }

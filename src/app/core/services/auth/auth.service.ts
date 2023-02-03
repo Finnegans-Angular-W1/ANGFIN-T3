@@ -9,11 +9,16 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
 
-    constructor(private httpClient:HttpClient){}
+  constructor(private httpClient:HttpClient){}
 
-    login(form:FormGroup){
-        return this.httpClient.post(`${environment.URL_BASE}/auth/login`,form.value)
-    }
+  login(form:FormGroup){       
+      return this.httpClient.post(`${environment.URL_BASE}/auth/login`,form.value)       
+  }
+
+  register(form:FormGroup){     
+      return this.httpClient.post(`${environment.URL_BASE}/users`,form.value)
+  }
+  
 
   getToken() {
     return localStorage.getItem('token') || '';
