@@ -11,6 +11,9 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { SharedModule } from "./shared/shared.module";
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { ROOT_REDUCERS } from './core/state/app.state';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -23,8 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
         AppRoutingModule,
         AuthLoginModule,
         AuthLoginRoutingModule,
-        AuthRegistroModule, AuthRegistroRoutingModule,
-        SharedModule,HttpClientModule
+        AuthRegistroModule, 
+        AuthRegistroRoutingModule,
+        SharedModule,
+        HttpClientModule, 
+        StoreModule.forRoot(ROOT_REDUCERS)
     ]
 })
 export class AppModule { }

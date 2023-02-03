@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-
+import { login } from 'src/app/core/state/auth/auth.actions';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     password: ['abc123', [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
+  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router, private store: Store) { }
 
   ngOnInit(): void {
   }
@@ -47,14 +48,22 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    
     this.loginService.login(this.loginForm).subscribe({
       next:(res:any) =>{
         this.router.navigateByUrl('')
         localStorage.setItem('token',res.accessToken)
-
+        this.getUserData();
       },
-      error: err=>{console.log(err)}
+      error: err =>{console.log(err)}
+    })
+  }
+
+  getUserData(){
+    this.loginService.getUserData().subscribe({
+      next:(res:any) =>{
+        this.store.dispatch(login(res));
+      },
+      error: err =>{console.log(err)}
     })
   }
 }

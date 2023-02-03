@@ -8,12 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
+  constructor(private httpClient:HttpClient){}
 
-    constructor(private httpClient:HttpClient){}
-
-    login(form:FormGroup){
-        return this.httpClient.post(`${environment.URL_BASE}/auth/login`,form.value)
-    }
+  login(form:FormGroup){
+      return this.httpClient.post(`${environment.URL_BASE}/auth/login`,form.value)
+  }
 
   getToken() {
     return localStorage.getItem('token') || '';
@@ -25,6 +24,10 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token')
+  }
+
+  getUserData(){
+    return this.httpClient.get(`${environment.URL_BASE}/auth/me`, {headers: {token: this.getToken()}})
   }
 
 }

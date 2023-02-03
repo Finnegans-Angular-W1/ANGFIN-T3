@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SideBarMenu } from './interface/menu.interface';
 import { MenuBarService } from './services/menu-bar.service';
 import { AuthService } from '../../core/services/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { logout } from 'src/app/core/state/auth/auth.actions';
 
 @Component({
   selector: 'app-side-bar',
@@ -15,7 +17,8 @@ export class SideBarComponent implements OnInit {
   menuBottom! : SideBarMenu;
 
   constructor( private menuServices : MenuBarService,
-               private authSerive : AuthService) { }
+               private authService : AuthService,
+               private store: Store) { }
 
   ngOnInit(): void {
     this.menuOptions = this.menuServices.menuBar
@@ -25,7 +28,8 @@ export class SideBarComponent implements OnInit {
 
 
   logout(){
-    this.authSerive.logout()
+    this.authService.logout();
+    this.store.dispatch(logout());
   }
 
 }
