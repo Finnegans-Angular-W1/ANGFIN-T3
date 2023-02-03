@@ -13,12 +13,12 @@ import { NgModule } from '@angular/core';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
+
     MaterialModule
   ],
   exports: [
     MaterialModule,
-    SharedRoutingModule,
+
     SideBarComponent
   ]
 })
