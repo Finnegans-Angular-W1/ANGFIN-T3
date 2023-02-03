@@ -8,6 +8,17 @@ hr{
 }
 
 
+.hover{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 45px;
+    border-radius: 25px;
+    transition: all 400ms ease;
+}
+
+
+
 
 
 .sideBar{
@@ -22,7 +33,9 @@ hr{
     height: 98%;
     width: 4.5rem;
 
-    transition: all 400ms ease;
+    overflow: hidden;
+
+    transition: all 400ms ease-in-out;
 
 
     display: flex;
@@ -66,14 +79,17 @@ hr{
     }  
 
     li{
-        
+        transition: all 400ms ease;
         align-items: center;
         display: flex;
         gap: 15px;
-        height: 35px;
+        height: 45px;
         width: auto;
+        border-radius: 25px;
     }
 }
+
+
 
 
 
@@ -95,6 +111,17 @@ hr{
     p{
         visibility: visible;
     }
+
+    li:hover,.hover:hover{
+        background-color: rgba(0, 0, 0, 0.158);
+
+
+        p, mat-icon{
+            color: black;
+        }
+
+    }
+
 }
 
 
