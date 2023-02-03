@@ -1,5 +1,5 @@
 .error_bg{
-    background-image: url('../error_404.svg');
+    background-image: url('../page-not-found/page-not-found/page-not-found/error_404.svg');
     height: 100vh;
     background-repeat: no-repeat;
     background-size: contain;
@@ -26,7 +26,7 @@
 
 .btn_return:hover {
     box-shadow: 4px 4px 16px 0px;
-    font-size: 20px;
+    font-size: 23px;
 }
 .span_err{
     position: absolute;
@@ -34,7 +34,7 @@
     left: 5%;
     color: slateblue;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 24px;
     text-decoration: underline;
 }
 .error-title {
@@ -61,4 +61,36 @@
     100% {
     transform: scale(1);
     }
+}
+
+@media (max-width:660px){
+    .error-title{
+        top: 10%;
+        font-size: 42px;
     }
+    .btn_return{
+        top: 16%;
+        font-size: 20px;
+    }
+    .btn_return:hover{
+        font-size: 21px;
+    }
+}
+@media (max-width:520px){
+    .span_err{
+        top: 48%;
+        left: 2%;
+    }
+}
+@media (max-width:430px){
+    .error-title{
+        font-size: 32px;
+    }
+    .btn_return{
+        font-size: 16px;
+    }
+    .span_err{
+        font-size: 18px;
+        
+    }
+}
