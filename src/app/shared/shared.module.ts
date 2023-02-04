@@ -4,10 +4,12 @@ import { SharedRoutingModule } from './shared-routing.module';
 
 import { MaterialModule } from './material/material.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
-    SideBarComponent
+    SideBarComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   exports: [
     MaterialModule,
     SharedRoutingModule,
-    SideBarComponent
+    SideBarComponent,
+    LoadingComponent,
   ]
 })
 export class SharedModule { }
