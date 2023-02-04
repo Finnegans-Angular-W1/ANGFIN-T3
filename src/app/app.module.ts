@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
-import { AlertsComponent } from './pages/alerts/alerts.component';
 
 
 
@@ -18,7 +17,7 @@ import { AuthModule } from './pages/auth/auth.module';
 
   declarations: [
     AppComponent,
-    AlertsComponent
+
   ],
   imports: [
     BrowserModule,
