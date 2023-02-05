@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
+  goHome() {
+    location.replace('/');
+}
   constructor() { }
 
   ngOnInit(): void {

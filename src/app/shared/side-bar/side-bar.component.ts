@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../title/service/title.service';
 import { SideBarMenu } from './interface/menu.interface';
 import { MenuBarService } from './services/menu-bar.service';
 
@@ -13,7 +14,9 @@ export class SideBarComponent implements OnInit {
   menuTop! : SideBarMenu;
   menuBottom! : SideBarMenu;
 
-  constructor( private menuServices : MenuBarService) { }
+  constructor( 
+    private menuServices : MenuBarService,
+    private titleService : TitleService ) { }
 
   ngOnInit(): void {
     this.menuOptions = this.menuServices.menuBar
@@ -21,4 +24,9 @@ export class SideBarComponent implements OnInit {
     this.menuBottom = this.menuServices.menuBottom
   }
 
+  titleSend(title: string){
+
+    this.titleService.setTitle({name: title})
+  
+  }
 }
