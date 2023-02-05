@@ -14,6 +14,9 @@ export class AuthService {
     login(form:FormGroup){
         return this.httpClient.post(`${environment.URL_BASE}/auth/login`,form.value)
     }
+    register(form:FormGroup){     
+      return this.httpClient.post(`${environment.URL_BASE}/users`,form.value)
+  }
 
   getToken() {
     return localStorage.getItem('token') || '';

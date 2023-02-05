@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   public passwordInvalid = false;
 
   loginForm = this.fb.group({
-    email: ['juanperez@example.com', [Validators.required, Validators.email]],
-    password: ['abc123', [Validators.required, Validators.minLength(6)]]
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
