@@ -4,15 +4,13 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 
 
-
-
 @NgModule({
   declarations: [
-    PagesComponent
+    PagesComponent,
   ],
   imports: [
     CommonModule, // Habilita el router-outlet
-    PagesRoutingModule
+    PagesRoutingModule,
   ]
 })
 export class PagesModule { }

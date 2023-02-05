@@ -5,7 +5,19 @@ import { AuthRoutingModule } from './pages/auth/auth-login-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 
-const routes: Routes = [];
+const routes: Routes = [  
+
+  {
+    path: 'home',
+    component: HomeComponent,
+    loadChildren: () => import('./pages/pages.module')
+    .then(m => m.PagesModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
