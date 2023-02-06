@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../title/service/title.service';
 import { SideBarMenu } from './interface/menu.interface';
 import { MenuBarService } from './services/menu-bar.service';
 import { AuthService } from '../../core/services/auth/auth.service';
@@ -18,6 +19,7 @@ export class SideBarComponent implements OnInit {
 
   constructor( private menuServices : MenuBarService,
                private authService : AuthService,
+               private titleService : TitleService,
                private store: Store) { }
 
   ngOnInit(): void {
@@ -26,10 +28,14 @@ export class SideBarComponent implements OnInit {
     this.menuBottom = this.menuServices.menuBottom
   }
 
-
   logout(){
     this.authService.logout();
     this.store.dispatch(logout());
   }
 
+  titleSend(title: string){
+
+    this.titleService.setTitle({name: title})
+  
+  }
 }
