@@ -126,7 +126,9 @@ hr{
 
 
 .active{
-    color: black;
+    p, mat-icon{
+        color: black;
+    }
 }
 
 mat-icon{
