@@ -11,7 +11,6 @@ export class HttpService {
   private _token?: string;
 
   constructor(private http: HttpClient) {
-    this._groupId = 'your_group_id';
     this._headers = new HttpHeaders({ Group: this._groupId });
   }
 
