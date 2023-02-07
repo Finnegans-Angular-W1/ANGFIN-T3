@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { HttpService } from 'src/app/core/services/http.service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
+  constructor(private httpService: HttpService,
+    private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +51,10 @@ export class LoginComponent implements OnInit {
 
   login(){
     
+    this.httpService.get<string>(`${environment.URL_BASE}/auth/me`).subscribe(data => {
+      console.log(data)
+    });
+
     this.loginService.login(this.loginForm).subscribe({
       next:(res:any) =>{
         this.router.navigateByUrl('')
