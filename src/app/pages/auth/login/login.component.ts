@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { HttpService } from 'src/app/core/services/http.service';
-import { environment } from 'src/environments/environment';
 
 
 
@@ -24,8 +22,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private httpService: HttpService,
-    private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
+  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -49,21 +46,15 @@ export class LoginComponent implements OnInit {
     return this.loginForm.value.password == '';
   }
 
-  login() {
+  login(){
     
     this.loginService.login(this.loginForm).subscribe({
-      next:(res: any) => {
-        this.router.navigateByUrl('');
-        localStorage.setItem('token', res.accessToken);
+      next:(res:any) =>{
+        this.router.navigateByUrl('')
+        localStorage.setItem('token',res.accessToken)
+
       },
-      error: (err) => { console.log(err); }
-    });
-    /* const token = localStorage.getItem('token');
-    token && this.httpService.setToken(token); */
-    this.httpService.get<string>(`${environment.URL_BASE}/auth/me`).subscribe(data => {
-      console.log(data)
-    }, error => {
-      console.error(error);
-    });
+      error: err=>{console.log(err)}
+    })
   }
 }
