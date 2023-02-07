@@ -13,12 +13,13 @@ import { ROOT_REDUCERS } from './core/state/app.state';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
 
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     PagesModule,
     SharedModule,
     AuthModule,
-    StoreModule.forRoot(ROOT_REDUCERS)
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({})
+    // StoreModule.forRoot({user:userReducer})
     // AuthLoginModule,
     // AuthLoginRoutingModule,
     // AuthRegistroModule, 
