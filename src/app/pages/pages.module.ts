@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -10,6 +11,10 @@ import { PagesRoutingModule } from './pages-routing.module';
   ],
   imports: [
     CommonModule, // Habilita el router-outlet
+    PagesRoutingModule,
+    SharedModule
+  ],
+  exports:[
     PagesRoutingModule,
   ]
 })
