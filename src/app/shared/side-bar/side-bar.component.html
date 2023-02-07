@@ -3,7 +3,8 @@
     <section class="sideBar">
         <div class="sideBarTop"
              [routerLink]="menuTop.route"
-             routerLinkActive="active">
+             routerLinkActive="active"
+             (click)="titleSend(menuTop.title)">
             <div class="hover">
                 <mat-icon >
                 {{menuTop.icon}}
@@ -18,27 +19,25 @@
             <ul>
                 <li *ngFor="let option of menuOptions"
                     routerLinkActive="active"
-                    [routerLink]="option.route">
+                    [routerLink]="option.route"
+                    (click)="titleSend(option.title)">
                     <mat-icon
                     >
                     {{option.icon}} 
                     </mat-icon>
-                    <p 
-                    (click)="titleSend(option.title)"
-                    >{{option.title}}</p>
-                   
+                    <p>
+                    {{option.title}}
+                    </p>
                 </li>
             </ul>   
         </div>
     
         <hr>
     
-        <div class="sideBarBottom"
-             [routerLink]="menuTop.route"
-             routerLinkActive="active">
+        <div class="sideBarBottom">
             <div class="hover">
                 <mat-icon routerLinkActive="active" 
-                routerLink="menuBottom.route">
+                          routerLink="menuBottom.route">
                     {{menuBottom.icon}}
                 </mat-icon>
                 <p >{{menuBottom.title}}</p>
