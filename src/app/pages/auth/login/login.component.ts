@@ -49,19 +49,21 @@ export class LoginComponent implements OnInit {
     return this.loginForm.value.password == '';
   }
 
-  login(){
+  login() {
     
+    this.loginService.login(this.loginForm).subscribe({
+      next:(res: any) => {
+        this.router.navigateByUrl('');
+        localStorage.setItem('token', res.accessToken);
+      },
+      error: (err) => { console.log(err); }
+    });
+    const token = localStorage.getItem('token');
+    token && this.httpService.setToken(token);
     this.httpService.get<string>(`${environment.URL_BASE}/auth/me`).subscribe(data => {
       console.log(data)
+    }, error => {
+      console.error(error);
     });
-
-    this.loginService.login(this.loginForm).subscribe({
-      next:(res:any) =>{
-        this.router.navigateByUrl('')
-        localStorage.setItem('token',res.accessToken)
-
-      },
-      error: err=>{console.log(err)}
-    })
   }
 }
