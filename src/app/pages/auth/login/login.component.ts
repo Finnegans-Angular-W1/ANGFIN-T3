@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
-    const token = localStorage.getItem('token');
-    token && this.httpService.setToken(token);
+    /* const token = localStorage.getItem('token');
+    token && this.httpService.setToken(token); */
     this.httpService.get<string>(`${environment.URL_BASE}/auth/me`).subscribe(data => {
       console.log(data)
     }, error => {
