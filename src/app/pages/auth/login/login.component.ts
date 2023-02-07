@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private httpService: HttpService,
-    private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
+  constructor(private fb: FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -58,12 +57,6 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
-    const token = localStorage.getItem('token');
-    token && this.httpService.setToken(token);
-    this.httpService.get<string>(`${environment.URL_BASE}/auth/me`).subscribe(data => {
-      console.log(data)
-    }, error => {
-      console.error(error);
-    });
+  
   }
 }
