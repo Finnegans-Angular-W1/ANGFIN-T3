@@ -7,7 +7,6 @@ import { SharedModule } from '../../shared/shared.module';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-
     CommonModule,
     SharedModule
     // Aca van todos los modulos de los componentes que se van a usar dentro de home

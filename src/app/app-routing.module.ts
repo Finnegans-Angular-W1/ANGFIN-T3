@@ -6,12 +6,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 import { PagesComponent } from './pages/pages.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
+import { AuthGuard } from './core/guards/auth/auth.guard';
 
 const routes: Routes = [  
 
   {
     path: 'dashboard',
     component: PagesComponent,
+    canActivate:[AuthGuard],
     loadChildren: () => import('./pages/pages.module')
     .then(m => m.PagesModule)
   },
