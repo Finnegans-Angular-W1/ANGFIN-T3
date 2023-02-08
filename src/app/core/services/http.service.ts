@@ -8,26 +8,15 @@ import { Observable } from 'rxjs';
 export class HttpService {
   private _groupId!: string;
   private _headers!: HttpHeaders;
-  private _token?: string;
 
   constructor(private http: HttpClient) {
     this._headers = new HttpHeaders({ Group: this._groupId });
   }
 
-  public setToken(token: string) {
-    this._token = token;
+  public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
+    return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
   }
 
-  public get<T>(url: string, activateHeader: boolean = false): Observable<T> {
-    let headers = {};
-    if (activateHeader) {
-      headers = { headers: this._headers };
-    }
-    if (this._token) {
-      headers = { headers: this._headers.append('Authorization', `Bearer ${this._token}`) };
-    }
-    return this.http.get<T>(url, headers);
-  }
 
   public put<T>(url: string,body: any, activateHeader:boolean = false ):Observable<T> {
     return this.http.put<T>(url, body, activateHeader ? { headers: this._headers }: {});
