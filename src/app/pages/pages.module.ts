@@ -4,22 +4,24 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './perfil/perfil.component';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
+// import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     PagesComponent,
     PerfilComponent,
-    HomeComponent
+    // HomeComponent
   ],
   imports: [
     CommonModule, // Habilita el router-outlet
     PagesRoutingModule,
     SharedModule,
+    HomeModule
   ],
   exports:[
-    PagesRoutingModule,
+    PagesRoutingModule
   ]
 })
 export class PagesModule { }
