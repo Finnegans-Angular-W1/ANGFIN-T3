@@ -17,8 +17,8 @@ export class HttpService {
     return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
   }
 
-  public delete<T>(url: string,activateHeader:boolean=false):Observable<T>{
-    return this.http.delete<T>(url,activateHeader ? {headers:this._headers}:{})
+  public delete<T>(url: string, id:string, activateHeader:boolean=false):Observable<T>{
+    return this.http.delete<T>(`${url}/${id}`,activateHeader ? {headers:this._headers}:{})
   }
 
 
