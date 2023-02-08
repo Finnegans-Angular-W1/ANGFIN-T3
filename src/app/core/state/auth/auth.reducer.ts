@@ -13,7 +13,18 @@ export const initialState: User = {
 
 export const userReducer = createReducer(
     initialState,
-  on(login, (state, {user}) => {return { ...state, user }}),
-  on(register, (state) => { return state }),
-  on(logout, (state) => {return { ...state, initialState }})
+  on(login, (state, {user}) => ({
+    ...state, 
+    email:user.email,
+    password:user.password
+  })),
+  on(logout, (state) => ({
+    ...state, 
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    roleId: 0,
+    points: 0
+  }))
 );
