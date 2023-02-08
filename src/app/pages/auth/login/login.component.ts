@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     
     this.loginService.login(this.loginForm).subscribe({
       next:(res:any) =>{
-        this.router.navigateByUrl('')
+        this.router.navigateByUrl('/dashboard/home')
         localStorage.setItem('token',res.accessToken)
 
       },
