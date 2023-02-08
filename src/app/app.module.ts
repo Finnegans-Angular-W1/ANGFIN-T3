@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './pages/auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 @NgModule({
 
   declarations: [
@@ -29,7 +30,11 @@ import { SharedModule } from './shared/shared.module';
     // AuthRegistroRoutingModule,
     // HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 
 })

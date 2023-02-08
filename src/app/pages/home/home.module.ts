@@ -11,4 +11,4 @@ import { HomeComponent } from './home.component';
     // Aca van todos los modulos de los componentes que se van a usar dentro de home
   ]
 })
-export class HomeModule { }
+export class HomeModule {}
