@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../core/guards/auth/auth.guard';
 import { PerfilComponent } from './perfil/perfil.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
+import { EgresosComponent } from './egresos/egresos.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,15 @@ const routes: Routes = [
   {
     path:'perfil',
     component: PerfilComponent
-  }
+  },
+  {
+    path:'Ingresos',
+    component: IngresosComponent
+  },
+  {
+    path:'Egresos',
+    component: EgresosComponent
+  },
   
 ];
 

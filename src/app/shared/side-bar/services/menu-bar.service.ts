@@ -21,8 +21,8 @@ export class MenuBarService {
   private menu :SideBarMenu[] =
   [
     {title:"Home", icon:"home", route:"home"},
-    {title:"Ingresos", icon:"attach_money", route:"**"},
-    {title:"Egresos", icon:"trending_down", route:"**"},
+    {title:"Ingresos", icon:"attach_money", route:"/Ingresos"},
+    {title:"Egresos", icon:"trending_down", route:"/Egresos"},
     {title:"Enviar Dinero", icon:"trending_up", route:"**"},
     {title:"Plazos Fijos", icon:"insert_chart", route:"**"},
     {title:"Contactos", icon:"contact_page", route:"**"},

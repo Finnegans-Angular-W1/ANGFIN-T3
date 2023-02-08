@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'dashboard',
+    path: '',
     component: PagesComponent,
     canActivate:[AuthGuard],
     loadChildren: () => import('./pages/pages.module')
