@@ -1,6 +1,16 @@
 
+    <section class="ToolBar">
+        <mat-toolbar>
+            <button mat-icon-button class="example-icon"
+                    aria-label="Example icon-button with menu icon"
+                    (click)="open(sideBar)">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </mat-toolbar>
+    </section>
 
-    <section class="sideBar">
+
+    <section class="sideBar" #sideBar>
         <div class="sideBarTop"
              [routerLink]="menuTop.route"
              routerLinkActive="active"
@@ -34,11 +44,9 @@
     
         <hr>
     
-        <div class="sideBarBottom">
-            <div class="hover">
-                <mat-icon routerLinkActive="active" 
-                        (click)="logout()"
-                        routerLink="menuBottom.route">
+        <div class="sideBarBottom"  >
+            <div class="hover" (click)="logout()">
+                <mat-icon>
                     {{menuBottom.icon}}
                 </mat-icon>
                 <p >{{menuBottom.title}}</p>

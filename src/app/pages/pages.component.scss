@@ -15,3 +15,20 @@
     background-color: none; 
      color: rgba(0,0,0,.87); 
 }
+
+
+.mobileContainer{
+    display: none;
+}
+
+@media screen and (max-width : 800px) {
+
+    .container{
+        display: none;
+    }
+
+    .mobileContainer {
+        display: block;
+    }
+    
+}
