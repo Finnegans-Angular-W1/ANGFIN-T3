@@ -22,5 +22,4 @@ export class TitleComponent implements OnInit {
 
     
   }
-  
 }
