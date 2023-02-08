@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TitleService } from '../title/service/title.service';
 import { SideBarMenu } from './interface/menu.interface';
 import { MenuBarService } from './services/menu-bar.service';
@@ -25,7 +25,7 @@ export class SideBarComponent implements OnInit {
   }
 
   titleSend(title: string){
-
+   
     this.titleService.setTitle({name: title})
   
   }
