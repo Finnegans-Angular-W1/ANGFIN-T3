@@ -10,13 +10,16 @@ import { Title } from '../interfaces/title.interface';
 
 export class TitleService {
 
-  private title: Title = { name: 'Home' };
+  titleLocal : string = localStorage.getItem('title') || ''
+
+  private title: Title = { name: this.titleLocal };
 
   private titleSubject = new BehaviorSubject<Title>(this.title);
 
   constructor() { }
 
   setTitle(title: Title) {
+    localStorage.setItem('title', title.name)
     this.title = title;
     this.titleSubject.next(this.title);
   }

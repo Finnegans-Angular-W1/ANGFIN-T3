@@ -20,10 +20,6 @@ export class TitleComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.title.subscribe((ob) => {
-      console.log(ob.name);
-    })
-
     
   }
 

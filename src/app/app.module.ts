@@ -12,10 +12,10 @@ import { StoreModule } from '@ngrx/store';
 import { ROOT_REDUCERS } from './core/state/app.state';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 @NgModule({
 
   declarations: [
@@ -30,14 +30,12 @@ import { environment } from '../environments/environment';
     AuthModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({})
-    // StoreModule.forRoot({user:userReducer})
-    // AuthLoginModule,
-    // AuthLoginRoutingModule,
-    // AuthRegistroModule, 
-    // AuthRegistroRoutingModule,
-    // HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 
 })

@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
   setUserData(){
     this.loginService.login(this.loginForm).subscribe({
       next:(res:any) =>{
-        this.router.navigateByUrl('');
-        localStorage.setItem('token',res.accessToken);
+        this.router.navigateByUrl('/dashboard/home')
+        localStorage.setItem('token',res.accessToken)
       },
       error: err =>{console.log(err)}
     })
