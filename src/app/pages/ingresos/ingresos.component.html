@@ -17,7 +17,7 @@
         <tr>
           <td>{{ item.id }}</td>
           <td>{{item.createdAt | date: 'short' }}</td>
-          <td>{{formatAmount(item.amount) }}</td>
+          <td>{{item.amount | currency }}</td>
           <td>{{ item.updatedAt  | date: 'short' }}</td>
           <td>{{ item.to_account_id}}</td>
           <td>{{ item.concept }}</td>

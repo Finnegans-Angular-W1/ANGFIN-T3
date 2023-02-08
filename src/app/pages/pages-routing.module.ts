@@ -22,11 +22,11 @@ const routes: Routes = [
     component: PerfilComponent
   },
   {
-    path:'Ingresos',
+    path:'ingresos',
     component: IngresosComponent
   },
   {
-    path:'Egresos',
+    path:'egresos',
     component: EgresosComponent
   },
   

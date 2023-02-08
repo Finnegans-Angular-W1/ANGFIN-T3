@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormatService } from 'src/app/core/services/Format.service';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class EgresosComponent implements OnInit {
 
   data?: any;
 
-  constructor(private transactionsService: TransactionsService, private formatService: FormatService) {}
+  constructor(private transactionsService: TransactionsService ) {}
 
   ngOnInit(): void {
     this.transactionsService.getTransactions("payment").subscribe((data:any) => {
@@ -22,8 +21,6 @@ export class EgresosComponent implements OnInit {
     });
   }
 
-  formatAmount(amount: string): string {
-    return this.formatService.formatAmount(amount);
-  }
+ 
 
 }
