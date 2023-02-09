@@ -35,7 +35,7 @@ export class MenuBarService {
   }
 
   private bottomIcon : SideBarMenu={
-    title:"Salir", icon:"close", route:"**"
+    title:"Cerrar sesion", icon:"logout", route:"**"
     }
   
 
