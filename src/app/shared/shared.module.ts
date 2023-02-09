@@ -9,6 +9,7 @@ import { TitleComponent } from './title/title.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavLinksComponent } from './footer/nav-links/nav-links.component';
+import { AlertsComponent } from './alerts/alerts.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NavLinksComponent } from './footer/nav-links/nav-links.component';
     LoadingComponent,
     TitleComponent,
     FooterComponent,
-    NavLinksComponent
+    NavLinksComponent,
+    AlertsComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +34,7 @@ import { NavLinksComponent } from './footer/nav-links/nav-links.component';
     LoadingComponent,
     TitleComponent,
     FooterComponent,
+    AlertsComponent,
   ]
 })
 export class SharedModule { }
