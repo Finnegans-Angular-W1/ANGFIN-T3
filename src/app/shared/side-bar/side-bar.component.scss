@@ -22,8 +22,6 @@ hr{
 
 
 .sideBar{
-    position: absolute;
-    z-index: 1000;
     background-image: $gradiant;
     border-radius: 20px;
     margin-bottom: 0.48rem;
@@ -126,7 +124,9 @@ hr{
 
 
 .active{
-    color: black;
+    p, mat-icon{
+        color: black;
+    }
 }
 
 mat-icon{
