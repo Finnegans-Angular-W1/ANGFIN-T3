@@ -1,4 +1,11 @@
+
+<app-terms-and-conditions
+[canLook]="canLook"
+(onView)="viewTerms()"
+*ngIf="canLook"></app-terms-and-conditions>
+
 <div class="contenedor">
+
 
     <div class="loginForm">
 
@@ -37,11 +44,20 @@
                 <p class="invalid"> Contraseña obligatoria</p>
             </div>
 
+            <div>
+                <input type="checkbox" name="Terminos" id="Terminos">
+            <label > Aceptar 
+                <a class="terms"
+                (click)="viewTerms()">terminos y condiciones</a>
+            </label>
+            </div>
 
             <button class="btnLogin" [disabled]="registroForm.invalid">Registrarme</button>
 
+            
 
         </form>
 
     </div>
 </div>
+

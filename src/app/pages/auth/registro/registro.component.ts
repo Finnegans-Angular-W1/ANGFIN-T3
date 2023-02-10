@@ -12,6 +12,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class RegistroComponent implements OnInit {
 
+  canLook:boolean = false
+
   registroForm = this.fb.group({
     first_name:['',Validators.required],
     last_name:['',Validators.required],
@@ -40,6 +42,10 @@ export class RegistroComponent implements OnInit {
         control.markAllAsTouched();
       })
     } 
+  }
+
+  viewTerms(){
+    this.canLook = !this.canLook
   }
 
 }
