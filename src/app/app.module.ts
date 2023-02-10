@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { PagesModule } from './pages/pages.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthModule } from './pages/auth/auth.module';
 import { SharedModule } from './shared/shared.module';
-import { InterceptorErrorsService } from './core/services/interceptor/interceptor-errors.service';
+
+import { AuthModule } from './pages/auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { ROOT_REDUCERS } from './core/state/app.state';
+ 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 @NgModule({
 
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -22,21 +27,16 @@ import { InterceptorErrorsService } from './core/services/interceptor/intercepto
     AppRoutingModule,
     PagesModule,
     SharedModule,
-    AuthModule
-    
-    // AuthLoginModule,
-    // AuthLoginRoutingModule,
-    // AuthRegistroModule, 
-    // AuthRegistroRoutingModule,
-    // HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({})
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass : InterceptorErrorsService,
-      multi:true
-    }
-  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 
 })
