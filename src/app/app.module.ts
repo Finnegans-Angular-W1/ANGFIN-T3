@@ -20,7 +20,6 @@ import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
