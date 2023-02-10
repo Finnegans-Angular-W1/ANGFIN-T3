@@ -1,12 +1,21 @@
 <div class="div_container">
+
+  <form [formGroup]="validateForm" class="form_reset">
     <div mat-dialog-content class="input-container">
-       
-        <input [type]="passwordVisibility ? 'text' : 'password'"
-          [formControl]="inputControl"
-          class="input_pass" placeholder="Enter password">
-          <mat-icon (click)="togglePasswordVisibility()" >{{passwordVisibility ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+        <input formControlName="password"
+        [type]="passwordVisibility ? 'text' : 'password'"
+        class="input_pass" placeholder="Enter password">
+        <mat-icon (click)="togglePasswordVisibility()" >{{passwordVisibility ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </div>
+      <div *ngIf="validateForm.controls.password.errors">
+        <small class="small_error" *ngIf="validateForm.get('password').touched">
+          {{ getErrorMessage('password') }}
+        </small>
       </div>
       <div mat-dialog-actions>
         <button mat-button (click)="closeModal()">Cancel</button>
-        <button mat-button [mat-dialog-close]="data" (click)="submitForm()" cdkFocusInitial>Submit</button>
+        <button mat-button [mat-dialog-close]="data" (click)="submitForm()" [disabled]="!validateForm.valid">Submit</button>
+      </div>
+    </form>
 </div>

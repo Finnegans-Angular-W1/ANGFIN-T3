@@ -15,8 +15,26 @@ height: 1.3rem;
   box-shadow: 0 0 10px #39305c;
 }
 div.input-container{
-display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 5%;
 }
 div.mat-dialog-actions button {
   background-color: #f1f1f1;
+}
+.small_error{
+  color: red;
+  font-family: math;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  text-align: -webkit-center;
+}
+.form_reset{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

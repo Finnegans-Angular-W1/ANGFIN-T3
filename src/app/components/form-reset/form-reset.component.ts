@@ -11,11 +11,11 @@ import { HttpService } from 'src/app/core/services/http.service';
 export class formResetComponent implements OnInit {
 
   passwordVisibility = false;
-  inputControl = new FormControl('');
+  password = new FormControl('');
   userId = "";
 
-  validateForm = this.fb.group({
-    password: ['', [Validators.required, Validators.minLength(6)]]
+  validateForm:any = this.fb.group({
+    password: ['', [ Validators.minLength(6) , Validators.required]]
   })
 
   constructor(
@@ -26,6 +26,7 @@ export class formResetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.password.valueChanges.subscribe((event:any) => { console.log(this.validateForm)})
     this.httpService.get<any>(`${environment.URL_BASE}/auth/me`).subscribe((date:any) => {
       console.log(date)
       this.userId = date.id
@@ -33,20 +34,30 @@ export class formResetComponent implements OnInit {
     })
   }
 
+  /* /users/resetPassword/userId */
+  submitForm() {
+    this.httpService.get<any>(`${environment.URL_BASE}/users/resetPassword/${this.userId}`).subscribe((date:any) => {
+      console.log(date)
+    }) 
+    console.log( this.password.value);
+    console.log( this.userId);
+  }
+  
   togglePasswordVisibility() {
     this.passwordVisibility = !this.passwordVisibility;
   }
-
+  
   closeModal() {
     this.dialogRef.close();
   }
-  /* _users_resetPassword__userId_ */
-  submitForm() {
-     this.httpService.get<any>(`${environment.URL_BASE}/users/resetPassword/${this.userId}`).subscribe((date:any) => {
-      console.log(date)
-    }) 
-    console.log( this.inputControl.value);
-    console.log( this.userId);
+  getErrorMessage(input: string) {
+    const control = this.validateForm.controls[input];
+    if (!control) {
+      return '';
+    }
+    if (control.hasError('required')) {
+      return `${input} es requerido`;
+    }
+    return `${input} debe poseer minimo 6 caracteres`
   }
-
 }
