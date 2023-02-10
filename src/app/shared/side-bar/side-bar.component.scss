@@ -21,13 +21,11 @@ hr{
 
 
 
-.sideBar{
+.sideBar, .sideBarMovile{
     background-image: $gradiant;
     border-radius: 20px;
     margin-bottom: 0.48rem;
     padding-left: 1.5rem;
-    margin-left: 5px;
-    margin-top: 0.48rem;
     height: 98%;
     width: 4.5rem;
 
@@ -153,8 +151,12 @@ mat-icon{
 
 }
 
+.sideBarMovile{
+    display: none;
+}
+
 @media screen and (max-width:800px) {
-    .sideBar{
+    .sideBarMovile{
         background-image: none;
         background-color: $blueViolet;
         display: none;
@@ -174,7 +176,12 @@ mat-icon{
         p{
             visibility: visible;
         }
+        display: none;
+    }
 
+    .sideBar{
+        display: none;
+        // position: absolute;
     }
     
     .sideBarBottom, .sideBarTop{

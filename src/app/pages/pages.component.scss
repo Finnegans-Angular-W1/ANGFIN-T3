@@ -17,18 +17,25 @@
 }
 
 
-.mobileContainer{
-    display: none;
+.mobileContainer {
+    display: block;
 }
 
-@media screen and (max-width : 800px) {
+.main{
+    margin-left: 0;
+}
 
-    .container{
-        display: none;
-    }
 
-    .mobileContainer {
-        display: block;
+@media screen and (min-width : 800px) {
+
+    app-side-bar{
+        position: absolute;
+        height: 90%;
     }
+    .main{
+        margin-top: 10px;
+        margin-left: 100px;
+    }
+   
     
 }
