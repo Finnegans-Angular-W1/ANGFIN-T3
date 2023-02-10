@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavLinksComponent } from './footer/nav-links/nav-links.component';
 import { AlertsComponent } from './alerts/alerts.component';
-
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { AlertsComponent } from './alerts/alerts.component';
     TitleComponent,
     FooterComponent,
     NavLinksComponent,
-    AlertsComponent
+    AlertsComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +36,7 @@ import { AlertsComponent } from './alerts/alerts.component';
     TitleComponent,
     FooterComponent,
     AlertsComponent,
+    DialogComponent
   ]
 })
 export class SharedModule { }
