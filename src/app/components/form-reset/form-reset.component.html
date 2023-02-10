@@ -1,0 +1,13 @@
+<div class="div_container">
+    <div mat-dialog-content class="input-container">
+        <mat-form-field>
+          <input matInput [type]="passwordVisibility ? 'text' : 'password'"
+         
+          class="input_pass" placeholder="Enter password">
+          <button (click)="togglePasswordVisibility()">Ver Contraseña</button>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="closeModal()">Cancel</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+</div>
