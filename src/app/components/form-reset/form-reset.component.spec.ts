@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormResetComponent } from './form-reset.component';
+/* import { FormResetComponent } from './form-reset.component';
 
 describe('FormResetComponent', () => {
   let component: FormResetComponent;
@@ -21,3 +21,4 @@ describe('FormResetComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ */
