@@ -16,6 +16,7 @@ height: 1.3rem;
 }
 div.input-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -37,4 +38,22 @@ div.mat-dialog-actions button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.form_reset label {
+  -webkit-text-stroke-width: thin;
+  font-family: math;
+}
+.div_container{
+  display: flex;
+}
+.icon_eye{
+  position: relative;
+  left: 10%;
+  cursor: pointer;
+}
+.icon_eye:hover{
+  scale: 1.1;
+  filter:drop-shadow( 
+   2px 2px 2px wheat
+  )  
 }
