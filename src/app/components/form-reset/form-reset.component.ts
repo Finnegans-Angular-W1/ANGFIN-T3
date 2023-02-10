@@ -26,11 +26,9 @@ export class formResetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.password.valueChanges.subscribe((event:any) => { console.log(this.validateForm)})
     this.httpService.get<any>(`${environment.URL_BASE}/auth/me`).subscribe((date:any) => {
       console.log(date)
       this.userId = date.id
-
     })
   }
 
@@ -50,6 +48,7 @@ export class formResetComponent implements OnInit {
   closeModal() {
     this.dialogRef.close();
   }
+  
   getErrorMessage(input: string) {
     const control = this.validateForm.controls[input];
     if (!control) {
