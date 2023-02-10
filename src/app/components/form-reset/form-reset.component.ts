@@ -27,7 +27,6 @@ export class formResetComponent implements OnInit {
   }
 
   submitForm() {
-    // Aquí puedes añadir la lógica para enviar el formulario
     console.log(this.passwordValue);
   }
 
