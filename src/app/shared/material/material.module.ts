@@ -8,6 +8,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from "@angular/material/toolbar"
+
 @NgModule({
   declarations: [],
   exports: [
@@ -20,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDialogModule,
     MatFormFieldModule,
     
+    MatToolbarModule
   ]
 })
 export class MaterialModule { }

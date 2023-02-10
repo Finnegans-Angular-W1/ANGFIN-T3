@@ -8,15 +8,10 @@ import { formResetComponent } from 'src/app/components/form-reset/form-reset.com
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+
 
   ngOnInit(): void {
   }
 
-  openModal() {
-    this.dialog.open(formResetComponent, {
-      width: '400px',
-      panelClass: 'modal_style'
-    });
-  }
+
 }

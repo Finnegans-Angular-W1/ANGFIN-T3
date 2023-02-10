@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { formResetComponent } from 'src/app/components/form-reset/form-reset.component';
 
 @NgModule({
-  declarations: [HomeComponent,formResetComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     SharedModule,
