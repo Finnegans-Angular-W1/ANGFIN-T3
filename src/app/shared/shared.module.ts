@@ -10,6 +10,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavLinksComponent } from './footer/nav-links/nav-links.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { DivisasComponent } from '../components/divisas/divisas.component';
+import { TipoCambioComponent } from '../components/tipo-cambio/tipo-cambio.component';
 
 
 @NgModule({
@@ -19,7 +21,7 @@ import { AlertsComponent } from './alerts/alerts.component';
     TitleComponent,
     FooterComponent,
     NavLinksComponent,
-    AlertsComponent
+    AlertsComponent,DivisasComponent,TipoCambioComponent
   ],
   imports: [
     CommonModule,
