@@ -12,11 +12,14 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class RegistroComponent implements OnInit {
 
+  canLook:boolean = false
+
   registroForm = this.fb.group({
     first_name:['',Validators.required],
     last_name:['',Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    terms:[false, Validators.requiredTrue]
   });
 
   constructor(private fb: FormBuilder,private router:Router,private registerService:AuthService) { }
@@ -40,6 +43,10 @@ export class RegistroComponent implements OnInit {
         control.markAllAsTouched();
       })
     } 
+  }
+
+  viewTerms(){
+    this.canLook = !this.canLook
   }
 
 }

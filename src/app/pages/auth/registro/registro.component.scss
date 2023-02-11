@@ -95,3 +95,16 @@ form input {
     padding: 0;
     
 }
+
+
+app-terms-and-conditions{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+.terms{
+    cursor: pointer;
+    text-decoration: underline;
+}

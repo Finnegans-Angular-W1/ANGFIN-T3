@@ -22,7 +22,15 @@ export class HttpService {
   }
   
   public delete<T>(url: string, id:string, activateHeader:boolean=false):Observable<T>{
-    return this.http.delete<T>(`${url}/${id}`,activateHeader ? {headers:this._headers}:{})
+    return this.http.delete<T>(`${url}/${id}`,activateHeader ? {headers:this._headers}:{});
+  }
+  
+  public getById<T>(url:string, id:string, activateHeader:boolean=false):Observable<T>{
+    return this.http.get<T>(`${url}/${id}`, activateHeader ? { headers : this._headers } : {});
+  }
+
+  public post<T>(url: string,body: any, activateHeader:boolean = false ):Observable<T> {
+    return this.http.post<T>(url, body, activateHeader ? { headers: this._headers }: {});
   }
 
 
