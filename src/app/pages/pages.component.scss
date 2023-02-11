@@ -15,3 +15,27 @@
     background-color: none; 
      color: rgba(0,0,0,.87); 
 }
+
+
+.mobileContainer {
+    display: block;
+}
+
+.main{
+    margin-left: 0;
+}
+
+
+@media screen and (min-width : 800px) {
+
+    app-side-bar{
+        position: absolute;
+        height: 90%;
+    }
+    .main{
+        margin-top: 10px;
+        margin-left: 100px;
+    }
+   
+    
+}
