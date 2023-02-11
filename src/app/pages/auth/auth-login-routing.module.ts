@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TipoCambioComponent } from 'src/app/components/tipo-cambio/tipo-cambio.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component'
 
@@ -12,8 +13,7 @@ const routes: Routes = [
   {
     path:'register',
     component:RegistroComponent
-  },
- 
+  }
 ];
 
 @NgModule({
