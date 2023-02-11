@@ -10,10 +10,14 @@
    background-image: linear-gradient(#362a62 0%, #433578 80%,#4f3d8e 100%);
 }
 
-.titulo,
+
 label,
 .olvideContra {
     text-shadow: 0 2px rgba(0, 0, 0, 0.651);
+}
+
+.titulo{
+    font-size: 32px;
 }
 
 .loginForm {

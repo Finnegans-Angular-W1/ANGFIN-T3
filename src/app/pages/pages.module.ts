@@ -7,6 +7,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HomeModule } from './home/home.module';
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
+import { formResetComponent } from '../components/form-reset/form-reset.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HomeComponent } from './home/home.component';
 
 
@@ -16,12 +18,14 @@ import { EgresosComponent } from './egresos/egresos.component';
     PerfilComponent,
     IngresosComponent,
     EgresosComponent,
+    formResetComponent
     // HomeComponent
   ],
   imports: [
     CommonModule, // Habilita el router-outlet
     PagesRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
     HomeModule
   ],
   exports:[

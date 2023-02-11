@@ -29,4 +29,9 @@ export class HttpService {
     return this.http.get<T>(`${url}/${id}`, activateHeader ? { headers : this._headers } : {});
   }
 
+  public post<T>(url: string,body: any, activateHeader:boolean = false ):Observable<T> {
+    return this.http.post<T>(url, body, activateHeader ? { headers: this._headers }: {});
+  }
+
+
 }
