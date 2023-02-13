@@ -1,68 +1,88 @@
 .contenedor {
     display: flex;
     justify-content: center;
+    width: 100vw;
     height: 100vh;
     align-items: center;
     text-align: center;
     color: #FAFAFB;
-    font-family: 'Barlow', sans-serif;
-   background-color: #FAFAFB;
-   background-image: linear-gradient(#362a62 0%, #433578 80%,#4f3d8e 100%);
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAFAFB;
+    background-image: url('../../../assets/img/background-login.svg');
 }
 
+label {
+    font-size: 1.1rem;
+}
 
 label,
 .olvideContra {
     text-shadow: 0 2px rgba(0, 0, 0, 0.651);
+
 }
 
-.titulo{
-    font-size: 32px;
+.titulo {
+    font-size: 2.4rem;
 }
 
 .loginForm {
-     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.717);
-    width: 25rem;
-    height: 25rem;
+    box-shadow: 0 0 0.5rem rgb(0, 0, 0);
+    width: 35rem;
+    height: 35rem;
     padding: 35px;
-    background-image: linear-gradient( #574A8D, #36296a);
-    border-radius: 20px;
-    
-    
+    background-image: linear-gradient(#7a0adc34, #36296acb);
+    border-radius: 15px;
+
+}
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.buttons .olvideContra {
+    margin: 15px;
+    color: white;
+    text-decoration: none;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: stretch;
     padding: 20px;
 }
 
 
 .box {
-    width: 70%;
     border: none;
     margin: 20px;
     margin-bottom: 0;
-    padding: 10px;
+    padding: 15px;
     background-color: EAEAEC;
     border-radius: 4px;
-    background-color:#ffffff;
+    background-color: #00000082;
+    text-align: center;
     border-bottom: 1px solid black;
-}
-
-
-form input {
-    margin: 10px;
+    color: white;
+    font-size: 16px;
 
 }
+
+
 
 
 .loginForm .btnLogin,
 .loginForm .btnRegister {
     border: none;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     background-color: rgb(21, 19, 19);
     text-decoration: none;
@@ -77,17 +97,23 @@ form input {
 
 .loginForm .btnLogin:hover,
 .loginForm .btnRegister:hover {
-    background-color: #373737;
+    background-color: #52059e;
 
 }
 
-.loginForm .btnLogin:disabled{
-    background-color: #b0b0b0;
+.loginForm .btnLogin:disabled {
+    background-color: #363136;
     cursor: auto;
 }
 
-.invalid{
+.invalid {
+    position: absolute;
+    text-align: center;
+    margin-left: 2rem;
+    color: rgb(255, 4, 4);
+    font-size: 1rem;
+}
+
+.invalidDates{
     color: red;
-    margin: 0;
-    padding: 0;
 }
