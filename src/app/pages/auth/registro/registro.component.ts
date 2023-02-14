@@ -1,8 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
@@ -11,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
-
+  title = 'registro';
   canLook:boolean = false
 
   registroForm = this.fb.group({
