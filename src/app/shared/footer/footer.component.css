@@ -85,6 +85,10 @@
   .list_conditions li {
     font-size: inherit;
   }
+
+  .container{
+    display: none;
+  }
   
 }
 @media (max-width:450px){
@@ -97,4 +101,39 @@
   .logo_container p{
     font-size: smaller;
   }
+
+ 
+
 }
+
+article{
+  height: 90px;
+}
+
+.container {
+  overflow: hidden;
+  max-height: 100px;
+  width: 375px;
+  border-radius: 15px;
+  margin: 0 0 0 25px;
+}
+
+.twitter{
+  height: 80px;
+  max-height: 200px;
+  width: 300px;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: all 500ms ease-in-out;
+  position: absolute;
+  margin: auto;
+}
+
+
+.twitter:hover,.twitter-tweet:hover,.twitter-tweet-rendered:hover
+.css-1dbjc4n,:hover.r-18u37iz:hover, .r-kzbkwu:hover{
+  transform: translateY(-350%);
+}
+
+
