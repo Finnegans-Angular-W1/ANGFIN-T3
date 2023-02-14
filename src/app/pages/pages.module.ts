@@ -9,7 +9,9 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { formResetComponent } from '../components/form-reset/form-reset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CashflowComponent } from '../components/cashflow/cashflow.component';
 // import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PerfilComponent,
     IngresosComponent,
     EgresosComponent,
-    formResetComponent
+    formResetComponent,
+    CashflowComponent
     // HomeComponent
   ],
   imports: [
