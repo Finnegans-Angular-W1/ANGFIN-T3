@@ -47,4 +47,8 @@ export class RegistroComponent implements OnInit {
     this.canLook = !this.canLook
   }
 
+  canSubmit(){
+    return this.registroForm.valid
+  }
+
 }
