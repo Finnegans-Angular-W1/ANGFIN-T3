@@ -67,6 +67,38 @@
   flex-direction: column;
   justify-content: center;
 }
+
+
+
+.twitter{
+  height: 80px;
+  max-height: 200px;
+  width: 300px;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: all 500ms ease-in-out;
+  position: absolute;
+  margin: auto;
+}
+
+
+.container {
+  overflow: hidden;
+  max-height: 100px;
+  width: 375px;
+  border-radius: 15px;
+  margin: 0 0 0 25px;
+}
+
+
+
+.twitter:hover,.twitter-tweet:hover,.twitter-tweet-rendered:hover
+.css-1dbjc4n,:hover.r-18u37iz:hover, .r-kzbkwu:hover{
+  transform: translateY(-350%);
+}
+
+
 @media (max-width:650px){
   .img_container img {
     width: 4rem;
@@ -76,19 +108,51 @@
     font-size: small;
     width: 70%;
   }
-  .footer_container{
-    font-size: small;
-  }
   .list_conditions{
     gap: 0.3rem;
   }
   .list_conditions li {
     font-size: inherit;
   }
+  
+  
+  .footer_container{
+    margin-top: 40px;
+    position: inherit;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: small;
+    flex-direction: column;
+    border: 0;
+  }
 
   .container{
-    display: none;
+    display: block;
+    max-height: 500px;
+    height: 400px;
+    width: 100%;
+    margin-left: 0;
+  
   }
+
+  
+  .twitter{
+    display: block;
+    position: initial;
+    height: 200px;
+  }
+
+  .twitter:hover{
+    transform: none;
+  }
+
+
+  .twitter-tweet ,.twitter-tweet-rendered,iframe{
+    height: 200px!important;
+  }
+  
   
 }
 @media (max-width:450px){
@@ -110,30 +174,6 @@ article{
   height: 90px;
 }
 
-.container {
-  overflow: hidden;
-  max-height: 100px;
-  width: 375px;
-  border-radius: 15px;
-  margin: 0 0 0 25px;
-}
 
-.twitter{
-  height: 80px;
-  max-height: 200px;
-  width: 300px;
-  top: 0;
-  right: 0;
-  left: 0;
-  transition: all 500ms ease-in-out;
-  position: absolute;
-  margin: auto;
-}
-
-
-.twitter:hover,.twitter-tweet:hover,.twitter-tweet-rendered:hover
-.css-1dbjc4n,:hover.r-18u37iz:hover, .r-kzbkwu:hover{
-  transform: translateY(-350%);
-}
 
 
