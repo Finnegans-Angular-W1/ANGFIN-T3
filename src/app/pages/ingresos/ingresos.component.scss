@@ -1,10 +1,70 @@
-.container_table{
-    display: flex;
+/* .container_table{
+/*     display: flex;
     flex-direction: column;
 }
+ */
 
-.table_egresos{
-    text-align: center;
-    margin-top: 6rem;
+.container{
+    max-width: 980px;
+    margin-inline: auto;
+    padding: 100px 15px ;
 }
+.accordion-panel{
+    padding: 7px 21px;
+    margin-bottom: 24px;
+    border: solid 1px #777e91;
+    border-radius: 10px;
+}
+.accordion input {
+    display: none;
+}
+.accordion label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+    padding-block: 7px;
+    color: #f4f5f6;
+    cursor: pointer;
+    transition: color 0.25s;
+}
+.accordion label:hover,
+.accordion input:checked + label {
+    color: #73ff82;
+}
+.accordion i{
+    color:#73ff82
+}
+.accordion .close{
+    display: none;
+}
+.accordion input:checked + label .close {
+    display: block;
+}
+.accordion input:checked + label .open{
+    display: none;
+}
+.accordion-body{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.25s ease-in-out;
+}
+.accordion-answer{
+    font-size: 14px;
+    color: #c7c7c7;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top left;
+    transition: opacity 0.75s, transform 0.15s;
 
+}
+.accordion input:checked ~ .accordion-body{
+    height: max-content;
+}
+.accordion input:checked ~ .accordion-body
+    .accordion-answer {
+ opacity: 1;
+ transform: scale(1);   
+}

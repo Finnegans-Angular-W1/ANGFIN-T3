@@ -1,4 +1,4 @@
-<div class="container_table">
+<!-- <div class="container_table">
     <app-title></app-title>
     <table class="table_egresos">
     <thead class="header_table">
@@ -27,4 +27,22 @@
     </tbody>
   </table>
 
+</div> -->
+<section class="container">
+<div class="accordion">
+  <ng-container *ngFor="let item of data">
+    <article class="accordion-panel">
+      <input type="radio" id="acordion-question"
+    name="accordion" checked />
+    <label for="accordion-question">
+      {{item.amount | currency }}
+      <i class="ri-add-line open"></i>
+      <i class="ri-subtract-line close0" ></i>
+    </label>
+    <div class="accordion-body">
+      <p class="accordion-answer">{{item.id}}</p>
+    </div>
+  </article>
+</ng-container>
 </div>
+</section>
