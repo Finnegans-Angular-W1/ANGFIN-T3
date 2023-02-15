@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$gradiant:linear-gradient(30deg,#5f46c3,#9f89f8,#6d39d4);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body{background-image:$gradiant;}

@@ -1,0 +1,177 @@
+$gradiant:linear-gradient(30deg,#483D74,#7367B3,#6A5DAE,#574A8D,#483D74);
+
+$shadowBox:-2px 3px 20px 4px #453a74;
+
+$violetMian:#5d4aba;
+
+.container{
+    display: flex;
+}
+
+.dates{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px 0  0 20px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.banner{
+    width: auto;
+    height: 300px;
+    border-radius: 100px;
+    display: flex;
+}
+
+img{
+    margin: auto;
+    margin-top: 30px;
+    width: 50%;
+    height: 350px;
+    border-radius: 40px;
+    box-shadow: $shadowBox;
+    transition: all 300ms ease;
+}
+
+img:hover{
+    transform: translateY(-4%);
+}
+
+
+.acount{
+    box-shadow: $shadowBox;
+    background-color: #483D74;
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: bold;
+        color: white;
+        margin-top:30px ;
+
+        h2{
+            font-size: 45px;
+        }
+
+        h3{
+            font-weight: bold;
+            margin-top: 35px;
+            font-size: 30px;
+        }
+    }
+
+    .saldo{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+
+}
+
+.containerImg{
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    box-shadow: -1px 5px 20px 7px black;
+    .img{
+        height: 135px;
+        width: 135px;
+        background-image: url('../../assets/img/profile-pictur-meme.png');
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+.information{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 400px;
+    justify-content: space-around;
+    align-items: center;
+
+    .text{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+
+}
+
+.movements{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar-card{
+    cursor: default;
+    width: 200px;
+    background-color: $violetMian;
+    border-radius: 30px;
+    color: white;
+    box-shadow:$shadowBox ;
+}
+
+.textSaldo{
+    margin-top: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    background-color: $violetMian;
+    color: white;
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow:  $shadowBox;
+    text-align: center;
+
+    h3{
+        margin-bottom: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    p{
+        text-align: left;
+    }
+}
+
+::ng-deep .mat-calendar-body-cell-content{
+    position: absolute;
+    color: white;
+}
+
+::ng-deep .mat-calendar-table-header{
+    color: white;
+}
+
+
+.cards{
+    display: flex;
+    gap: 50px;
+}
+
+::ng-deep.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: rgb(67, 0, 109);
+}
+
+
+
