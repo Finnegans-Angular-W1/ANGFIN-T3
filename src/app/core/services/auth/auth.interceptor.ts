@@ -1,15 +1,17 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { catchError, delay, finalize, Observable, tap, throwError } from 'rxjs';
 import { AlertsComponent } from 'src/app/shared/alerts/alerts.component';
 import { Alert } from '../../interfaces/alerts.interface';
+import { loading } from '../../state/loader/loader.actions';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private store :Store) {}
 
   data : Alert = {
     err:'Error',
@@ -32,14 +34,19 @@ export class AuthInterceptor implements HttpInterceptor {
           headers: req.headers.set('Authorization', `Bearer ${token}`)
         });
         return next.handle(cloned).pipe(
+          tap( (__) => {
+            this.store.dispatch(loading({isloading:true}))
+          }),
           catchError( (err:any) => {
           const msg = err.message
           console.error(msg)
-
           this.openDialog()
-
           return throwError(msg)
-          } )
+          } ),
+          delay(200),
+          finalize( () => 
+            this.store.dispatch(loading({isloading:false}))
+          )
         );
     }
     else {
