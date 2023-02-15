@@ -2,41 +2,52 @@
 
     <div class="loginForm">
 
-        <h2 class="titulo">Bienvenido a AlkyBank</h2>
-
+        
         <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h2 class="titulo">Bienvenido a AlkyBank</h2>
 
-            <label for="emailInput">Correo electrónico</label>
+            
+            <div class="campos">
 
-
-
-            <input  formControlName="email" class="box" type="email" id="emailInput" placeholder="example@example.com"
+                <!-- <label for="emailInput">Correo electrónico</label> -->
+                
+                <input  formControlName="email" class="box" type="email" id="emailInput" placeholder="Email"
                 required>
-            <div *ngIf="loginForm.controls.email.touched&& loginForm.controls.email.errors">
-                <p class="invalid"> Correo electrónico obligatorio</p>
+
+                <div *ngIf="loginForm.controls.email.touched&& loginForm.controls.email.errors">
+                    <div class="invalid">* Correo electrónico obligatorio</div>
+                </div>
+                
             </div>
-            
-            <label for="passwordInput">Contraseña</label>
+          
+            <div class="campos">
 
+                <!-- <label for="passwordInput">Contraseña</label> -->
+               
+                
+                <input formControlName="password" class="box" type="password" id="passwordInput"
+                placeholder="Contraseña" required minlength="6">
+                
 
-            <input  formControlName="password" class="box" type="password" id="passwordInput"
-                placeholder="Ingresa tu contraseña" required minlength="6">
-            <div *ngIf=" loginForm.controls.password.touched && loginForm.controls.password.errors">
-                <p class="invalid"> Contraseña obligatoria</p>
+                <div *ngIf=" loginForm.controls.password.touched && loginForm.controls.password.errors">
+                    <div class="invalid">* Contraseña obligatoria</div>
+                </div>
             </div>
+            <div class="invalidDates" *ngIf="invalidEmailOrPassword">Correo o contraseña incorrectos</div>
+            <div class="buttons">
 
-
-            <button class="btnLogin" [disabled]="loginForm.invalid">Ingresar</button>
-            <!-- Tarea: Agregar alerta en caso de que el usuario no exista  -->
-            
-            <a href="/register" class="btnRegister">Registrarse</a>
-
-
-
-            <a class="olvideContra">Olvidé mi contraseña</a>
+                <button class="btnLogin" [disabled]="loginForm.invalid">Ingresar</button>
+                <!-- Tarea: Agregar alerta en caso de que el usuario no exista  -->
+                
+                <a routerLink="/register" class="btnRegister">Registrarse</a>
+                
+                
+                
+                <a class="olvideContra">Olvidé mi contraseña</a>
+            </div>
 
 
         </form>
-
+      
     </div>
 </div>
