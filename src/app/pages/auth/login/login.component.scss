@@ -6,32 +6,30 @@
     align-items: center;
     text-align: center;
     color: #FAFAFB;
-    font-family: 'Roboto', sans-serif;
-    background-color: #FAFAFB;
-    background-image: url('../../../assets/img/background-login.svg');
+    font-family:Karma & Jasmine 'Roboto', sans-serif;
+    background-color: #664af1;
+    
 }
 
 label {
     font-size: 1.1rem;
+    color: black;
 }
 
-label,
-.olvideContra {
-    text-shadow: 0 2px rgba(0, 0, 0, 0.651);
 
-}
 
 .titulo {
     font-size: 2.4rem;
+    color: #000000;
 }
 
 .loginForm {
-    box-shadow: 0 0 0.5rem rgb(0, 0, 0);
-    width: 35rem;
-    height: 35rem;
+    box-shadow: 0 0 2rem rgba(88, 2, 138, 0.518);
+    width: 30rem;
+    height: 32rem;
     padding: 35px;
-    background-image: linear-gradient(#7a0adc34, #36296acb);
-    border-radius: 15px;
+    background-color: #FAFAFB;
+    border-radius: 20px;
 
 }
 
@@ -49,7 +47,7 @@ label,
 
 .buttons .olvideContra {
     margin: 15px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -62,14 +60,14 @@ form {
 
 
 .box {
+    box-shadow: 0rem  1rem 1rem rgba(146, 39, 179, 0.258);
     border: none;
     margin: 20px;
     margin-bottom: 0;
     padding: 15px;
     background-color: EAEAEC;
-    border-radius: 4px;
-    background-color: #00000082;
-    text-align: center;
+    border-radius: 15px;
+    background-color: #ffffff;
     border-bottom: 1px solid black;
     color: white;
     font-size: 16px;
@@ -84,25 +82,28 @@ form {
     border: none;
     padding: 15px;
     cursor: pointer;
-    background-color: rgb(21, 19, 19);
+    background: linear-gradient(161deg, rgba(55,0,255,1) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
     text-decoration: none;
     color: white;
     font-size: 0.9rem;
     margin: 5px;
     border-radius: 15px;
     font-size: 16px;
+    font-weight: 500;
 }
 
 
 
 .loginForm .btnLogin:hover,
 .loginForm .btnRegister:hover {
-    background-color: #52059e;
+    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);;
+
 
 }
 
 .loginForm .btnLogin:disabled {
-    background-color: #363136;
+    background: linear-gradient(161deg, rgb(102, 61, 249) 0%, rgb(109, 41, 138) 48%, rgb(56, 27, 113) 100%);;
+
     cursor: auto;
 }
 
@@ -116,4 +117,8 @@ form {
 
 .invalidDates{
     color: red;
+}
+
+input:valid{
+    border:2px solid green;
 }
