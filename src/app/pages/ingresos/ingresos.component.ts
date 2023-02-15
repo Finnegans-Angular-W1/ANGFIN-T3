@@ -4,7 +4,7 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
-  styleUrls: ['../egresos/egresos.component.scss']
+  styleUrls: ['./ingresos.component.scss']
 })
 export class IngresosComponent implements OnInit {
 
@@ -19,6 +19,14 @@ export class IngresosComponent implements OnInit {
     }, (error:any) => {
       console.error(error);
     });
+  }
+
+  added(){
+    alert("agregar ingreso")
+  }
+
+  editConcepto(){
+    alert("editar concepto")
   }
 
 
