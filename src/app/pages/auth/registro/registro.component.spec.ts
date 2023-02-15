@@ -1,11 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 
 
 import { provideMockStore } from '@ngrx/store/testing';
-import { register } from 'src/app/core/state/auth/auth.actions';
+
 import { RegistroComponent } from './registro.component';
+
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -15,7 +17,7 @@ describe('RegistroComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ RegistroComponent ],
       imports:[ReactiveFormsModule,HttpClientModule],
-      providers: [provideMockStore({})],
+      providers: [provideMockStore({}), { provide: ComponentFixtureAutoDetect, useValue: true }],
     }).compileComponents();
     
     fixture = TestBed.createComponent(RegistroComponent);
