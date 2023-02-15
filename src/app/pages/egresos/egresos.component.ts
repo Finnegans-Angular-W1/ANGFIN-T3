@@ -24,7 +24,7 @@ export class EgresosComponent implements OnInit {
     alert("editar concepto")
   }
 
-  added(){
-    alert("Retirar Dinero")
+  pay(){
+    alert("Pagar o Retirar")
   }
 }
