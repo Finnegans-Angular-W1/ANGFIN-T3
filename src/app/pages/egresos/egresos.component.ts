@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
-
 @Component({
   selector: 'app-egresos',
   templateUrl: './egresos.component.html',
-  styleUrls: ['./egresos.component.scss']
+  styleUrls: ['../ingresos/ingresos.component.scss']
 })
 export class EgresosComponent implements OnInit {
 
@@ -21,6 +20,11 @@ export class EgresosComponent implements OnInit {
     });
   }
 
- 
+  editConcepto(){
+    alert("editar concepto")
+  }
 
+  added(){
+    alert("Retirar Dinero")
+  }
 }

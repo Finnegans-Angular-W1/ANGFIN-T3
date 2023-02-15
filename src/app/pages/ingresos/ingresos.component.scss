@@ -1,21 +1,21 @@
-/* .container_table{
-/*     display: flex;
-    flex-direction: column;
-}
- */
 
 .container{
     max-width: 980px;
     margin-inline: auto;
-    padding: 100px 15px ;
+    background-color: #eaeaec;
+    padding: 100px 15px;
+    border-radius: 10px;
 }
 .accordion-panel{
     padding: 7px 21px;
     margin-bottom: 24px;
     border: solid 1px #777e91;
     border-radius: 10px;
+    background-color: rgba(102, 89, 168, 0.7098039216);
+    box-shadow: 0px 0px 10px #574a8d;
+
 }
-.accordion input {
+.accordion input{
     display: none;
 }
 .accordion label{
@@ -51,9 +51,7 @@
 }
 .accordion-answer{
     font-size: 14px;
-    color: #c7c7c7;
-    padding-top: 5px;
-    padding-bottom: 7px;
+    color: #fdfdff;
     opacity: 0;
     transform: scale(0);
     transform-origin: top left;
@@ -68,3 +66,86 @@
  opacity: 1;
  transform: scale(1);   
 }
+
+  .accordion-cerrar{
+    margin-bottom: 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 5%;
+    justify-content: center;
+    display: flex;
+    }   
+
+
+    #cerrar_art {
+        display: none;
+    }
+
+    .input_movement:checked ~ label #cerrar_art {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .btn_container{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .btn_edit{
+        border-radius: 10px;
+        border: none;
+        width: 5.5rem;
+        position: relative;
+        bottom: 10px;
+        right: 14px;
+        background-color: #F889AA;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: #fff;
+        box-shadow: 0 0 10px #eee;
+    }
+    .btn_edit:hover{
+        transform: scale(1.1);
+    }
+        
+    .div_btn_added{
+        display: flex;
+        justify-content: center;
+    }
+    .btn_added{
+        border-radius: 10px;
+        border: none;
+        width: 5.5rem;
+        position: relative;
+        top: 2rem;
+        background-color: lightgreen;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        transition: .5s all ease;
+        perspective: 900px;
+        box-shadow: 0px 20px 50px #555;
+        animation: entry 1s linear 1;
+    }
+
+    .btn_added:hover {
+        transform: rotate(0deg) scale(1) translateY(-7px);
+        transition: .5s all ease;
+        z-index: 400;
+    }
+
+    @media (max-width:390px){
+        .btn_edit{
+            position: initial;
+            margin-right: 5px;
+            margin-top: 1rem;
+        }
+    }
