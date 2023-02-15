@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-
 import { SharedRoutingModule } from './shared-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
@@ -10,7 +9,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavLinksComponent } from './footer/nav-links/nav-links.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { DivisasComponent } from '../components/divisas/divisas.component';
+import { TipoCambioComponent } from '../components/tipo-cambio/tipo-cambio.component';
 import { DialogComponent } from './dialog/dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +21,7 @@ import { DialogComponent } from './dialog/dialog.component';
     TitleComponent,
     FooterComponent,
     NavLinksComponent,
-    AlertsComponent,
-    DialogComponent
+    AlertsComponent,DivisasComponent,TipoCambioComponent,DialogComponent
   ],
   imports: [
     CommonModule,

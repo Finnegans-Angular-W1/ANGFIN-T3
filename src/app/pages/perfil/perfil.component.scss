@@ -3,7 +3,7 @@ $gradiant:linear-gradient(30deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
 
 
 .background{
-    background-image: url('../../assets/img/Degradado (2).png');
+    background-image: $gradiant;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center 60%;
@@ -25,6 +25,7 @@ $gradiant:linear-gradient(30deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
     align-content: center;
     flex-wrap: wrap;
     align-items: center;
+   
 }
 
 .main{
