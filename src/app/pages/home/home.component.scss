@@ -184,16 +184,24 @@ img:hover{
 
 
 @media (max-width:800px) {
-    .banner, app-title{
-        display: none;
+    .banner{
+        // display: none;
+        width: 100%;
+        img{
+            width: 300px;
+            height: 200px;
+        }
     }
     .information,.cards{
         background-color: none;
         flex-direction: column;
 
-        .calendar{
-            display: none;
-        }
+        
+    }
+
+    .cards{
+        display: grid;
+        grid-template-columns: 250px 250px;
     }
     .container{
         flex-direction: column-reverse;
@@ -218,7 +226,12 @@ img:hover{
 
 @media (max-width:500px){
     .cards{
-        flex-direction: column;
+        grid-template-columns: none;
+        grid-template-rows: 200px;
+    }
+
+    img{
+        width: 100%;
     }
 }
 
@@ -226,7 +239,7 @@ img:hover{
 @media (max-width:900px){
 
     .banner, app-title{
-        display: none;
+        // display: none;
     }
 
     .container{
@@ -308,10 +321,6 @@ img:hover{
         flex-direction: column-reverse;
         width: auto;
         gap: 90px;
-    }
-
-    .banner, app-title{
-        display: none;
     }
 
     .acount{
