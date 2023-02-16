@@ -26,14 +26,13 @@
 }
 
 
-@media screen and (min-width : 800px) {
+@media screen and (min-width : 950px) {
 
     app-side-bar{
         position: absolute;
         height: 90%;
     }
     .main{
-        margin-top: 10px;
         margin-left: 100px;
     }
    
