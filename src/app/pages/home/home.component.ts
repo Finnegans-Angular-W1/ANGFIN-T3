@@ -33,8 +33,6 @@ export class HomeComponent implements OnInit {
       (resp:User) => { this.dataUser = resp }
     )
 
-
-
   }
 
 

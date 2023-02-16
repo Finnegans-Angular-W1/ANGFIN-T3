@@ -44,10 +44,19 @@
 </ng-container>
 </div>
 <div class="div_btn_added">
-  <button  (click)="added()" class="btn_added"><mat-icon>add</mat-icon>Added</button> 
+  <button  (click)="openAndClose()" class="btn_added"><mat-icon>add</mat-icon>Added</button> 
 </div>
 </section>
-<<<<<<< HEAD
-=======
 
->>>>>>> 6dd318ff5a4a278bac9ce0833daa90db30604f33
+
+<div class="containerMuestra" *ngIf="addInport">
+  <div class="card">
+      <div class="header">
+          <app-title [title]="'Añadir'"></app-title>
+      </div>
+
+      <div class="main">
+          <app-form (data)="addData($event)" [type]="'payment'"></app-form>
+      </div>
+  </div>
+</div>

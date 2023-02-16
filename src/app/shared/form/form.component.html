@@ -17,8 +17,14 @@
     <mat-label>Fecha</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="fecha" placeholder="DD/MM/YYYY">
     <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="isEdition"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-datepicker #picker color="primary"></mat-datepicker>
   </mat-form-field>
   <div *ngIf="form.get('fecha')?.touched && form.get('fecha')?.errors?.['required']" class="invalid">La fecha es requerida.</div>
+
+  <div class="buttons">
+    <button (click)="submit()">Anadir</button>
+    <button >Cerrar</button>
+  </div>
+
 </form>
   

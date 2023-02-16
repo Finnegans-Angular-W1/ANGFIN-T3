@@ -1,6 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
+import { HttpService } from '../../core/services/http.service';
+import { Transferencia } from '../../core/interfaces/transferencia.interface';
+
+
+
+const baseUrl = environment.URL_BASE
 
 @Component({
   selector: 'app-form',
@@ -15,18 +22,24 @@ export class FormComponent implements OnInit {
   @Input()
   formValues?: FormGroup;
 
+  @Input() type :'topup'|'payment' = 'topup'
+
+  @Output() data :EventEmitter<Transferencia> = new EventEmitter() 
+
+
+
   form: FormGroup = this.fb.group({
-    monto: [{value: 0, disabled: this.isEdition}, [Validators.required, Validators.min(1)]],
+    monto: [{value:0, disabled: this.isEdition}, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
     concepto: ['', [Validators.required]],
     fecha: [{value: moment().format('DD/MM/YYYY'), disabled: this.isEdition}, [Validators.required]]
   });
   
-  constructor( private fb: FormBuilder ) {}
+  constructor( private fb: FormBuilder, private httpService : HttpService ) {}
 
   ngOnInit(): void {
     if(!this.isEdition){
       this.form.reset({
-        monto: '',
+        monto: 0,
         concepto: '',
         fecha: ''
       })
@@ -37,5 +50,33 @@ export class FormComponent implements OnInit {
         fecha: [{value: moment().format('DD/MM/YYYY'), disabled: this.isEdition}, [Validators.required]]
       });
     }
+
   }
+
+
+  submit(){
+
+    if(this.form.valid){
+      const body ={
+        amount: this.form.get('monto')?.value,
+        concept: this.form.get('concepto')?.value,
+        date: this.form.get('fecha')?.value,
+        type: this.type,
+        accountId: 1,
+        userId: 4,
+        to_account_id: 5
+      }
+  
+  
+      this.httpService.post<Transferencia>(`${baseUrl}/transactions`,body,false).subscribe(resp =>{
+        this.data.emit(resp)
+      })
+    }
+
+
+  }
+
+
 }
+
+
