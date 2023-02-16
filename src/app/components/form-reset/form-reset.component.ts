@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, Validators , FormControl , FormGroup  } from '@angular/forms';
+import { FormBuilder, Validators , FormControl , FormGroup, AbstractControl  } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
 import { HttpClient } from '@angular/common/http';
@@ -21,9 +21,9 @@ export class formResetComponent implements OnInit {
   validateForm = this.fb.group({
     email: ['', [Validators.required, Validators.email, this.checkEmail.bind(this)]],
     password: ['', [Validators.required, Validators.minLength(6)]],
-    password2: ['', [Validators.required , this.checkPassword.bind(this)]]
-  });
-
+    password2: ['', [Validators.required]]
+  }, { validator: this.checkPasswordsMatch });
+  
   constructor(
     private httpService:HttpService,
     private HttpClient:HttpClient,
@@ -34,7 +34,7 @@ export class formResetComponent implements OnInit {
 
   ngOnInit() {
     this.httpService.get<any>(`${environment.URL_BASE}/auth/me`).subscribe((date:any) => {
-      console.log(date)
+    /*   console.log(date) */
       this.userId = date.id
       this.userEmail = date.email
     })
@@ -45,13 +45,19 @@ export class formResetComponent implements OnInit {
     }
     return { checkEmail: true };
   }
-  checkPassword(pass: FormControl): { [key: string]: boolean } | null {
-    return pass.value === this.password.value
-      ? null
-      : { mismatch: true };
+  checkPasswordsMatch(form: FormGroup): { [key: string]: boolean } | null {
+    const password = form.get('password');
+    const password2 = form.get('password2');
+    if (password && password2 && password.value !== password2.value) {
+      password2.setErrors({ mismatch: true });
+    } else {
+      password2?.setErrors(null);
+    }
+    return null;
   }
-   
+
   submitForm() {
+    
     const data:any = {
       email : this.validateForm.value.email ?? '',
       password: this.validateForm.value.password ?? '',
@@ -65,7 +71,7 @@ export class formResetComponent implements OnInit {
       return
     }
 
-    this.HttpClient.patch(`${environment.URL_BASE}/users/resetPassword/${this.userId}`,data).subscribe((date:any) => {
+    this.httpService.patch(`${environment.URL_BASE}/users/resetPassword/${this.userId}`,data).subscribe((date:any) => {
       console.log(date)
     }) 
   }

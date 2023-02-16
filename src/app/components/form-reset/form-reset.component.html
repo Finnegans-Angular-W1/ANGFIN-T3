@@ -1,6 +1,6 @@
   <div class="div_container">
 
-    <form [formGroup]="validateForm" class="form_reset">
+    <form [formGroup]="validateForm" class="form_reset" >
       <div mat-dialog-content class="input-container">
 
           <label for="email">Correo Electronico</label>
@@ -37,7 +37,8 @@
         
         <div mat-dialog-actions>
           <button mat-button (click)="closeModal()">Cancel</button>
-          <button mat-button [mat-dialog-close]="data" (click)="submitForm()" [disabled]="!validateForm.valid">Submit</button>
+          <button mat-button [mat-dialog-close]="data" (click)="submitForm()" [disabled]="!validateForm.valid"
+           type="submit">Submit</button>
         </div>
         
       </form>
