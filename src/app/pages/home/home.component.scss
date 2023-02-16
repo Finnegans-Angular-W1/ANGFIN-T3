@@ -17,7 +17,7 @@ $violetMian:#5d4aba;
     border-radius: 20px 0  0 20px;
     flex-direction: column;
     gap: 30px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 
@@ -30,11 +30,11 @@ $violetMian:#5d4aba;
 }
 
 img{
-    background-image: url('Banner.jpg');
+   
+    background-image: url('banner4.jpg');
     margin: auto;
-    margin-top: 30px;
-    width: 50%;
-    height: 350px;
+    width: auto;
+    height: auto;
     border-radius: 40px;
     box-shadow: $shadowBox;
     transition: all 300ms ease;
@@ -134,30 +134,33 @@ img:hover{
     border-radius: 30px;
     color: white;
     box-shadow:$shadowBox ;
+    z-index: 0;
 }
 
 .textSaldo{
     margin-top: 20px;
     font-weight: bold;
-    padding-left: 10px;
     background-color: $violetMian;
     color: white;
-    width: 250px;
+    width: 220px;
+    max-width: 250px;
+
     height: 200px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: center;
+    gap: 10px;
+    justify-content: flex-start;
     box-shadow:  $shadowBox;
     text-align: center;
 
     h3{
-        margin-bottom: 10px;
+        margin: 0;
         font-size: 20px;
         font-weight: bold;
     }
     p{
+        padding-left: 10px;
         text-align: left;
     }
 }
@@ -179,6 +182,7 @@ img:hover{
 
 ::ng-deep.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
     background-color: rgb(67, 0, 109);
+    z-index: 10;
 }
 
 
@@ -238,9 +242,6 @@ img:hover{
 
 @media (max-width:900px){
 
-    .banner, app-title{
-        // display: none;
-    }
 
     .container{
         gap: 20px;
@@ -340,6 +341,16 @@ img:hover{
        justify-content: none;
     }
     
+}
+
+.title{
+    background-color: #342588;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    height: 50px;
+    text-align: center;
 }
 
 

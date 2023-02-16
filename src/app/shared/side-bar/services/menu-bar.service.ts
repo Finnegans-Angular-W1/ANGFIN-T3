@@ -26,7 +26,7 @@ export class MenuBarService {
     {title:"Enviar Dinero", icon:"trending_up", route:"**"},
     {title:"Plazos Fijos", icon:"insert_chart", route:"**"},
     {title:"Contactos", icon:"contact_page", route:"**"},
-    {title:"Billeteras", icon:"account_balance_wallet", route:"**"}
+    {title:"Billeteras", icon:"account_balance_wallet", route:"wallet"}
    
   ]
 

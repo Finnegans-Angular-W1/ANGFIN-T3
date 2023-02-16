@@ -25,12 +25,14 @@ export class HomeComponent implements OnInit {
     .subscribe(
       resp =>{
         this.infoAcount = resp.slice(0, 2) 
+        console.log(this.infoAcount)
       }
     )
 
     this.authService.userDates().subscribe(
       (resp:User) => { this.dataUser = resp }
     )
+
 
 
   }
