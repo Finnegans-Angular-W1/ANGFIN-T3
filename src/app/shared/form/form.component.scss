@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.invalid{
+  color: red;
+  margin-bottom: 5px;
+}
+
+.save_button{
+  text-align: end;
+}
