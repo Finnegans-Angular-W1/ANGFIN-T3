@@ -15,6 +15,7 @@
   .logo_container {
     text-align: -webkit-center;
     padding-top: 10px;
+    order: 1;
   }
   .img_container{
     width: 40%;
@@ -66,6 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  order: 3;
 }
 
 
@@ -102,6 +104,7 @@
   transition: all 1s ease-out , height 1s ease-in-out;
   z-index: 2;
   filter: drop-shadow(2px 4px 6px black);
+  order: 2;
  }
 
 
@@ -126,6 +129,20 @@
 }
 
 @media (max-width:650px){
+  .footer_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .logo_container,.links_container{
+    grid-row: 1;
+  }
+  .container_twitter{
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    justify-self: center;
+  }
   .img_container img {
     width: 4rem;
     height: 4rem;
