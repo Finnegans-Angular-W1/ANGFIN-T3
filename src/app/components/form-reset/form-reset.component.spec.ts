@@ -75,5 +75,6 @@ describe('formResetComponent', () => {
     submitButton.click();
 
     expect(component.submitForm).toHaveBeenCalled();
+    
   });
 }); */
