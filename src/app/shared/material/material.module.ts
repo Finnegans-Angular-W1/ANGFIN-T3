@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -47,12 +48,16 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/m
     MatSelectModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatNativeDateModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es' }, // Define el local a español
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }, // Define los formatos de fecha
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS] },
-  ],
+  ]
 })
 export class MaterialModule { }

@@ -12,8 +12,11 @@ import { LoadingComponent } from './loading/loading.component';
 import { TitleComponent } from './title/title.component';
 import { NavLinksComponent } from './footer/nav-links/nav-links.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { DivisasComponent } from '../components/divisas/divisas.component';
+import { TipoCambioComponent } from '../components/tipo-cambio/tipo-cambio.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { FormComponent } from './form/form.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { FormComponent } from './form/form.component';
     NavLinksComponent,
     AlertsComponent,
     DialogComponent,
-    FormComponent
+    FormComponent,
+    DivisasComponent,
+    TipoCambioComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
