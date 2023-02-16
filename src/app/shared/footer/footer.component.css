@@ -1,7 +1,7 @@
   .footer_container{
     display: flex;
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    bottom: -1rem;
     left: 9%;
     place-items: center;
     width: 90%;
@@ -67,6 +67,64 @@
   flex-direction: column;
   justify-content: center;
 }
+
+
+
+.twitter{
+  height: 80px;
+  max-height: 200px;
+  width: 300px;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: all 500ms ease-in-out;
+  position: absolute;
+  margin: auto;
+}
+
+
+.container {
+  overflow: hidden;
+  max-height: 100px;
+  width: 375px;
+  border-radius: 15px;
+  margin: 0 0 0 25px;
+}
+.container_twitter {
+  overflow: hidden;
+  max-height: 100px;
+  width: 375px;
+  border-radius: 15px;
+  margin: 0 0 0 25px;
+  height: 6rem;
+  position: relative;
+  top: 1rem;
+  transition: all 1s ease-out , height 1s ease-in-out;
+  z-index: 2;
+  filter: drop-shadow(2px 4px 6px black);
+ }
+
+
+
+.container_twitter:hover/* , .twitter:hover,.twitter-tweet:hover,.twitter-tweet-rendered:hover
+.css-1dbjc4n,:hover.r-18u37iz:hover, .r-kzbkwu:hover */{
+  transform: translateY(-350%);
+  overflow: visible;
+  height:10rem;
+}
+.container_twitter:not(:hover) {
+  animation: div-transition 1s ease;
+}
+@keyframes div-transition {
+  0% {
+    height: 10rem;
+    overflow: visible;
+  }
+  100% {
+    height: 10rem;
+    }
+}
+
 @media (max-width:650px){
   .img_container img {
     width: 4rem;
@@ -76,15 +134,51 @@
     font-size: small;
     width: 70%;
   }
-  .footer_container{
-    font-size: small;
-  }
   .list_conditions{
     gap: 0.3rem;
   }
   .list_conditions li {
     font-size: inherit;
   }
+  
+  
+  .footer_container{
+    margin-top: 40px;
+    position: inherit;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: small;
+    flex-direction: column;
+    border: 0;
+  }
+
+  .container{
+    display: block;
+    max-height: 500px;
+    height: 400px;
+    width: 100%;
+    margin-left: 0;
+  
+  }
+
+  
+  .twitter{
+    display: block;
+    position: initial;
+    height: 200px;
+  }
+
+  .twitter:hover{
+    transform: none;
+  }
+
+
+  .twitter-tweet ,.twitter-tweet-rendered,iframe{
+    height: 200px!important;
+  }
+  
   
 }
 @media (max-width:450px){
@@ -97,4 +191,15 @@
   .logo_container p{
     font-size: smaller;
   }
+
+ 
+
 }
+
+article{
+  height: 90px;
+}
+
+
+
+
