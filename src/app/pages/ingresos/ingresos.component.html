@@ -34,7 +34,7 @@
         <span class="accordion-answer">Transaccion : {{ item.type }} (Recarga)</span><br>
         <div class="btn_container">
           <br>
-          <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button> 
+          <!-- <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button>  -->
         </div>
       </div>
     
@@ -56,7 +56,10 @@
       </div>
 
       <div class="main">
-          <app-form (data)="addData($event)" [type]="'payment'"></app-form>
+          <app-form (data)="addData($event)"
+                    [type]="'payment'"
+                    (onClose)="openAndClose()"
+                    [view]="addInport"></app-form>
       </div>
   </div>
 </div>

@@ -125,17 +125,6 @@ img:hover{
     align-items: center;
 }
 
-.calendar-card{
-    cursor: default;
-    width: 200px;
-    height: 300px;
-    padding: 0;
-    background-color: $violetMian;
-    border-radius: 30px;
-    color: white;
-    box-shadow:$shadowBox ;
-    z-index: 0;
-}
 
 .textSaldo{
     margin-top: 20px;
@@ -165,25 +154,12 @@ img:hover{
     }
 }
 
-::ng-deep .mat-calendar-body-cell-content{
-    position: absolute;
-    color: white;
-}
-
-::ng-deep .mat-calendar-table-header{
-    color: white;
-}
-
 
 .cards{
     display: flex;
     gap: 50px;
 }
 
-::ng-deep.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
-    background-color: rgb(67, 0, 109);
-    z-index: 10;
-}
 
 
 

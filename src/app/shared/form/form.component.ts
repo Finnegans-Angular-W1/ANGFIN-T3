@@ -22,9 +22,14 @@ export class FormComponent implements OnInit {
   @Input()
   formValues?: FormGroup;
 
+  @Input()
+  view : boolean = false
+
   @Input() type :'topup'|'payment' = 'topup'
 
   @Output() data :EventEmitter<Transferencia> = new EventEmitter() 
+
+  @Output() onClose :EventEmitter<boolean> = new EventEmitter() 
 
 
 
@@ -74,6 +79,11 @@ export class FormComponent implements OnInit {
     }
 
 
+  }
+
+  close(){
+    this.view = !this.view
+    this.onClose.emit(this.view)
   }
 
 

@@ -4,16 +4,10 @@ $gradiant:linear-gradient(336deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
 
 .background{
     background-image: $gradiant;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center 60%;
-    
     width: 100%;
     height: 100vh;
     margin: auto;
 
-    
-    
 }
 
 .container{

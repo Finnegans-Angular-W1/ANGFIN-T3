@@ -35,13 +35,6 @@ export class PerfilComponent implements OnInit {
   })
 
 
-  // recoverPassword = this.formBuilder.group({
-  //   email : ['',Validators.required],
-  //   password:['asdasd',Validators.required],
-  //   repeatPassword:['',Validators.required],
-  // },{Validators: samePasswords})
-
-
 
 // TODO Poner componente Loading
 
