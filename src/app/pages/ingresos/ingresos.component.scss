@@ -94,6 +94,8 @@ hr{
     .input_movement:checked ~ label #cerrar_art {
         display: flex;
         justify-content: flex-end;
+        width: 100%;
+        direction: rtl;
     }
     .btn_container{
         display: flex;
@@ -158,3 +160,6 @@ hr{
             margin-top: 1rem;
         }
     }
+label.label_cerrar{
+    width: 100%;
+}
