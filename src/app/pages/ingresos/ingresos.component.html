@@ -7,6 +7,8 @@
 
   <ng-container *ngFor="let item of data">
 
+    
+
   <article class="accordion-panel">
       <input class="input_movement" type="radio" id="{{item.id}}"
       name="accordion"  />
@@ -34,13 +36,19 @@
         <span class="accordion-answer">Transaccion : {{ item.type }} (Recarga)</span><br>
         <div class="btn_container">
           <br>
-          <!-- <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button>  -->
+          <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button> 
         </div>
+        
       </div>
-    
+      
 
   </article>
+  <div class="card" *ngIf="edit">
+  
+    <app-edit-saldos [id]="item.id" [data]="data"></app-edit-saldos>
 
+
+</div>
 </ng-container>
 </div>
 <div class="div_btn_added">
@@ -63,3 +71,4 @@
       </div>
   </div>
 </div>
+

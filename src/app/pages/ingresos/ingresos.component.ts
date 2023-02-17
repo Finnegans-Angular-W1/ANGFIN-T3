@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Transferencia } from 'src/app/core/interfaces/transferencia.interface';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
 
@@ -9,8 +9,8 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 })
 export class IngresosComponent implements OnInit {
 
-  data?: Transferencia[];
-
+  @Output() data?: Transferencia[];
+  edit:boolean = false
   addInport:boolean = false
 
   constructor(private transactionsService: TransactionsService) {}
@@ -29,8 +29,9 @@ export class IngresosComponent implements OnInit {
   }
 
   editConcepto(){
-    alert("editar concepto")
+    this.edit= !this.edit
   }
+
 
   addData(data:any){
     this.data?.push(data)

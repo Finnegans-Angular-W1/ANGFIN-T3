@@ -16,6 +16,8 @@ const baseUrl = environment.URL_BASE
 })
 export class FormComponent implements OnInit {
 
+  @Input() id!:number
+
   @Input()
   isEdition: boolean = false;
 
@@ -27,8 +29,8 @@ export class FormComponent implements OnInit {
 
   @Input() type :'topup'|'payment' = 'topup'
 
-  @Output() data :EventEmitter<Transferencia> = new EventEmitter() 
-
+  @Input() data :EventEmitter<Transferencia> = new EventEmitter() 
+  @Input() creden!: Transferencia
   @Output() onClose :EventEmitter<boolean> = new EventEmitter() 
 
 
@@ -50,9 +52,9 @@ export class FormComponent implements OnInit {
       })
     }else{
       this.form = this.formValues || this.fb.group({
-        monto: [{value: 0, disabled: this.isEdition}, [Validators.required, Validators.min(1)]],
-        concepto: ['', [Validators.required]],
-        fecha: [{value: moment().format('DD/MM/YYYY'), disabled: this.isEdition}, [Validators.required]]
+        monto: [{ disabled: true}],
+        concepto: [this.creden, [Validators.required]],
+        fecha: [{ disabled: true}]
       });
     }
 
@@ -74,6 +76,18 @@ export class FormComponent implements OnInit {
   
   
       this.httpService.post<Transferencia>(`${baseUrl}/transactions`,body,false).subscribe(resp =>{
+        this.data.emit(resp)
+      })
+    }else if(this.isEdition){
+      let body!:Transferencia;
+      this.httpService.get<Transferencia>(`${baseUrl}/transactions${this.id}`).subscribe((res:Transferencia)=>{
+        console.log(res)
+        body = res;
+      })
+        
+  
+  
+      this.httpService.put<Transferencia>(`${baseUrl}/transactions/${this.id}`,body,false).subscribe(resp =>{
         this.data.emit(resp)
       })
     }

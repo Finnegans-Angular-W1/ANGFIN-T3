@@ -11,6 +11,7 @@ import { formResetComponent } from '../components/form-reset/form-reset.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CashflowComponent } from '../components/cashflow/cashflow.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { EditSaldosComponent } from '../components/edit-saldos/edit-saldos.component';
 // import { HomeComponent } from './home/home.component';
 
 
@@ -23,7 +24,7 @@ import { WalletComponent } from './wallet/wallet.component';
     EgresosComponent,
     formResetComponent,
     CashflowComponent,
-    WalletComponent
+    WalletComponent,EditSaldosComponent
     // HomeComponent
   ],
   imports: [

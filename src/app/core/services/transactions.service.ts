@@ -3,6 +3,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { Observable ,take} from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Transferencia } from '../interfaces/transferencia.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class TransactionsService {
             .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         })
       );
+  }
+
+  editTransaction(data:Transferencia,id:any):Observable<any>{
+    return this.httpService.put(`${environment.URL_BASE}/transactions/:${id}`,data)
   }
 
 }
