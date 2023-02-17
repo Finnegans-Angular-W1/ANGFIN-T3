@@ -2,7 +2,7 @@
 
 .container{
     width: 90%;
-    height: 300px;
+    height: 500px;
     display: flex;
     box-shadow: 2px 2px 20px 4px #0000008a;
     border-radius: 10px;
@@ -17,17 +17,26 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 10px;
+    margin-top: 10px;
     h3{
         color: white;
         font-size: 30px;
         font-weight: 600;
         margin: 0;
     }
+
+    mat-icon{
+        cursor: pointer;
+        color: white;
+    }
+
 }
 
 .buttons{
     display: flex;
     width: 100%;
+    margin-top: 15px;
     gap: 15px;
     justify-content: center;
     button{
@@ -40,4 +49,144 @@
         border-radius: 10px;
         text-align: center;
     }
+}
+
+.lastEvent{
+    margin:auto;
+    height: 100%;
+    width: 100%;
+    background-image: url('PosibleFondo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    
+    
+}
+
+.h3Tipy{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-shadow: 1px 2px 20px black;
+    width: 100%;
+}
+
+.eventForm{
+    position: absolute;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // align-items: center;
+    height: 250px;
+    width: 320px;
+    background-color: rgb(31, 31, 52);
+    margin: auto;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+
+    .header{
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+        background-color: rgb(102, 89, 168);
+        color: white;
+        height: 40px;
+        h4{
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+    }
+
+    input{
+        width: 80%;
+        box-shadow: 0rem 0rem 1rem 4px rgb(95 27 149);
+        border: none;
+        margin: 20px;
+        margin-bottom: 0;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: #c7c7c7;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+        
+        
+    }
+
+    .alert{
+        margin-top: 10px;
+        color:rgb(255, 225, 0);
+        font-size: 15px;
+        font-family: sans-serif;
+    }
+}
+
+.main{
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.operation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.numbers{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 80%;
+    height: 60px;
+    background-color: white;
+
+    p{  
+        text-align: center;
+        width: 100%;
+        word-spacing: 20px;
+        margin:0;
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(102, 89, 168);
+    }
+}
+
+.operationsMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h4,h5{
+        color: rgb(252, 253, 255);
+        font-weight: bold;
+    }
+
+    .map{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (min-width:500px) {
+    .container{
+        width: 50%;
+    }
+    
 }

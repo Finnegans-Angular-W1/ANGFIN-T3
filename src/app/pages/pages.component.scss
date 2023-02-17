@@ -18,11 +18,13 @@
 
 
 .mobileContainer {
+    min-height: 100vh;
+    height: auto;
     display: block;
 }
 
 .main{
-    height: auto;
+    height: 100%;
     min-height: 85vh;
     margin-left: 0;
 }

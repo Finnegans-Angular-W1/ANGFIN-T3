@@ -13,7 +13,8 @@ $gradiant:linear-gradient(336deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
 .container{
     display: flex;
     margin: auto;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
 }
 
 

@@ -17,6 +17,14 @@ hr{
     border-radius: 10px;
     background-color: rgba(102, 89, 168, 0.7098039216);
     box-shadow: 0px 0px 10px #574a8d;
+    p{
+        margin-top: 10px;
+        color: #73ff82;
+    }
+
+    .negative{
+        color: yellow;
+    }
 
 }
 .accordion-panel:hover{
@@ -38,10 +46,15 @@ hr{
     transition: color 0.25s;
     font-size: 20px;
 }
-.accordion label:hover,
-.accordion input:checked + label {
-    color: #73ff82;
+// .accordion label:hover,
+// .accordion input:checked + label {
+//     color: #73ff82;
+// }
+
+.amountContainer{
+    min-width: 170px;
 }
+
 .accordion i{
     color:#73ff82
 }
@@ -58,14 +71,17 @@ hr{
     height: 0;
     overflow: hidden;
     transition: height 0.25s ease-in-out;
+    font-size: 18px;
+
 }
 .accordion-answer{
-    font-size: 14px;
+    font-size: 18px;
     color: #fdfdff;
     opacity: 0;
     transform: scale(0);
     transform-origin: top left;
     transition: opacity 0.75s, transform 0.15s;
+  
 
 }
 .accordion input:checked ~ .accordion-body{

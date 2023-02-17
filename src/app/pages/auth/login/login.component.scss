@@ -70,7 +70,6 @@ form {
     border-radius: 15px;
     background-color: #ffffff;
     border-bottom: 1px solid black;
-    color: white;
     font-size: 16px;
 
 }
@@ -97,13 +96,13 @@ form {
 
 .loginForm .btnLogin:hover,
 .loginForm .btnRegister:hover {
-    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);;
+    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);
 
 
 }
 
 .loginForm .btnLogin:disabled {
-    background: #73ff82;
+    background:  0rem  1rem 1rem rgba(72, 8, 91, 0.258);;
 
     cursor: auto;
 }
