@@ -1,0 +1,43 @@
+
+
+.container{
+    width: 90%;
+    height: 300px;
+    display: flex;
+    box-shadow: 2px 2px 20px 4px #0000008a;
+    border-radius: 10px;
+    flex-direction: column;
+    margin: auto;
+    margin-top:100px
+}
+
+.saldo{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    h3{
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+    button{
+        cursor: pointer;
+        width: 90px;
+        height: 45px;
+        background-color: rgb(102, 89, 168);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
