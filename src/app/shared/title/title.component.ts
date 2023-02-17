@@ -11,16 +11,15 @@ import { TitleService } from './service/title.service';
 })
 export class TitleComponent implements OnInit {
 
-
-
-  @Input() title!: string
+  title: Observable<Title>;
 
 
   constructor(private titleService: TitleService) {
+    this.title = this.titleService.getTitle();
   }
 
   ngOnInit(): void {
 
-    
+
   }
 }
