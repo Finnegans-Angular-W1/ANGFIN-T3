@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, Validators , FormControl , FormGroup, AbstractControl  } from '@angular/forms';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class formResetComponent implements OnInit {
   password = new FormControl('');
   userId = "";
   userEmail="";
+  date? ="";
 
   validateForm = this.fb.group({
     email: ['', [Validators.required, Validators.email, this.checkEmail.bind(this)]],
@@ -28,13 +29,12 @@ export class formResetComponent implements OnInit {
     private httpService:HttpService,
     private HttpClient:HttpClient,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<formResetComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Optional() public dialogRef: MatDialogRef<formResetComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
   ngOnInit() {
     this.httpService.get<any>(`${environment.URL_BASE}/auth/me`).subscribe((date:any) => {
-    /*   console.log(date) */
       this.userId = date.id
       this.userEmail = date.email
     })
@@ -63,16 +63,13 @@ export class formResetComponent implements OnInit {
       password: this.validateForm.value.password ?? '',
       password2: this.validateForm.value.password2 ?? ''
     }
-    console.log(data)
-
     const error = samePasswords(data.password, data.password2)
-
     if(error !== null){
       return
     }
-
-    this.httpService.patch(`${environment.URL_BASE}/users/resetPassword/${this.userId}`,data).subscribe((date:any) => {
-      console.log(date)
+    this.httpService.patch(`${environment.URL_BASE}/users/resetPassword/${this.userId}`,data).subscribe((data:any) => {
+      console.log(data)
+      this.date = data
     }) 
   }
   
