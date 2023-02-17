@@ -94,7 +94,7 @@ export class formResetComponent implements OnInit {
         this.validateForm.controls['password'].hasError('minlength') ? 'Password inseguro' : '';
     } else if (field === 'password2') {
       return this.validateForm.controls['password2'].hasError('required') ? 'Confirme Contraseña' :
-        this.validateForm.value.password !== this.validateForm.value.password2 ? 'Las Contraseñas no coinsiden' : '';
+        this.validateForm.value.password !== this.validateForm.value.password2 ? 'Las Contraseñas no coinciden' : '';
     }
     return
   }

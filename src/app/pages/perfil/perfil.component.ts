@@ -17,8 +17,8 @@ const baseUrl = environment.URL_BASE
 export class PerfilComponent implements OnInit {
 
 
-
-  canEdit:boolean = false
+//cambiar a false
+  canEdit:boolean = true;
 
   userData :User ={
     first_name: '',
