@@ -18,7 +18,7 @@ export class PerfilComponent implements OnInit {
 
 
 //cambiar a false
-  canEdit:boolean = true;
+  canEdit:boolean = false;
 
   userData :User ={
     first_name: '',
