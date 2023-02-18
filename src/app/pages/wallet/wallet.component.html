@@ -1,15 +1,18 @@
 <div class="container">
+
     <div class="saldo" *ngIf="canSee">
-        <h3>$ 1000000  </h3> <mat-icon (click)="changeView()">visibility</mat-icon>
+        <h3> {{money | currency}}  </h3> <mat-icon (click)="changeView()">visibility</mat-icon>
        
     </div>
+
     <div class="saldo" *ngIf="!canSee">
         <h3>$ *** </h3> <mat-icon (click)="changeView()">visibility_off</mat-icon>
     </div>
+    
     <div class="buttons">
         <button (click)="openForm('ingresar')">Ingresar Dinero</button>
-        <button (click)="openForm('transferir')" [disabled]="true">Transferir dinero</button>
-        <button (click)="openForm('sacar')">Sacar efectivo</button>
+        <button [disabled]="true" style="cursor:no-drop;">Transferir dinero</button>
+        <button (click)="openForm('extraer')">Sacar efectivo</button>
     </div>
 
     <div class="lastEvent" *ngIf="!numberOperations">
@@ -22,34 +25,46 @@
             <p>{{numberOperations}}</p>
         </div>
         <div class="operationsMain">
-            <h4>
-                Muestra el numero a la cajera
+            <h4 class="alert">
+                Indicale el numero a la cajera
             </h4>
 
             <h5>
-                Puedes ir a cualquiera de nuestras sucursales
+                Podes ir a cualquiera de nuestras sucursales
             </h5>
 
-            <div class="map">
+            <div #mapa id="mapa" >
 
             </div>
 
         </div>
     </div>
 
-</div>
-
-
-<div class="eventForm" *ngIf="canViewForm">
-    <div class="header">
-        <h4>Seleccione la cantidad a {{info}}</h4>
-    </div>
-    <div class="main">
-        <input type="number" #price>
-        <span class="alert">*Solo disponible en efectivo</span>
-        <div class="buttons">
-            <button (click)="addEvent(price.value)">Aceptar</button>
-            <button (click)="closedForm()">Cancelar</button>
+    <div class="eventForm" *ngIf="canViewForm">
+        <div class="header">
+            <h4>Seleccione la cantidad a {{info}}</h4>
+        </div>
+        <div class="main">
+            <input type="number" #price>
+            <span class="alert" *ngIf="info === 'ingresar'">*Solo disponible en efectivo</span>
+            <span class="alert" *ngIf="isInsufficient">*Fondos insuficientes</span>
+            <div class="buttons">
+    
+                <button (click)="addEvent(price)" 
+                *ngIf="info === 'ingresar'">
+                Aceptar</button>
+                <button (click)="extract(price)"
+                *ngIf="info !== 'ingresar'">
+                    Aceptar</button>
+    
+                <button (click)="closedForm()" style="background-color:rgb(171, 39, 39)">Cancelar</button>
+            </div>
         </div>
     </div>
+
 </div>
+
+
+
+
+

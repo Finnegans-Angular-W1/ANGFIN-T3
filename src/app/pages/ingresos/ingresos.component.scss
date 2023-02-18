@@ -226,3 +226,11 @@ $shadowBox:-2px 3px 20px 4px #453a74;
 ::ng-deep.title{
     margin-top: 0;
 }
+
+@media (min-height:500px) {
+    .container{
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    
+}

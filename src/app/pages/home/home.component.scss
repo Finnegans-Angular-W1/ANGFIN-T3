@@ -1,8 +1,8 @@
 $gradiant:linear-gradient(90deg,#483D74,#7367B3,#6A5DAE,#574A8D,#483D74);
 
-$shadowBox:-2px 3px 20px 4px #453a74;
+$shadowBox:-2px 3px 20px 4px #453a747b;
 
-$violetMian:#5d4aba;
+$violetMian:#5d4abaa4;
 
 .container{
     display: flex;
@@ -46,8 +46,8 @@ img:hover{
 
 
 .acount{
-    box-shadow: $shadowBox;
-    background-color: #483D74;
+    box-shadow: 1px -11px 20px 4px rgb(69 58 116 / 48%);;
+    background-color: rgb(31, 31, 52);
     width: 500px;
     height: auto;
     display: flex;
@@ -93,6 +93,7 @@ img:hover{
     align-items:center;
     justify-content: center;
     box-shadow: -1px 5px 20px 7px black;
+    background-color: #574A8D;
     .img{
         height: 135px;
         width: 135px;
@@ -181,7 +182,7 @@ img:hover{
 
     .cards{
         display: grid;
-        grid-template-columns: 250px 250px;
+        grid-template-columns: 200px 200px;
     }
     .container{
         flex-direction: column-reverse;
@@ -206,8 +207,13 @@ img:hover{
 
 @media (max-width:500px){
     .cards{
-        grid-template-columns: none;
+        // grid-template-columns: none;
         grid-template-rows: 200px;
+        gap: 0;
+    }
+
+    .textSaldo{
+        width: 200px;
     }
 
     img{

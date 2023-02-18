@@ -2,13 +2,14 @@
 
 .container{
     width: 90%;
-    height: 500px;
+    height: 700px;
     display: flex;
     box-shadow: 2px 2px 20px 4px #0000008a;
     border-radius: 10px;
     flex-direction: column;
     margin: auto;
-    margin-top:100px
+    margin-top:100px;
+    background-color: rgba(31, 31, 52, 0.711);
 }
 
 .saldo{
@@ -33,29 +34,12 @@
 
 }
 
-.buttons{
-    display: flex;
-    width: 100%;
-    margin-top: 15px;
-    gap: 15px;
-    justify-content: center;
-    button{
-        cursor: pointer;
-        width: 90px;
-        height: 45px;
-        background-color: rgb(102, 89, 168);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        text-align: center;
-    }
-}
 
 .lastEvent{
     margin:auto;
     height: 100%;
     width: 100%;
-    background-image: url('PosibleFondo.png');
+    background-image: url('Wallet-cuate\ \(1\).png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -74,17 +58,14 @@
     margin-bottom: 10px;
     text-shadow: 1px 2px 20px black;
     width: 100%;
+    margin-top: 30px;
 }
 
 .eventForm{
     position: absolute;
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-items: center;
     height: 250px;
     width: 320px;
-    background-color: rgb(31, 31, 52);
+    background-color: black;
     margin: auto;
     border-radius: 20px;
     top: 0;
@@ -99,7 +80,7 @@
         align-items: center;
         margin: auto;
         text-align: center;
-        background-color: rgb(102, 89, 168);
+        background-color: #472560;
         color: white;
         height: 40px;
         h4{
@@ -119,8 +100,12 @@
         background-color: #c7c7c7;
         border-bottom: 1px solid black;
         font-size: 16px;
+        margin-bottom: 10px;
         
-        
+    }
+    button{
+        color: #000000;
+        font-size: 20px;
     }
 
     .alert{
@@ -137,7 +122,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .operation{
@@ -146,6 +131,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    height: 100%;
 }
 
 .numbers{
@@ -170,23 +156,71 @@
 .operationsMain{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    height: 100%;
+
+  
 
     h4,h5{
         color: rgb(252, 253, 255);
         font-weight: bold;
     }
 
-    .map{
-        height: 100%;
-        width: 100%;
+    #mapa{
+        height: 300px;
+        width: 300px;
     }
 }
 
 @media (min-width:500px) {
+    
     .container{
         width: 50%;
+        margin:auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
     }
     
 }
+
+
+.buttons{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+    button{
+        border-radius: 10px;
+        border: none;
+        width: 5.5rem;
+        background-color: lightgreen;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .5s all ease;
+        perspective: 900px;
+        animation: entry 1s linear 1;
+    }
+
+    button:hover {
+        transform: rotate(0deg) scale(1) translateY(-7px);
+        transition: .5s all ease;
+        z-index: 400;
+    }
+}
+
+
+
+
+
+
+
+
+

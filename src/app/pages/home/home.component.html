@@ -19,7 +19,7 @@
                     </div> 
                     <p>Numero de transaccion : {{infoAcount[0].id}}</p>
                     <p>Fecha: {{infoAcount[0].createdAt | date: 'short' }}</p>
-                    <p>Cantidad : {{infoAcount[0].amount | currency}}</p>
+                    <p>Cantidad : <span style="color:yellow">-{{infoAcount[0].amount | currency}}</span> </p>
                 </div>
 
                 <div class="textSaldo" *ngIf="infoAcount"> 
@@ -28,7 +28,7 @@
                     </div> 
                     <p>Numero de transaccion: {{infoAcount[1].id}}</p>
                     <p>Fecha: {{infoAcount[1].createdAt | date: 'short' }}</p>
-                    <p>Cantidad : {{infoAcount[1].amount | currency }}</p>
+                    <p>Cantidad : <span style="color:rgb(0, 255, 68)">{{infoAcount[1].amount | currency }}</span></p>
                 </div>
                 
              </div>
