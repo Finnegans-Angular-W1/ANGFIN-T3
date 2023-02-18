@@ -34,7 +34,7 @@
 
             <div class="campos">
 
-                <input mat-card-image formControlName="email" class="box" type="email" id="emailInput" placeholder="example@example.com"
+                <input  formControlName="email" class="box" type="email" id="emailInput" placeholder="E-mail"
                 required>
                 <div *ngIf="registroForm.controls.email.touched&& registroForm.controls.email.errors">
                     <p class="invalid"> Correo electrónico obligatorio</p>
@@ -62,7 +62,7 @@
 
             <button class="btnRegister" [disabled]="registroForm.invalid">Registrarme</button>
 
-            
+            <a routerLink="/login" class="tengoCuenta">Ya tengo una cuenta</a>
 
         </form>
 
