@@ -14,56 +14,61 @@
         <form [formGroup]="registroForm" (ngSubmit)="register()">
 
 
-            <div class="campos">
-
-                <input  formControlName="first_name" class="box" type="text" id="fisrtName_Input" placeholder="Introduce tu nombre"
-                required>
-                <div *ngIf="registroForm.controls.first_name.touched&& registroForm.controls.first_name.errors">
-                    <p class="invalid"> Nombre obligatorio</p>
-                </div>
-            </div>
-
-            <div class="campos">
-
-                <input  formControlName="last_name" class="box" type="text" id="lastName_Input" placeholder="Introduce tu apellido"
-                required>
-                <div *ngIf="registroForm.controls.last_name.touched&& registroForm.controls.last_name.errors">
-                    <p class="invalid"> Apellido obligatorio</p>
-                </div>
-            </div>
-
-            <div class="campos">
-
-                <input  formControlName="email" class="box" type="email" id="emailInput" placeholder="E-mail"
-                required>
-                <div *ngIf="registroForm.controls.email.touched&& registroForm.controls.email.errors">
-                    <p class="invalid"> Correo electrónico obligatorio</p>
-                </div>
-            </div>
-            
           
-            <div class="campos">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput  formControlName="first_name"  type="text" id="fisrtName_Input" placeholder="Introduce tu nombre"
+                    required>
+                    <mat-error *ngIf="registroForm.controls.first_name.touched&& registroForm.controls.first_name.errors">Nombre obligatorio</mat-error>
+                </mat-form-field>
+                   
+          
 
-                <input  formControlName="password" class="box" type="password" id="passwordInput"
-                placeholder="Ingresa tu contraseña" required minlength="6">
-                <div *ngIf=" registroForm.controls.password.touched && registroForm.controls.password.errors">
-                    <p class="invalid"> Contraseña obligatoria</p>
-                </div>
-            </div>
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="last_name"  type="text" id="lastName_Input" placeholder="Introduce tu apellido"
+                    required>
+                    <mat-error *ngIf="registroForm.controls.last_name.touched&& registroForm.controls.last_name.errors">Apellido obligatorio</mat-error>
+                </mat-form-field>
+                
+            
+
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput  formControlName="email" type="email" id="emailInput" placeholder="E-mail"
+                    required>
+                    <mat-error *ngIf="registroForm.controls.email.touched&& registroForm.controls.email.errors">Correo electrónico obligatorio</mat-error>
+                </mat-form-field>
+              
+          
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="password" type="password" id="passwordInput"
+                    placeholder="Ingresa tu contraseña" required minlength="6">
+                    <mat-error *ngIf=" registroForm.controls.password.touched && registroForm.controls.password.errors">Contraseña obligatoria</mat-error>
+                </mat-form-field>
+               
+              
+               
+            
 
             <div class="terms">
+                
                 <input type="checkbox" name="Terminos" id="Terminos"
                        formControlName="terms">
              
                 <a class="terms" (click)="viewTerms()" >terminos y condiciones</a>
             
-                <p class="invalidTerms" *ngIf="registroForm.controls.terms.touched && registroForm.controls.terms.invalid"> Los terminos son obligatorios</p>
+                <mat-error class="invalidTerms" *ngIf="registroForm.controls.terms.touched && registroForm.controls.terms.invalid"> Los terminos son obligatorios</mat-error>
             </div>
 
             <button class="btnRegister" [disabled]="registroForm.invalid">Registrarme</button>
 
             <a routerLink="/login" class="tengoCuenta">Ya tengo una cuenta</a>
-
+            <mat-error *ngIf="invalidEmailOrPassword">Ya hay un usuario con ese correo electrónico</mat-error>
         </form>
 
     </div>

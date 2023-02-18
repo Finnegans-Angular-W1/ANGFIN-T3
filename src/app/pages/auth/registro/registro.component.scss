@@ -1,19 +1,15 @@
 .contenedor {
     display: flex;
     justify-content: center;
+    
     height: 100vh;
     align-items: center;
     text-align: center;
-    color: #FAFAFB;
+   
     font-family: 'Barlow', sans-serif;
 }
 
-.campos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+
 .titulo{
     color: black;
     font-size: 36px;
@@ -22,7 +18,7 @@
 .registerForm {
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.717);
     width: 30rem;
-    height: 35rem;
+    height: 32rem;
     padding: 35px;
     background-color: #fafafb;
     border-radius: 20px;
@@ -37,20 +33,6 @@ form {
 }
 
 
-.box {
-    border: none;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: EAEAEC;
-    
-    background-color:#ffffff;
-    border-bottom: 1px solid black;
-    font-size: 16px;
-}
-.box:placeholder{
-    color: rgb(173, 173, 173);
-    font-size: 24px;
-}
 
 
 
@@ -81,12 +63,6 @@ form {
     background-color: #616161;
     cursor: auto;
 }
-.invalid {
-    position: fixed;
-
-    color: rgb(255, 4, 4);
-    font-size: 1rem;
-}
 
 
 app-terms-and-conditions{
@@ -105,7 +81,6 @@ app-terms-and-conditions{
 
 .invalidTerms {
     position: absolute;
-
     color: rgb(255, 4, 4);
     font-size: 1rem;
 }

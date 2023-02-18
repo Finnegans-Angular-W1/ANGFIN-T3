@@ -3,36 +3,34 @@
     <div class="loginForm">
 
         
+        <h2 class="titulo">Bienvenido a AlkyBank</h2>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <h2 class="titulo">Bienvenido a AlkyBank</h2>
 
             
-            <div class="campos">
-
-                <!-- <label for="emailInput">Correo electrónico</label> -->
-                
-                <input  formControlName="email" class="box" type="email" id="emailInput" placeholder="Email"
-                required>
-
-                <div *ngIf="loginForm.controls.email.touched&& loginForm.controls.email.errors">
-                    <div class="invalid">* Correo electrónico obligatorio</div>
-                </div>
-                
-            </div>
           
-            <div class="campos">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email"  type="email" id="emailInput" placeholder="Email"
+                    required>
+                    <mat-error *ngIf="loginForm.controls.email.touched&& loginForm.controls.email.errors">Correo electrónico obligatorio</mat-error>
+                </mat-form-field>
+
+          
+          
+           
 
                 <!-- <label for="passwordInput">Contraseña</label> -->
                
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="password"  type="password" id="passwordInput"
+                    placeholder="Contraseña" required minlength="6">
+                    <mat-error *ngIf=" loginForm.controls.password.touched && loginForm.controls.password.errors">Contraseña obligatoria</mat-error>
+                </mat-form-field>
                 
-                <input formControlName="password" class="box" type="password" id="passwordInput"
-                placeholder="Contraseña" required minlength="6">
-                
-
-                <div *ngIf=" loginForm.controls.password.touched && loginForm.controls.password.errors">
-                    <div class="invalid">* Contraseña obligatoria</div>
-                </div>
-            </div>
+               
+            
             <div class="invalidDates" *ngIf="invalidEmailOrPassword">Correo o contraseña incorrectos</div>
             <div class="buttons">
 
