@@ -81,15 +81,15 @@ export class formResetComponent implements OnInit {
     this.dialogRef.close();
   }
   
-  getErrorMessage(field: string) {
-    if (field === 'email') {
+  getErrorMessage(input: string) {
+    if (input === 'email') {
       return this.validateForm.controls['email'].hasError('required') ? 'Email requerido' :
         this.validateForm.controls['email'].hasError('email') ? 'Email invalido' :
           this.validateForm.controls['email'].hasError('checkEmail') ? 'Email incorrecto' : '';
-    } else if (field === 'password') {
+    } else if (input === 'password') {
       return this.validateForm.controls['password'].hasError('required') ? 'Password requerido' :
         this.validateForm.controls['password'].hasError('minlength') ? 'Password inseguro' : '';
-    } else if (field === 'password2') {
+    } else if (input === 'password2') {
       return this.validateForm.controls['password2'].hasError('required') ? 'Confirme Contraseña' :
         this.validateForm.value.password !== this.validateForm.value.password2 ? 'Las Contraseñas no coinciden' : '';
     }

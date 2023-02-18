@@ -7,7 +7,7 @@
 
   <ng-container *ngFor="let item of data">
 
-  <article class="accordion-panel" *ngIf="!item.amount.includes('-')">
+  <article class="accordion-panel" >
       <input class="input_movement" type="radio" id="{{item.id}}"
       name="accordion"  />
       <label  for="{{item.id}}">

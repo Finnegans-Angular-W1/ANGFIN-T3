@@ -9,7 +9,7 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 })
 export class IngresosComponent implements OnInit {
 
-  data?: any[];
+  data?: Transferencia[];
 
   addInport:boolean = false
 
@@ -33,8 +33,7 @@ export class IngresosComponent implements OnInit {
   }
 
   addData(data:any){
-    // this.data?.push(data)
-    console.log({...this.data})
+    this.data?.push(data)
     console.log(data)
     this.openAndClose()
   }
