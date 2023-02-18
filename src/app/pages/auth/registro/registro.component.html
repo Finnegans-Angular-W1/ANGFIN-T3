@@ -68,7 +68,7 @@
             <button class="btnRegister" [disabled]="registroForm.invalid">Registrarme</button>
 
             <a routerLink="/login" class="tengoCuenta">Ya tengo una cuenta</a>
-            <mat-error *ngIf="invalidEmailOrPassword">Correo o contraseña incorrectos</mat-error>
+            <mat-error *ngIf="invalidEmailOrPassword">Ya hay un usuario con ese correo electrónico</mat-error>
         </form>
 
     </div>

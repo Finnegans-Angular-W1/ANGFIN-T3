@@ -5,17 +5,13 @@
     height: 100vh;
     align-items: center;
     text-align: center;
-    color: #FAFAFB;
+    
     font-family:Karma & Jasmine 'Roboto', sans-serif;
     // background-color: #664af1;
     // background-image: linear-gradient(161deg, rgb(46, 22, 135) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
     
 }
 
-label {
-    font-size: 1.1rem;
-    color: black;
-}
 
 
 
@@ -27,18 +23,14 @@ label {
 .loginForm {
     box-shadow: 0 0 2rem rgba(88, 2, 138, 0.518);
     width: 30rem;
-    height: 32rem;
+    height: 25rem;
     padding: 35px;
     background-color: #FAFAFB;
     border-radius: 20px;
 
 }
 
-.campos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
+
 
 .buttons {
     display: flex;
@@ -58,24 +50,6 @@ form {
     align-items: stretch;
     padding: 20px;
 }
-
-
-.box {
-    outline: none;
-    border: none;
-    margin: 20px;
-    margin-bottom: 0;
-    padding: 15px;
-    background-color: EAEAEC;
-    
-    background-color: #ffffff;
-    border-bottom: 1px solid black;
-    color: black;
-    font-size: 16px;
-
-}
-
-
 
 
 .loginForm .btnLogin,
@@ -108,18 +82,8 @@ form {
     cursor: auto;
 }
 
-.invalid {
-    position: absolute;
-    text-align: center;
-    margin-left: 2rem;
-    color: rgb(255, 4, 4);
-    font-size: 1rem;
-}
+
 
 .invalidDates{
     color: red;
-}
-
-input:valid{
-    border-bottom:3px solid green;
 }
