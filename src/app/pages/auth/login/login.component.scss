@@ -1,13 +1,14 @@
 .contenedor {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    
     height: 100vh;
     align-items: center;
     text-align: center;
     color: #FAFAFB;
     font-family:Karma & Jasmine 'Roboto', sans-serif;
-    background-image: linear-gradient(161deg, rgb(46, 22, 135) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
+    // background-color: #664af1;
+    // background-image: linear-gradient(161deg, rgb(46, 22, 135) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
     
 }
 
@@ -96,13 +97,13 @@ form {
 
 .loginForm .btnLogin:hover,
 .loginForm .btnRegister:hover {
-    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);;
+    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);
 
 
 }
 
 .loginForm .btnLogin:disabled {
-    background: linear-gradient(161deg, rgb(102, 61, 249) 0%, rgb(109, 41, 138) 48%, rgb(56, 27, 113) 100%);;
+    background:  0rem  1rem 1rem rgba(72, 8, 91, 0.258);;
 
     cursor: auto;
 }
@@ -120,5 +121,5 @@ form {
 }
 
 input:valid{
-    border:2px solid green;
+    border-bottom:3px solid green;
 }

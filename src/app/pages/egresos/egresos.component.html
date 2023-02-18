@@ -1,5 +1,5 @@
-<app-title></app-title>
 <section class="container">
+  <app-title [title]="'Egresos'"></app-title>
   <hr>
   <br>
   <div class="accordion">
@@ -10,7 +10,13 @@
       <input class="input_movement" type="radio" id="{{item.id}}"
       name="accordion"  />
       <label  for="{{item.id}}">
-      {{ item.updatedAt  | date: 'short' }} <br> {{item.amount | currency }}
+      <div class="amountContainer">
+        {{ item.updatedAt  | date: 'short' }} <br> 
+        <p class="negative">
+          -{{item.amount | currency }}
+        </p>
+       </div>
+
       <mat-icon class="open">expand_more</mat-icon>
         
           <div id="cerrar_art" class="accordion-cerrar">
@@ -33,7 +39,7 @@
         <span class="accordion-answer">Transaccion : {{ item.type }} (pago)</span><br>
         <div class="btn_container">
           <br>
-          <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button> 
+          <!-- <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button>  -->
         </div>
       </div>
     

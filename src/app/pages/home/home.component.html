@@ -4,9 +4,8 @@
     
      
     <section class="dates">
-        <app-title></app-title>
         <div class="banner">
-            <img src="Banner.jpg" >
+            <img src="banner4.jpg" >
         </div>
 
         <article class="information">
@@ -14,24 +13,26 @@
              <p class="text">Ultimos movimientos:</p>
              <div class="cards">
                 
-                <div class="textSaldo" *ngIf="infoAcount"> 
-                    <h3>Egreso</h3>
+                <div class="textSaldo" *ngIf="infoAcount">
+                    <div class="title">
+                        <h3>Egreso</h3>
+                    </div> 
                     <p>Numero de transaccion : {{infoAcount[0].id}}</p>
+                    <p>Fecha: {{infoAcount[0].createdAt | date: 'short' }}</p>
                     <p>Cantidad : {{infoAcount[0].amount | currency}}</p>
                 </div>
 
                 <div class="textSaldo" *ngIf="infoAcount"> 
-                    <h3>Ingreso</h3>
+                    <div class="title">
+                        <h3>Ingreso</h3>
+                    </div> 
                     <p>Numero de transaccion: {{infoAcount[1].id}}</p>
+                    <p>Fecha: {{infoAcount[1].createdAt | date: 'short' }}</p>
                     <p>Cantidad : {{infoAcount[1].amount | currency }}</p>
                 </div>
+                
              </div>
 
-            </div>
-            <div class="calendar" >
-                <mat-card class="calendar-card">
-                    <mat-calendar ></mat-calendar>
-                  </mat-card>
             </div>
         </article>
 
@@ -39,7 +40,6 @@
 
     <section class="acount">
         <div class="header">
-            <h2>Bienvenido</h2>
             <div class="containerImg" >
                 <div class="img">
                 </div>

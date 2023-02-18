@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Transferencia } from 'src/app/core/interfaces/transferencia.interface';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
 @Component({
   selector: 'app-egresos',
@@ -7,7 +8,7 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 })
 export class EgresosComponent implements OnInit {
 
-  data?: any;
+  data?: Transferencia[];
 
   constructor(private transactionsService: TransactionsService ) {}
 

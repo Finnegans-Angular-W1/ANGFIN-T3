@@ -16,13 +16,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/services/auth/auth.interceptor';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
 
   declarations: [
-    AppComponent    
+    AppComponent,  
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

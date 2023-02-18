@@ -23,16 +23,21 @@ export class RegistroComponent implements OnInit {
   constructor(private fb: FormBuilder,private router:Router,private registerService:AuthService) { }
   ngOnInit(): void {
   }
-
+  invalidEmailOrPassword = false;
   register(){
-    this.registerService.register(this.registroForm).subscribe({
+    this.registerService.register(this.registroForm).subscribe(
+    {
       next:(res:any) =>{
         this.router.navigateByUrl('/login')
+        
       },
-      error: err=>{
-        // Arrojar alertas o avisos si el usario existe o no es valido
-      }
-    })
+      error: (err:any)=>{
+          console.log(err.error)
+
+          this.invalidEmailOrPassword = true;
+        
+      } }
+    )
   }
 
   public onSubmit() {

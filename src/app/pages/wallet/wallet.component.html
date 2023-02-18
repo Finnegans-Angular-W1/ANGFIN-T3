@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="saldo" *ngIf="canSee">
+        <h3>$ 1000000  </h3> <mat-icon (click)="changeView()">visibility</mat-icon>
+       
+    </div>
+    <div class="saldo" *ngIf="!canSee">
+        <h3>$ *** </h3> <mat-icon (click)="changeView()">visibility_off</mat-icon>
+    </div>
+    <div class="buttons">
+        <button (click)="openForm('ingresar')">Ingresar Dinero</button>
+        <button (click)="openForm('transferir')" [disabled]="true">Transferir dinero</button>
+        <button (click)="openForm('sacar')">Sacar efectivo</button>
+    </div>
+
+    <div class="lastEvent" *ngIf="!numberOperations">
+        <h3 class="h3Tipy"> No hay operaciones pendientes</h3>
+    </div>
+
+    <div class="operation" *ngIf="numberOperations">
+        <h3 class="h3Tipy"> Numero de operacion</h3>
+        <div class="numbers">
+            <p>{{numberOperations}}</p>
+        </div>
+        <div class="operationsMain">
+            <h4>
+                Muestra el numero a la cajera
+            </h4>
+
+            <h5>
+                Puedes ir a cualquiera de nuestras sucursales
+            </h5>
+
+            <div class="map">
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="eventForm" *ngIf="canViewForm">
+    <div class="header">
+        <h4>Seleccione la cantidad a {{info}}</h4>
+    </div>
+    <div class="main">
+        <input type="number" #price>
+        <span class="alert">*Solo disponible en efectivo</span>
+        <div class="buttons">
+            <button (click)="addEvent(price.value)">Aceptar</button>
+            <button (click)="closedForm()">Cancelar</button>
+        </div>
+    </div>
+</div>
