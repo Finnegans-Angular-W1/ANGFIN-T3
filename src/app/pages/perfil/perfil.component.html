@@ -26,13 +26,16 @@
                     
                     <div class="inputContainer">
                         <label for="name">Nombre</label>
-                        <div class="border">
-                            <mat-icon aria-hidden="false"
-                             color="primary"
-                             fontIcon="account_circle"></mat-icon>
-                            <input type="text" id="name" [value]="userData.first_name"
-                            [disabled]="!canEdit"> 
-                        </div>
+                       
+                           
+                            <div class="border">
+                                <mat-icon aria-hidden="false"
+                            color="primary"
+                            fontIcon="account_circle"></mat-icon>
+                                <input type="text" id="name" [value]="userData.first_name"
+                                [disabled]="!canEdit"> 
+                            </div>
+                        
                     </div>
     
                     <br> 
@@ -74,12 +77,12 @@
                 (click)="openModal()">
                 Editar Password</button>
     
-                
+                <button mat-raised-button color="primary" 
+                class="margin-top" 
+                [disabled]="!canEdit">Guardar</button>
             </div>
             
-            <button mat-raised-button color="primary" 
-                    class="margin-top" 
-                    [disabled]="!canEdit">Guardar</button>
+           
     
     
     

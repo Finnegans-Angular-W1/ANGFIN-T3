@@ -69,8 +69,8 @@ $gradiant:linear-gradient(336deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
         border: solid rgb(131, 131, 131) 1px;
         height: 40px;
         border-radius: 20px;
-        justify-content: center;
-
+        justify-content: left;
+        
         input{
             width: 80%;
             border: none;
@@ -82,6 +82,7 @@ $gradiant:linear-gradient(336deg,#302754,#7367B3,#6A5DAE,#574A8D,#211942);
             width: 35px;
             height: 35px;
             font-size: 35px;
+
         }
 
     }

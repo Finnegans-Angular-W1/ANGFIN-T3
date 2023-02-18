@@ -1,7 +1,7 @@
 
 ::ng-deep.mat-dialog-container {
   //background-color: hsl(252, 96%, 74%);
-  background-image: linear-gradient(to bottom, #897bc0, #8d77fa, #ff9e93)!important;
+  background-color: #FAFAFB;
   display: flex;
   justify-content: center;
   border-radius:20px;
@@ -37,9 +37,7 @@ div.input-container{
     font-family: sans-serif;
     
 }
-div.mat-dialog-actions button {
-  background-color: #FFF;
-}
+
 .small_error{
   color: rgb(255, 0, 0);
   font-family: sans-serif;
@@ -60,6 +58,7 @@ div.mat-dialog-actions button {
 }
 .div_container{
   display: flex;
+  padding: 50px;
 }
 .icon_eye{
   position: relative;

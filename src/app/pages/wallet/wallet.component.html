@@ -45,19 +45,26 @@
             <h4>Seleccione la cantidad a {{info}}</h4>
         </div>
         <div class="main">
-            <input type="number" #price>
+
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Cantidad</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" #price>
+               
+              </mat-form-field>
+
+
             <span class="alert" *ngIf="info === 'ingresar'">*Solo disponible en efectivo</span>
             <span class="alert" *ngIf="isInsufficient">*Fondos insuficientes</span>
             <div class="buttons">
     
-                <button (click)="addEvent(price)" 
+                <button mat-flat-button color="primary"  (click)="addEvent(price)" 
                 *ngIf="info === 'ingresar'">
                 Aceptar</button>
-                <button (click)="extract(price)"
+                <button mat-flat-button color="primary"  (click)="extract(price)"
                 *ngIf="info !== 'ingresar'">
                     Aceptar</button>
     
-                <button (click)="closedForm()" style="background-color:rgb(171, 39, 39)">Cancelar</button>
+                <button (click)="closedForm()" mat-flat-button color="warn">Cancelar</button>
             </div>
         </div>
     </div>
