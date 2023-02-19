@@ -10,8 +10,8 @@ import { User } from '../../core/state/auth/interfaces/user.interface';
 })
 export class HomeComponent implements OnInit {
 
-  infoAcount : any
-
+  infoAcountTopUp : any
+  infoAcountPayment:any
   dataUser!:User
 
   selected: Date = new Date;
@@ -21,11 +21,18 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.transations.getTransactions('topup')
+    .subscribe(
+      resp =>{
+        this.infoAcountTopUp = resp
+        
+      }
+    )
     this.transations.getTransactions('payment')
     .subscribe(
       resp =>{
-        this.infoAcount = resp.slice(0, 2) 
-        console.log(this.infoAcount)
+        this.infoAcountPayment = resp
+        
       }
     )
 

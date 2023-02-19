@@ -1,6 +1,4 @@
-
-
-.container{
+.container {
     width: 90%;
     height: 700px;
     display: flex;
@@ -8,11 +6,11 @@
     border-radius: 10px;
     flex-direction: column;
     margin: auto;
-    margin-top:100px;
+    margin-top: 100px;
     background-color: rgba(31, 31, 52, 0.711);
 }
 
-.saldo{
+.saldo {
     height: 50px;
     display: flex;
     align-items: center;
@@ -20,14 +18,15 @@
     width: 100%;
     gap: 10px;
     margin-top: 10px;
-    h3{
+
+    h3 {
         color: white;
         font-size: 30px;
         font-weight: 600;
         margin: 0;
     }
 
-    mat-icon{
+    mat-icon {
         cursor: pointer;
         color: white;
     }
@@ -35,8 +34,8 @@
 }
 
 
-.lastEvent{
-    margin:auto;
+.lastEvent {
+    margin: auto;
     height: 100%;
     width: 100%;
     background-image: url('Wallet-cuate\ \(1\).png');
@@ -47,11 +46,11 @@
     justify-content: center;
     margin-top: 20px;
 
-    
-    
+
+
 }
 
-.h3Tipy{
+.h3Tipy {
     text-align: center;
     color: white;
     font-size: 20px;
@@ -61,19 +60,19 @@
     margin-top: 30px;
 }
 
-.eventForm{
+.eventForm {
     position: absolute;
     height: 250px;
     width: 320px;
-    background-color: black;
+    background-color: rgb(254, 252, 252);
     margin: auto;
     border-radius: 20px;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
 
-    .header{
+    .header {
         border-radius: 20px 20px 0 0;
         display: flex;
         justify-content: center;
@@ -83,41 +82,28 @@
         background-color: #472560;
         color: white;
         height: 40px;
-        h4{
+
+        h4 {
             font-size: 20px;
             margin-bottom: 0;
         }
     }
 
-    input{
-        width: 80%;
-        box-shadow: 0rem 0rem 1rem 4px rgb(95 27 149);
-        border: none;
-        margin: 20px;
-        margin-bottom: 0;
-        padding: 15px;
-        border-radius: 15px;
-        background-color: #c7c7c7;
-        border-bottom: 1px solid black;
-        font-size: 16px;
-        margin-bottom: 10px;
-        
-    }
-    button{
-        color: #000000;
+    button {
+        color: #FAFAFB;
         font-size: 20px;
     }
 
-    .alert{
+    .alert {
         margin-top: 10px;
-        color:rgb(255, 225, 0);
+        color: rgb(179, 158, 0);
         font-size: 15px;
         font-family: sans-serif;
     }
 }
 
-.main{
-    
+.main {
+
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -125,7 +111,7 @@
     margin-top: 20px;
 }
 
-.operation{
+.operation {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -134,7 +120,7 @@
     height: 100%;
 }
 
-.numbers{
+.numbers {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -142,63 +128,65 @@
     height: 60px;
     background-color: white;
 
-    p{  
+    p {
         text-align: center;
         width: 100%;
         word-spacing: 20px;
-        margin:0;
+        margin: 0;
         font-size: 30px;
         font-weight: bold;
         color: rgb(102, 89, 168);
     }
 }
 
-.operationsMain{
+.operationsMain {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     height: 100%;
 
-  
 
-    h4,h5{
+
+    h4,
+    h5 {
         color: rgb(252, 253, 255);
         font-weight: bold;
     }
 
-    #mapa{
+    #mapa {
         height: 300px;
         width: 300px;
     }
 }
 
 @media (min-width:500px) {
-    
-    .container{
+
+    .container {
         width: 50%;
-        margin:auto;
+        margin: auto;
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
         top: 0;
     }
-    
+
 }
 
 
-.buttons{
+.buttons {
     display: flex;
     width: 100%;
     gap: 15px;
     justify-content: center;
     margin-top: 10px;
-    button{
+
+    button {
         border-radius: 10px;
         border: none;
         width: 5.5rem;
-        background-color: lightgreen;
+       
         padding: 10px;
         display: flex;
         justify-content: center;
@@ -215,12 +203,4 @@
         z-index: 400;
     }
 }
-
-
-
-
-
-
-
-
 

@@ -46,8 +46,8 @@ img:hover{
 
 
 .acount{
-    box-shadow: 1px -11px 20px 4px rgb(69 58 116 / 48%);;
-    background-color: rgb(31, 31, 52);
+    
+    background-color: #1f1f348c;
     width: 500px;
     height: auto;
     display: flex;
@@ -55,6 +55,8 @@ img:hover{
     align-items: center;
     justify-content: center;
     gap: 40px;
+   
+  
 
     .header{
         display: flex;
@@ -134,7 +136,7 @@ img:hover{
     color: white;
     width: 220px;
     max-width: 250px;
-
+    
     height: 200px;
     border-radius: 20px;
     display: flex;
@@ -148,6 +150,7 @@ img:hover{
         margin: 0;
         font-size: 20px;
         font-weight: bold;
+        
     }
     p{
         padding-left: 10px;
