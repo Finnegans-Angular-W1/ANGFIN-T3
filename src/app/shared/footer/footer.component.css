@@ -192,6 +192,7 @@ input#label_up:checked ~ label#label_up #cerrar_art {
 #label_up:hover + label#label_up .open ,
 .label_cerrar:hover{
   color: #0bfb17;
+  text-shadow: 0px 1px 10px #0bfb17;
 }
 @keyframes opacit {
   0%{

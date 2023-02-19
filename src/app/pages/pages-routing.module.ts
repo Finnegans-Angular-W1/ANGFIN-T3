@@ -6,6 +6,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path:'wallet',
     component: WalletComponent
+  },
+  {
+    path:'contact',
+    component: ContactComponent
   },
   
 ];
