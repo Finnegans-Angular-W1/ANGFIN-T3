@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
 import { HttpService } from '../../core/services/http.service';
 import { Transferencia } from '../../core/interfaces/transferencia.interface';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 
 
@@ -31,7 +32,9 @@ export class FormComponent implements OnInit {
 
   @Output() onClose :EventEmitter<boolean> = new EventEmitter() 
 
-
+  accId!:number; 
+  usId!:number;
+  toId!:number
 
   form: FormGroup = this.fb.group({
     monto: [{value:0, disabled: this.isEdition}, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
@@ -39,7 +42,7 @@ export class FormComponent implements OnInit {
     fecha: [{value: moment().format('DD/MM/YYYY'), disabled: this.isEdition}, [Validators.required]]
   });
   
-  constructor( private fb: FormBuilder, private httpService : HttpService ) {}
+  constructor( private fb: FormBuilder, private httpService : HttpService ,private authS:AuthService) {}
 
   ngOnInit(): void {
     if(!this.isEdition){
@@ -56,6 +59,12 @@ export class FormComponent implements OnInit {
       });
     }
 
+    this.authS.getCuenta().subscribe((res:any)=>{
+      this.accId = res[0].id
+      this.toId = res[0].id
+      this.usId = res[0].userId
+    })
+
   }
 
 
@@ -67,9 +76,9 @@ export class FormComponent implements OnInit {
         concept: this.form.get('concepto')?.value,
         date: this.form.get('fecha')?.value,
         type: this.type,
-        accountId: 1,
-        userId: 4,
-        to_account_id: 5
+        accountId: this.accId,
+        userId: this.usId,
+        to_account_id: this.toId
       }
   
   
@@ -87,6 +96,7 @@ export class FormComponent implements OnInit {
   }
 
 
+  
 }
 
 

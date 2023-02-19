@@ -48,7 +48,7 @@ export class AuthService {
    
     return this.httpClient.post<any>(`${environment.URL_BASE}/accounts`, {
       "creationDate": date.toUTCString(),
-      "money": 0,
+      "money": 200,
       "isBlocked": false,
       "userId": id
     })
