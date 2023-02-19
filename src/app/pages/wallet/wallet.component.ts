@@ -16,7 +16,9 @@ export class WalletComponent implements OnInit {
   
   canViewForm:boolean = false
 
-  numberOperations! :number;
+  OperationLocal : string = localStorage.getItem('Operation') || ''
+
+  numberOperations :string | number = this.OperationLocal || ''
 
   info! : string
   
@@ -36,10 +38,12 @@ export class WalletComponent implements OnInit {
   
 
   ngOnInit(): void {
- 
-
       this.http.get(`${baseUrl}/accounts/me`).subscribe(
         {next: (resp:any) => this.money = resp[0].money})
+
+      if(this.numberOperations){
+        this.createMap()
+      }
   }
 
 
@@ -85,6 +89,8 @@ export class WalletComponent implements OnInit {
   
   operationTrue(){
     this.numberOperations = Math.round(Math.random() * 100000);
+
+    localStorage.setItem('Operation', JSON.stringify(this.numberOperations))
     
     this.createMap()
 
