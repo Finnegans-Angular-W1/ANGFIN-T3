@@ -36,8 +36,10 @@ export class WalletComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.http.get(`${baseUrl}/accounts/2068`).subscribe(
-      {next: (resp:any) => this.money = resp.money})
+ 
+
+      this.http.get(`${baseUrl}/accounts/me`).subscribe(
+        {next: (resp:any) => this.money = resp[0].money})
   }
 
 
