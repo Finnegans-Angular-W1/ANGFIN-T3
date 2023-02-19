@@ -85,6 +85,15 @@ export class FormComponent implements OnInit {
       this.httpService.post<Transferencia>(`${baseUrl}/transactions`,body,false).subscribe(resp =>{
         this.data.emit(resp)
       })
+      this.httpService.post<any>(`${baseUrl}/fixeddeposits`,{
+        
+          "userId": this.usId,
+          "accountId": this.accId,
+          "amount": this.form.get('monto')?.value,
+          "creation_date": "2022-10-26",
+          "closing_date": "2022-11-26"
+        
+      })
     }
 
 
