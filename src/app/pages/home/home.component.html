@@ -11,22 +11,22 @@
              <p class="text">Ultimos movimientos:</p>
              <div class="cards">
                 
-                <div class="textSaldo" *ngIf="infoAcount">
+                <div class="textSaldo" *ngIf="infoAcountPayment">
                     <div class="title">
                         <h3>Egreso</h3>
                     </div> 
-                    <p>Numero de transaccion : {{infoAcount[0].id}}</p>
-                    <p>Fecha: {{infoAcount[0].createdAt | date: 'short' }}</p>
-                    <p>Cantidad : <span style="color:yellow">-{{infoAcount[0].amount | currency}}</span> </p>
+                    <p>Numero de transaccion : {{infoAcountPayment[0].id}}</p>
+                    <p>Fecha: {{infoAcountPayment[0].createdAt | date: 'short' }}</p>
+                    <p>Cantidad : <span style="color:yellow">-{{infoAcountPayment[0].amount | currency}}</span> </p>
                 </div>
 
-                <div class="textSaldo" *ngIf="infoAcount"> 
+                <div class="textSaldo" *ngIf="infoAcountTopUp"> 
                     <div class="title">
                         <h3>Ingreso</h3>
                     </div> 
-                    <p>Numero de transaccion: {{infoAcount[1].id}}</p>
-                    <p>Fecha: {{infoAcount[1].createdAt | date: 'short' }}</p>
-                    <p>Cantidad : <span style="color:rgb(0, 255, 68)">{{infoAcount[1].amount | currency }}</span></p>
+                    <p>Numero de transaccion: {{infoAcountTopUp[0].id}}</p>
+                    <p>Fecha: {{infoAcountTopUp[0].createdAt | date: 'short' }}</p>
+                    <p>Cantidad : <span style="color:rgb(0, 255, 68)">{{infoAcountTopUp[0].amount | currency }}</span></p>
                 </div>
                 
              </div>
