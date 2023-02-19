@@ -68,6 +68,7 @@ export class FormComponent implements OnInit {
       });
     }
 
+    // asignamos los id de la cuenta (la primer cuenta) del usuario que esta logueado
     this.authS.getCuenta().subscribe((res: any) => {
       this.accId = res[0].id
       this.toId = res[0].id
