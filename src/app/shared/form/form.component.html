@@ -21,6 +21,14 @@
   </mat-form-field>
   <div *ngIf="form.get('fecha')?.touched && form.get('fecha')?.errors?.['required']" class="invalid">La fecha es requerida.</div>
 
+  <div *ngIf="isEgreso; then egreso"></div>
+  <ng-template #egreso>
+    <mat-form-field appearance="outline"> 
+      <mat-label>Id usuario a enviar</mat-label>
+      <input matInput formControlName="idUsuario" type="number" placeholder="Id usuario a enviar">
+    </mat-form-field>
+  </ng-template>
+
   <div class="buttons">
     <button (click)="submit()">Anadir</button>
     <button (click)="close()">Cerrar</button>
