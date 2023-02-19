@@ -58,15 +58,13 @@ hr{
 .accordion i{
     color:#73ff82
 }
-.accordion .close{
+.accordion .close , .accordion input:checked + label .open{
     display: none;
 }
 .accordion input:checked + label .close {
     display: block;
 }
-.accordion input:checked + label .open{
-    display: none;
-}
+
 .accordion-body{
     height: 0;
     overflow: hidden;

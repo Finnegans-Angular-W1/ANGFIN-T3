@@ -71,8 +71,6 @@ justify-content: center;
 order: 3;
 }
 
-
-
 .twitter{
 height: 80px;
 max-height: 200px;
@@ -83,6 +81,7 @@ left: 0;
 transition: all 500ms ease-in-out;
 position: absolute;
 margin: auto;
+padding-top:0.5rem;
 }
 
 
@@ -94,6 +93,7 @@ border-radius: 15px;
 margin: 0 0 0 25px;
 }
 .container_twitter {
+padding-top: 2rem;
 overflow: hidden;
 max-height: 100px;
 width: 375px;
@@ -106,18 +106,100 @@ transition: all 1s ease-out , height 1s ease-in-out;
 z-index: 2;
 filter: drop-shadow(2px 4px 6px black);
 order: 2;
+display: flex;
+flex-direction: row-reverse;
 }
 
+input#label_up{
+  display: none;
+}
+label#label_up{
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-block: 7px;
+  color: #f4f5f6;
+  cursor: pointer;
+  transition: color 0.25s;
+  font-size: 20px;
+  height: 100%;
+  position: relative;
+  transition: all 1s ease-out , height 1s ease-in-out;
+  z-index: 2;
+  filter: drop-shadow(2px 4px 6px black);
+  order: 2;
+  display: flex;
+  flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow_dawn{
+  margin-bottom: -22px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  justify-content: center;
+  display: flex;
+}   
 
 
-.container_twitter:hover/* , .twitter:hover,.twitter-tweet:hover,.twitter-tweet-rendered:hover
-.css-1dbjc4n,:hover.r-18u37iz:hover, .r-kzbkwu:hover */{
+#cerrar_art ,input#cerrar , input#label_up:checked + label#label_up .open  {
+  display: none;
+}
+
+input#label_up:checked + label#label_up .container_twitter {
 transform: translateY(-350%);
 overflow: visible;
 height:10rem;
+padding-top: 0;
 }
-.container_twitter:not(:hover) {
-animation: div-transition 1s ease;
+input#label_up:checked ~ label#label_up #cerrar_art {
+  display: flex;
+}
+.twitter{
+    border-top: solid 0.1rem black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.open{
+    position: absolute;
+    top: 10%;
+    display: flex;
+    z-index: 3;
+    font-size: xx-large;
+    margin: 0 auto;
+    min-width: min-content;
+    margin-left: 7%;
+    animation: opacit 2s ease-in;
+}
+.close{
+  z-index: 6;
+  position: sticky;
+  font-size: xx-large;
+  position: relative;
+  bottom: 40%;
+}
+.label_cerrar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 0.5rem;
+  cursor: pointer;
+}
+
+#label_up:hover + label#label_up .open ,
+.label_cerrar:hover{
+  color: #0bfb17;
+}
+@keyframes opacit {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 @keyframes div-transition {
 0% {
