@@ -13,7 +13,7 @@ const baseUrl = environment.URL_BASE
 export class WalletComponent implements OnInit {
 
   canSee : boolean = false;
-
+  
   canViewForm:boolean = false
 
   numberOperations! :number;
