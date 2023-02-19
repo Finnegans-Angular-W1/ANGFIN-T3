@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
 
   @Input() isEgreso: boolean = false;
   @Input()
-  formValues?: FormGroup;
+  // formValues?: FormGroup;
 
   @Input()
   view: boolean = false
@@ -37,35 +37,18 @@ export class FormComponent implements OnInit {
   usId!: number;
   toId!: number
 
-  form: FormGroup = this.fb.group({
-    monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]],
-    concepto: ['', [Validators.required]],
-    fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
-    idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]],
-  });
+  body! : any
+
+  form!: FormGroup;
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private authS: AuthService) { }
 
   ngOnInit(): void {
-    if (!this.isEdition) {
-      this.form.reset({
-        monto: 0,
-        concepto: '',
-        fecha: ''
-      })
-    } if(this.isEgreso) {
-      this.form = this.formValues || this.fb.group({
-        monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1)]],
-        concepto: ['', [Validators.required]],
-        fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
-        idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
-      });
+
+    if(this.isEgreso) {
+      this.createFormEgreso()
     }else{ //si no es egreso queda el formulario para un ingreso
-      this.form = this.formValues || this.fb.group({
-        monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1)]],
-        concepto: ['', [Validators.required]],
-        fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]]
-      });
+      this. createFormIngreso()
     }
 
     // asignamos los id de la cuenta (la primer cuenta) del usuario que esta logueado
@@ -79,45 +62,16 @@ export class FormComponent implements OnInit {
 
 
   submit() {
-    
-    if (this.isEgreso) {
-      console.log('es egreso')
-      if (this.form.valid) {
+
+    if(this.form.invalid) return 
+
         
-        const body = {
-          amount: this.form.get('monto')?.value,
-          concept: this.form.get('concepto')?.value,
-          date: this.form.get('fecha')?.value,
-          type: this.type,
-          accountId: this.accId,
-          userId: this.usId,
-          to_account_id: this.form.get('idUsuario')?.value
-        }
+    this.createBody()
 
-
-        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, body, false).subscribe(resp => {
-          this.data.emit(resp)
-        })
-        
-      }
-    }else{
-
-      if (this.form.valid) {
-        
-        const body = {
-          amount: this.form.get('monto')?.value,
-          concept: this.form.get('concepto')?.value,
-          date: this.form.get('fecha')?.value,
-          type: this.type,
-          accountId: this.accId,
-          userId: this.usId,
-          to_account_id: this.toId
-        }
-
-
-        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, body, false).subscribe(resp => {
-          this.data.emit(resp)
-        })
+      if (this.isEgreso) {
+        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp)) 
+      }else{
+        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp))
         this.httpService.post<any>(`${baseUrl}/fixeddeposits`, {
 
           "userId": this.usId,
@@ -127,11 +81,38 @@ export class FormComponent implements OnInit {
           "closing_date": "2022-11-26"
           
         })
+
       }
+  
+  }
+
+  createBody(){
+    this.body = {
+      amount: this.form.get('monto')?.value,
+      concept: this.form.get('concepto')?.value,
+      date: this.form.get('fecha')?.value,
+      type: this.type,
+      accountId: this.accId,
+      userId: this.usId,
+      to_account_id: this.form.get('idUsuario')?.value || this.toId
     }
+  }
 
-    
+  createFormEgreso(){
+    this.form = this.fb.group({
+      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
+      concepto: ['', [Validators.required]],
+      fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
+      idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
+    });
+  }
 
+  createFormIngreso(){
+    this.form =  this.fb.group({
+      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
+      concepto: ['', [Validators.required]],
+      fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]]
+    });
   }
 
   close() {

@@ -12,7 +12,7 @@ import { User } from '../../state/auth/interfaces/user.interface';
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient, private store: Store) { }
+  constructor(private httpClient: HttpClient) { }
 
   login(form: FormGroup) {
     return this.httpClient.post(`${environment.URL_BASE}/auth/login`, form.value)
