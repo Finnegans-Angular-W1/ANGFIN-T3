@@ -217,6 +217,7 @@ input#label_up:checked ~ label#label_up #cerrar_art {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+  display: flex;
 }
 
 .logo_container,.links_container{
@@ -226,6 +227,7 @@ input#label_up:checked ~ label#label_up #cerrar_art {
   grid-row: 2;
   grid-column: 1 / span 2;
   justify-self: center;
+  width: 90%;
 }
 .img_container img {
   width: 4rem;
@@ -269,6 +271,7 @@ input#label_up:checked ~ label#label_up #cerrar_art {
   display: block;
   position: initial;
   height: 200px;
+  width: 90%;
 }
 
 .twitter:hover{
