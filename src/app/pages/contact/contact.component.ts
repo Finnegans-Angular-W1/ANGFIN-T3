@@ -57,7 +57,7 @@ export class ContactComponent implements OnInit {
   }
 
 addContact(){
-  this.llamadaUsers(2930 , 2940 , false)
+  this.llamadaUsers(2930 , 2950 , false)
   setTimeout(() => {
     this.openAndClose()
   }, 500); 
