@@ -1,5 +1,5 @@
 <section class="container">
-    <app-title [title]="'Ingresos'"></app-title>
+    <app-title [title]="''"></app-title>
     <hr>
     <br>
     <div class="accordion">
@@ -55,15 +55,33 @@
   
   <div class="containerMuestra" *ngIf="addInport">
     <div class="card">
-        <div class="header">
-            <app-title [title]="'Añadir'"></app-title>
-        </div>
-  
         <div class="main">
-            <app-form (data)="addData($event)"
-                      [type]="'payment'"
-                      (onClose)="openAndClose()"
-                      [view]="addInport"></app-form>
+            <form  class="form_reset" >
+                <h3>Añadir Contacto</h3>
+                <div class="inputs_container">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label for="email">Nombre de Usuario</mat-label>
+                        <input matInput formControlName="Nombre" required
+                        type="text" required="text" name="Nombre"
+                        placeholder="Nombre">
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label for="email">Apellido de Usuario</mat-label>
+                        <input matInput formControlName="Apellido" required
+                        type="text" required="text" name="Apellido"
+                        placeholder="Apellido">
+                    </mat-form-field>
+                    
+                </div>
+                  <div mat-dialog-actions>
+                    <button mat-button class="close_modal" >Cancelar</button>
+                    <button mat-raised-button color="accent" class="btn_submit" [mat-dialog-close]="data"  
+                     type="submit">Aceptar</button>
+                  </div>
+                  
+                </form>
         </div>
     </div>
   </div>

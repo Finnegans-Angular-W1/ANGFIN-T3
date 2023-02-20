@@ -184,21 +184,18 @@ $shadowBox:-2px 3px 20px 4px #453a74;
 
 
 .card{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 600px;
+    height: 277px;
     width: 600px;
-    background-color: white;
+    text-align: center;
     border: 1px solid black;
     border-radius: 30px;
-    box-shadow: $shadowBox;
+    box-shadow: -2px 3px 20px 4px #453a74;
+    margin: auto;
+    position: relative;
+    bottom: 2rem;
 }
 
 .header{
@@ -214,10 +211,13 @@ $shadowBox:-2px 3px 20px 4px #453a74;
 }
 
 .main{
-    height: 100%;
     width: 100%;
     background-color: rgb(220, 202, 255);
-    border-radius:0 0 31px 31px ;
+    height: 100%;
+    border-radius: 0 0 31px 31px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 ::ng-deep.title{
@@ -230,4 +230,14 @@ $shadowBox:-2px 3px 20px 4px #453a74;
         padding-top: 0;
     }
     
+}
+
+.inputs_container{
+    display: flex;
+    gap: 1rem
+}
+.form_reset h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: ui-sans-serif;
 }

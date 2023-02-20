@@ -1,4 +1,4 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
@@ -25,8 +25,34 @@ export class AuthInterceptor implements HttpInterceptor {
       data:this.data
     });
   }
-
+ 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const token = localStorage.getItem('token');
+    const showErrorMsg = req.headers.get('X-Show-Error-Msg') !== 'false';
+  
+    const reqCloned = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`)
+    });
+  
+    return next.handle(reqCloned).pipe(
+      tap(() => {
+        this.store.dispatch(loading({ isloading: true }));
+      }),
+      catchError((err: any) => {
+        const msg = err.message;
+        if (showErrorMsg) {
+          this.openDialog();
+        }
+        return throwError(msg);
+      }),
+      finalize(() => {
+        this.store.dispatch(loading({ isloading: false }));
+      })
+    );
+  }
+}
+/*   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const token = localStorage.getItem('token');
 
@@ -52,6 +78,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
 }
 
-
+ */
 
 
