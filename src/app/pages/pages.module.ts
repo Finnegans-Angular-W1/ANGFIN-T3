@@ -29,7 +29,7 @@ import { WalletComponent } from './wallet/wallet.component';
     PagesRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
   ],
   exports:[
     PagesRoutingModule
