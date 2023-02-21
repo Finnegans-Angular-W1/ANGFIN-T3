@@ -326,4 +326,13 @@ img:hover{
     text-align: center;
 }
 
-
+@media (max-width:340px){
+    .banner{
+        width: 80%;
+        display: contents;
+    }
+    .banner img{
+        width: 246px;
+    }
+    
+}
