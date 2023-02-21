@@ -11,6 +11,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CommentsComponent } from './comments/comments.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { RouterModule } from '@angular/router';
+import { ToolBarComponent } from './tool-bar/tool-bar.component';
 
 
 
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     TermsAndConditionsComponent,
     AboutUsComponent,
     CommentsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    ToolBarComponent
   ],
   imports: [
     CommonModule,

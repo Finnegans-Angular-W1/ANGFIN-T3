@@ -19,7 +19,12 @@ const routes: Routes = [
   },
   {
     path:'register',
-    component:RegistroComponent
+    component:RegistroComponent,
+    children:[
+      {path: 'aboutUs', component: AboutUsComponent},
+      {path: 'comentarios', component: CommentsComponent},
+      {path: 'preguntas', component:QuestionsComponent},
+    ]
   }
 ]
 
