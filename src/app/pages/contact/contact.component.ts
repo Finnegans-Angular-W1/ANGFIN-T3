@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
     })
     this.form = this.fb.group({
       Nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
-      Apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
+      id: ['', [Validators.required, Validators.minLength(1) ]],
     });
 
   }
@@ -36,28 +36,16 @@ export class ContactComponent implements OnInit {
     this.addInport = !this.addInport
   }
 
-  async llamadaUsers(inicio: number, fin: number, showErrorMsg = true) {
-    const headers = showErrorMsg ? new HttpHeaders() : new HttpHeaders({ 'X-Show-Error-Msg': 'false' });
-    const name = this.form.value.Nombre;
-    const apellido = this.form.value.Apellido;
-  
-    for (let i = inicio; i <= fin; i++) {
-      try {
-        const data = await this.http.get<any>(`${environment.URL_BASE}/users/${i}`, { headers }).toPromise();
-        if (data.first_name === name && data.last_name === apellido) {
-          console.log("Usuario encontrado:", data);
-          this.data.push(data);
-          return;
-        }
-      } catch (error) {
-        console.log(`Error al obtener usuario con ID ${i}: ${error}`);
-      }
-    }
-    alert("No se encontró ningún usuario.");
-  }
+users(){
+  const name = this.form.value.Nombre;
+  const id = this.form.value.id;
+  this.httpservice.get(`${environment.URL_BASE}/users/?page=161`).subscribe((data:any)=> {
+    let user = data.filter((user:any)=>{ })
+        console.log(data)
+  })
+}
 
 addContact(){
-  this.llamadaUsers(2930 , 2950 , false)
   setTimeout(() => {
     this.openAndClose()
   }, 500); 
@@ -67,4 +55,26 @@ envio(){
   alert("Envio de plata")
 }
 
+
 }
+/*   this.llamadaUsers(2930 , 2950 , false)
+
+async llamadaUsers(inicio: number, fin: number, showErrorMsg = true) {
+  const headers = showErrorMsg ? new HttpHeaders() : new HttpHeaders({ 'X-Show-Error-Msg': 'false' });
+  const name = this.form.value.Nombre;
+  const apellido = this.form.value.Apellido;
+
+  for (let i = inicio; i <= fin; i++) {
+    try {
+      const data = await this.http.get<any>(`${environment.URL_BASE}/users/${i}`, { headers }).toPromise();
+      if (data.first_name === name && data.last_name === apellido) {
+        console.log("Usuario encontrado:", data);
+        this.data.push(data);
+        return;
+      }
+    } catch (error) {
+      console.log(`Error al obtener usuario con ID ${i}: ${error}`);
+    }
+  }
+  alert("No se encontró ningún usuario.");
+} */
