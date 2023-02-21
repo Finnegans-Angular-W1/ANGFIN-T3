@@ -31,7 +31,7 @@ $violetMian:#5d4abaa4;
 
 img{
    
-    // background-image: url('banner4.jpg');
+    background-image: url('banner4.jpg');
     margin: auto;
     width: auto;
     max-width: 400px;
@@ -216,6 +216,9 @@ img:hover{
     img{
         width: 100%;
     }
+    .banner{
+        height: 160px;
+    }
 }
 
 
@@ -327,4 +330,13 @@ img:hover{
     text-align: center;
 }
 
-
+@media (max-width:340px){
+    .banner{
+        width: 80%;
+        display: contents;
+    }
+    .banner img{
+        width: 246px;
+    }
+    
+}
