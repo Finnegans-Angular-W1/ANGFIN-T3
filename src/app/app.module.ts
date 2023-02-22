@@ -25,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
   declarations: [
     AppComponent,
-    ContactComponent,
+    ContactComponent,  
   ],
   imports: [
     MatDialogModule,
