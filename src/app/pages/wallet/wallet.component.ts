@@ -122,6 +122,12 @@ export class WalletComponent implements OnInit {
 
   }
 
+  clean(){
+    this.numberOperations = ""
+
+    localStorage.removeItem('Operation')
+  }
+
 
   openAndClose(){
     this.addInport = !this.addInport
