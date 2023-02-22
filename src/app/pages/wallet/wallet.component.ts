@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl'
+import { Transferencia } from 'src/app/core/interfaces/transferencia.interface';
 import { environment } from 'src/environments/environment';
 import { HttpService } from '../../core/services/http.service';
 
@@ -11,7 +12,7 @@ const baseUrl = environment.URL_BASE
   styleUrls: ['./wallet.component.scss']
 })
 export class WalletComponent implements OnInit {
-
+  data?: Transferencia[];
   canSee : boolean = false;
   
   canViewForm:boolean = false
@@ -25,6 +26,8 @@ export class WalletComponent implements OnInit {
   money:number = NaN
 
   isInsufficient : boolean = false
+
+  addInport:boolean = false
 
  
   @ViewChild('mapa',{static:false}) divMapa!: ElementRef;
@@ -123,6 +126,17 @@ export class WalletComponent implements OnInit {
     this.numberOperations = ""
 
     localStorage.removeItem('Operation')
+  }
+
+
+  openAndClose(){
+    this.addInport = !this.addInport
+  }
+
+  addData(data:any){
+    this.data?.push(data)
+    console.log(data)
+    this.openAndClose()
   }
 
 }
