@@ -19,7 +19,6 @@ import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
   declarations: [
     AppComponent,
     ContactComponent,
-    AboutUsComponent,  
   ],
   imports: [
     MatDialogModule,
