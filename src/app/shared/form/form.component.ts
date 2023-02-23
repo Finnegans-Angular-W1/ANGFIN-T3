@@ -35,6 +35,8 @@ export class FormComponent implements OnInit {
 
   @Output() onClose: EventEmitter<boolean> = new EventEmitter()
 
+  
+
   accId!: number;
   usId!: number;
   toId!: number
@@ -76,7 +78,6 @@ export class FormComponent implements OnInit {
             "type": "payment",
             "concept": this.form.get('concepto')?.value,
             "amount": this.form.get('monto')?.value
-          
         }, false).subscribe(resp => this.data.emit(resp)) 
       }else{
         this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp))
