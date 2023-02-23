@@ -1,0 +1,11 @@
+<article class="container">
+    <form [formGroup]="form" (submit)="calcular()">
+        <div class="box" >
+            <input type="number" formControlName="money" placeholder="cantidad a invertir" />
+            
+            <input type="number" formControlName="day" placeholder="Indique los dias" name="dias" />
+            <button class="boton" type="submit" (submit)="calcular()">Enviar</button>
+            <p>{{resultado| currency: "US":"$":'1.2-2' }}</p>
+        </div>
+    </form>
+</article>

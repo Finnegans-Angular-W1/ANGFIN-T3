@@ -1,0 +1,19 @@
+.container{
+   padding: 15% 20%;
+   
+}
+.box{
+   display: grid;
+    place-items: center;
+    background-color: white;
+    padding:60px 0;
+    border-radius: 20px;
+    
+}
+.boton{
+   //border-radius: 20%;
+   font-family: sans-serif;
+   cursor:pointer;
+   padding: 0 13.5%;
+   font-size: 20px;
+}
