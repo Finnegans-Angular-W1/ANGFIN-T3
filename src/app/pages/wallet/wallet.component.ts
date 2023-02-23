@@ -49,6 +49,10 @@ export class WalletComponent implements OnInit {
       }
   }
 
+  changeMoney(){
+    
+  }
+
 
   changeView(){
     this.canSee = !this.canSee
