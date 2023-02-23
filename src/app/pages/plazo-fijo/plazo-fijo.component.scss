@@ -1,19 +1,35 @@
-.container{
-   padding: 15% 20%;
-   
+.container {
+  padding: 15% 25%;
 }
-.box{
-   display: grid;
-    place-items: center;
-    background-color: white;
-    padding:60px 0;
-    border-radius: 20px;
-    
+.box {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  padding: 60px 0;
+  border-radius: 20px;
+  box-shadow: -2px 3px 20px 4px #453a74;
 }
-.boton{
-   //border-radius: 20%;
-   font-family: sans-serif;
-   cursor:pointer;
-   padding: 0 13.5%;
-   font-size: 20px;
+.input {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  width: 50%;
+}
+mat-form-field {
+  appearance: "outline";
+}
+.boton {
+  font-family: sans-serif;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: lightgreen;
+  border: none;
+  box-shadow: 0px 20px 50px #555;
+  width: 100px;
+  padding:10px;
+}
+.res {
+  font-size: 140%;
+  color: rgb(23, 126, 2);
 }

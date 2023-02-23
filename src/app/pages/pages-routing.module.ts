@@ -40,7 +40,7 @@ const routes: Routes = [
     path:'contact',
     component: ContactComponent
   },{
-    path:"plazo-fijo",
+    path:"plazos-fijos",
     component: PlazoFijoComponent
   }
   

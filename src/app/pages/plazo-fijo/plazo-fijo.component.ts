@@ -8,6 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class PlazoFijoComponent implements OnInit {
 resultado:number=0;
+show:boolean=false;
 form = this.fb.group({
 day: [0, Validators.required],
 money: [0, Validators.required]
@@ -22,5 +23,6 @@ calcular(){
   let days = this.form.get('day')?.value;
   let money= this.form.get('money')?.value;
  this.resultado= ((money!*0.75)/365)*days!;
+ this.show=true;
 }
 }
