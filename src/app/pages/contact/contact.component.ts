@@ -1,8 +1,13 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators , FormControl , FormGroup} from '@angular/forms';
-import { clearScreenDown } from 'readline';
+import { FormBuilder, Validators , FormGroup} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { Alert } from 'src/app/core/interfaces/alerts.interface';
 import { HttpService } from 'src/app/core/services/http.service';
+import { AppState } from 'src/app/core/state/app.state';
+import { Contact, } from 'src/app/core/state/auth/interfaces/user.interface';
+import { AlertsComponent } from 'src/app/shared/alerts/alerts.component';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,59 +17,80 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactComponent implements OnInit {
 
-  data?: any = [];
-  addInport:boolean = false;
+  data: Contact[] = [];
+  addInport = false;
   form!: FormGroup;
 
-  constructor(private http: HttpClient,
-              private httpservice:HttpService ,
-              private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-
-    this.httpservice.get(`${environment.URL_BASE}/auth/me`).subscribe((data:any)=> {
-      console.log(data)
-    })
-    this.form = this.fb.group({
-      Nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
-      Apellido: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
-    });
-
+  alert : Alert = {
+    err:'Error',
+    msg:'',
+    buttonOne:true,
+    buttonTwo:false
   }
 
-  openAndClose(){
-    this.addInport = !this.addInport
-  }
+  constructor(public dialog: MatDialog,
+    private store: Store<AppState>,
+    private http: HttpClient,
+    private httpservice: HttpService,
+    private fb: FormBuilder
+    ) {}
 
-  async llamadaUsers(inicio: number, fin: number, showErrorMsg = true) {
-    const headers = showErrorMsg ? new HttpHeaders() : new HttpHeaders({ 'X-Show-Error-Msg': 'false' });
-    const name = this.form.value.Nombre;
-    const apellido = this.form.value.Apellido;
+    ngOnInit(): void {
+      this.data = this.LocalContact();//data obtiene los contactos del local
   
-    for (let i = inicio; i <= fin; i++) {
-      try {
-        const data = await this.http.get<any>(`${environment.URL_BASE}/users/${i}`, { headers }).toPromise();
-        if (data.first_name === name && data.last_name === apellido) {
-          console.log("Usuario encontrado:", data);
-          this.data.push(data);
-          return;
-        }
-      } catch (error) {
-        console.log(`Error al obtener usuario con ID ${i}: ${error}`);
-      }
+      this.form = this.fb.group({
+        Nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
+        userId: ['', [Validators.required, Validators.minLength(3)]]
+      });
     }
-    alert("No se encontró ningún usuario.");
-  }
+    
+    openDialog(msg:any) {//funcion para generar el dialog de error con un msg personalizado
+      this.alert.msg = msg
+      this.dialog.open(AlertsComponent, {
+        data:this.alert
+      });
+    }
 
-addContact(){
-  this.llamadaUsers(2930 , 2950 , false)
-  setTimeout(() => {
-    this.openAndClose()
-  }, 500); 
+    openAndClose(): void {//cierra la ventana del form
+      this.addInport = !this.addInport;
+    }
+    
+    envio(): void {
+      alert('Envio de plata');//aqui iria el formulario para enviar dinero
+    }
+  
+    LocalContact(): Contact[] {//obtine los contactos de localStorage , si no existe se establece un array vacio
+      const storeContacts = localStorage.getItem('contactos');
+      return storeContacts ? JSON.parse(storeContacts) : [];
+    }
+
+    llamadaUsers(): void {//peticion get del usuario y verifica si ya esta en la base o no existe
+      const name = this.form.value.Nombre;
+      const userId = this.form.value.userId;
+      const contacts = this.LocalContact();
+    
+      this.httpservice.get(`${environment.URL_BASE}/users/${userId}`).subscribe((data: any) => {
+        const repeat = contacts.find((contacto: any) => 
+          contacto.name === data.first_name && contacto.userId === data.id );
+
+        const message = data.first_name === name
+          ? (!repeat ? (contacts.push({ name: data.first_name, userId: userId }), 
+                        localStorage.setItem('contactos', JSON.stringify(contacts)), 
+                        this.data = contacts)
+              : "Usario ya Registrado"
+            ): "Usario no Encontrado";
+        this.openDialog(message);
+      });
+    }
+
+    addContact(): void {
+      this.llamadaUsers();
+      setTimeout(() => {//cierra la ventana del form
+        this.openAndClose();
+      }, 500);
+    }
 }
 
-envio(){
-  alert("Envio de plata")
-}
-
-}
+ /*    this.httpservice.get(`${environment.URL_BASE}/users`).subscribe((data: any) => {
+        console.log(data);
+      }); */
