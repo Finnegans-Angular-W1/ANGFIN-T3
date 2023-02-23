@@ -10,8 +10,8 @@ export class PlazoFijoComponent implements OnInit {
 resultado:number=0;
 show:boolean=false;
 form = this.fb.group({
-day: [0, Validators.required],
-money: [0, Validators.required]
+day: [ , Validators.required],
+money: [ , Validators.required]
 });
 
   constructor(private fb: FormBuilder) { }
