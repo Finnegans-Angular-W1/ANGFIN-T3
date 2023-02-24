@@ -16,7 +16,10 @@
           ID:{{item?.userId }}
         </p>
        </div>
-       <button class="enviar_plata" (click)="envio()"><mat-icon>payments</mat-icon>Enviar </button>
+       <div class="btns_action">    
+         <button class="eliminar_contacto" (click)="deleteContact(item.userId)"><mat-icon>delete</mat-icon>Eliminar </button>
+         <button class="enviar_plata" (click)="envio()"><mat-icon>payments</mat-icon>Enviar </button>
+        </div>
         </label> 
     </article>
   
