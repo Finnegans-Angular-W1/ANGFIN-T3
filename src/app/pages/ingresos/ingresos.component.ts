@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Transferencia } from 'src/app/core/interfaces/transferencia.interface';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 })
 export class IngresosComponent implements OnInit {
 
-  data?: any;
+  data?: Transferencia[];
+
+  addInport:boolean = false
 
   constructor(private transactionsService: TransactionsService) {}
 
@@ -16,17 +19,17 @@ export class IngresosComponent implements OnInit {
     this.transactionsService.getTransactions("topup").subscribe((data:any) => {
       this.data = data;
       console.log(this.data);
-    }, (error:any) => {
-      console.error(error);
-    });
+    })
   }
 
-  added(){
-    alert("agregar ingreso")
+  openAndClose(){
+    this.addInport = !this.addInport
   }
 
-  editConcepto(){
-    alert("editar concepto")
+  addData(data:any){
+    this.data?.push(data)
+    console.log(data)
+    this.openAndClose()
   }
 
 

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { PagesModule } from './pages/pages.module';
-import { SharedModule } from './shared/shared.module';
 
 import { AuthModule } from './pages/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
@@ -17,11 +16,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
 
   declarations: [
-    AppComponent    
+    AppComponent,
+    ContactComponent,  
   ],
   imports: [
     MatDialogModule,
@@ -32,8 +37,17 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     SharedModule,
     HttpClientModule,
     AuthModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreDevtoolsModule.instrument({})
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      features: {
+        pause: true,
+        lock: true, // permite bloquear y desbloquear la grabación de acciones
+        persist: true // estado en local storage
+      }
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

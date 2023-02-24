@@ -1,17 +1,22 @@
 
-<app-title></app-title>
 <section class="container">
+  <app-title [title]="'Ingresos'"></app-title>
   <hr>
   <br>
-  <div class="accordion">
+  <div class="accordion" >
 
   <ng-container *ngFor="let item of data">
 
-  <article class="accordion-panel">
+  <article class="accordion-panel" >
       <input class="input_movement" type="radio" id="{{item.id}}"
       name="accordion"  />
       <label  for="{{item.id}}">
-      {{ item.updatedAt  | date: 'short' }} <br> {{item.amount | currency }}
+     <div class="amountContainer">
+      {{ item.updatedAt  | date: 'short' }} <br> 
+      <p >
+        {{item.amount | currency }}
+      </p>
+     </div>
       <mat-icon class="open">expand_more</mat-icon>
         
           <div id="cerrar_art" class="accordion-cerrar">
@@ -34,7 +39,7 @@
         <span class="accordion-answer">Transaccion : {{ item.type }} (Recarga)</span><br>
         <div class="btn_container">
           <br>
-          <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button> 
+          <!-- <button class="btn_edit" (click)="editConcepto()"><mat-icon>edit</mat-icon>Editar</button>  -->
         </div>
       </div>
     
@@ -43,8 +48,24 @@
 
 </ng-container>
 </div>
-<div class="div_btn_added">
-  <button  (click)="added()" class="btn_added"><mat-icon>add</mat-icon>Added</button> 
-</div>
+<!-- <div class="div_btn_added">
+  <button  (click)="openAndClose()" class="btn_added"><mat-icon>add</mat-icon>Added</button> 
+</div> -->
 </section>
 
+
+<!-- <div class="containerMuestra" *ngIf="addInport">
+  <div class="card">
+      <div class="header">
+          <app-title [title]="'Nuevo ingreso'"></app-title>
+      </div>
+
+      <div class="main">
+          <app-form (data)="addData($event)"
+                    [type]="'topup'"
+                    (onClose)="openAndClose()"
+                    [view]="addInport"
+                    [isEgreso]="false"></app-form>
+      </div>
+  </div>
+</div> -->

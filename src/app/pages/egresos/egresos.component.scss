@@ -2,6 +2,11 @@
     width: 100%;
     overflow-x: auto;
 }
+.accordion{
+    height: 60vh;
+    width: 100%;
+    overflow-y: scroll;
+}
 
 .table_egresos {
     width: 100%;
@@ -48,3 +53,13 @@
         display: none;
     }
 }
+
+
+.bills{
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    position: absolute;
+    z-index: 100;
+}
+ 

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, Validators , FormControl , FormGroup, AbstractControl  } from '@angular/forms';
+import { FormBuilder, Validators , FormControl , FormGroup} from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
 import { HttpClient } from '@angular/common/http';
@@ -57,7 +57,6 @@ export class formResetComponent implements OnInit {
   }
 
   submitForm() {
-    
     const data:any = {
       email : this.validateForm.value.email ?? '',
       password: this.validateForm.value.password ?? '',
@@ -72,7 +71,6 @@ export class formResetComponent implements OnInit {
       this.date = data
     }) 
   }
-  
   togglePasswordVisibility() {
     this.passwordVisibility = !this.passwordVisibility;
   }
@@ -91,9 +89,8 @@ export class formResetComponent implements OnInit {
         this.validateForm.controls['password'].hasError('minlength') ? 'Password inseguro' : '';
     } else if (input === 'password2') {
       return this.validateForm.controls['password2'].hasError('required') ? 'Confirme Contraseña' :
-        this.validateForm.value.password !== this.validateForm.value.password2 ? 'Las Contraseñas no coinsiden' : '';
-    }else {
-    return '';
-  }
+        this.validateForm.value.password !== this.validateForm.value.password2 ? 'Las Contraseñas no coinciden' : '';
+    }
+    return
   }
 }

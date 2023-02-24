@@ -1,0 +1,67 @@
+<section class="container">
+    <app-title [title]="''"></app-title>
+    <hr>
+    <br>
+    <div class="accordion">
+  
+    <ng-container *ngFor="let item of data">
+  
+    <article class="accordion-panel" >
+        <input class="input_movement" type="radio" id="{{item?.userId}}"
+        name="accordion"  />
+        <label  for="{{item?.userId}}">
+       <div class="amountContainer">
+        {{ item?.name}} <br> 
+        <p >
+          ID:{{item?.userId }}
+        </p>
+       </div>
+       <div class="btns_action">    
+         <button class="eliminar_contacto" (click)="deleteContact(item.userId)"><mat-icon>delete</mat-icon>Eliminar </button>
+         <button class="enviar_plata" (click)="envio()"><mat-icon>payments</mat-icon>Enviar </button>
+        </div>
+        </label> 
+    </article>
+  
+  </ng-container>
+  </div>
+  <div class="div_btn_added">
+    <button  (click)="openAndClose()" class="btn_added"><mat-icon>add</mat-icon>Added</button> 
+  </div>
+  </section>
+  
+  
+  <div class="containerMuestra" *ngIf="addInport">
+    <div class="card">
+        <div class="main">
+            <form [formGroup]="form" class="form_reset" >
+                <h3>Añadir Contacto</h3>
+                <div class="inputs_container">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label for="Nombre">Nombre de Usuario</mat-label>
+                        <input matInput formControlName="Nombre" required
+                        type="text" name="Nombre" 
+                        placeholder="Nombre">
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label for="userId">Id de Usuario</mat-label>
+                        <input matInput formControlName="userId" required
+                        type="number"  name="userId" 
+                        placeholder="userId">
+                    </mat-form-field>
+                    
+                </div>
+                  <div class="btns" mat-dialog-actions>
+                    <button mat-button class="btn_submit" 
+                    type="submit" (click)="addContact()" [disabled]="!form.valid">Aceptar</button>
+                    <button mat-button class="close_modal" (click)="openAndClose()" >Cancelar</button>
+                   
+                  </div>
+                  
+                </form>
+        </div>
+    </div>
+  </div>
+  

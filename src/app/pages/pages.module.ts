@@ -9,7 +9,10 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { formResetComponent } from '../components/form-reset/form-reset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WalletComponent } from './wallet/wallet.component';
+import { PlazoFijoComponent } from './plazo-fijo/plazo-fijo.component';
 // import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PerfilComponent,
     IngresosComponent,
     EgresosComponent,
-    formResetComponent
+    formResetComponent,
+    WalletComponent,
+    PlazoFijoComponent
     // HomeComponent
   ],
   imports: [
@@ -26,7 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PagesRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
   ],
   exports:[
     PagesRoutingModule

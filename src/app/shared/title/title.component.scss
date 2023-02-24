@@ -9,11 +9,20 @@
 
 .title{
     position: absolute;
+    z-index: 1;
     text-align: center;
     font-size: 4em;
-    margin-top: 50px;
+    margin-top: 15px;
     color: white;
     text-transform: uppercase;
+    // font-family:;
+    font-style: italic;
+    text-shadow: 1px 2px 17px black;
+
+    p{
+        margin: 0;
+        
+    }
 }
 h2{
     position: absolute;
@@ -32,7 +41,7 @@ h2 span:nth-child(1){
     position: absolute;
     top: 0;
     left: 0;
-    color: #000;
+    color: #ffffff;
     transition: 0.5s;
     clip-path: polygon(0 0 , 100% 0 , 100% 50% , 0 50%);
     overflow: hidden;
@@ -44,7 +53,7 @@ h2 span:nth-child(2){
     position: absolute;
     top: 0;
     left: 0;
-    color: #000;
+    color: #ffffff;
     transition: 0.5s;
     /* clip-path: polygon(0 50% , 100% 50% , 100% 100% , 0 100%);
     overflow: hidden; */
@@ -57,7 +66,7 @@ h2 span:nth-child(3){
     top: 50%;
     left: 0;
     transform: translateY(-50%) scaleY(0);
-    width: 91%;
+    width: 96%;
     background: #ff0;
     font-size: 0.5rem;
     letter-spacing: 0.7em;

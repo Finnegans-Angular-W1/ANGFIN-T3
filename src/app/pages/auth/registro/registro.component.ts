@@ -17,22 +17,29 @@ export class RegistroComponent implements OnInit {
     last_name:['',Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
+    roleId:[1],
+    points:[0],
     terms:[false, Validators.requiredTrue]
   });
 
   constructor(private fb: FormBuilder,private router:Router,private registerService:AuthService) { }
   ngOnInit(): void {
   }
-
+  invalidEmailOrPassword = false;
   register(){
-    this.registerService.register(this.registroForm).subscribe({
+    this.registerService.register(this.registroForm).subscribe(
+    {
       next:(res:any) =>{
         this.router.navigateByUrl('/login')
+        
       },
-      error: err=>{
-        // Arrojar alertas o avisos si el usario existe o no es valido
-      }
-    })
+      error: (err:any)=>{
+          console.log(err.error)
+
+          this.invalidEmailOrPassword = true;
+        
+      } }
+    )
   }
 
   public onSubmit() {
