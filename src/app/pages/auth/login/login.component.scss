@@ -60,10 +60,12 @@ form {
     border: none;
     padding: 15px;
     cursor: pointer;
-    background: linear-gradient(161deg, rgba(55,0,255,1) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
+    // background: linear-gradient(161deg, rgba(55,0,255,1) 0%, rgba(88,9,121,1) 48%, rgba(40,3,115,1) 100%);;
+    background-color: #191939;
     text-decoration: none;
     color: white;
     font-size: 0.9rem;
+    font-weight: bold;
     margin: 5px;
     border-radius: 15px;
     font-size: 16px;
@@ -74,13 +76,14 @@ form {
 
 .loginForm .btnLogin:hover,
 .loginForm .btnRegister:hover {
-    background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);
+    // background: linear-gradient(161deg, rgb(43, 6, 179) 0%, rgb(69, 5, 97) 48%, rgb(35, 5, 94) 100%);
+    background-color: #2a1939;
 
 
 }
 
 .loginForm .btnLogin:disabled {
-    background:  0rem  1rem 1rem rgba(72, 8, 91, 0.258);;
+    background-color: #616161;
 
     cursor: auto;
 }
