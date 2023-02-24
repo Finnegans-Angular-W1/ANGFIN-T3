@@ -23,6 +23,11 @@ calcular(){
   let days = this.form.get('day')?.value;
   let money= this.form.get('money')?.value;
  this.resultado= ((money!*0.75)/365)*days!;
- this.show=true;
+ if(days!=null&&days>0&&money!=null&&money>0){
+  this.show=true;
+  }else{
+    this.show=false;
+  }
+ 
 }
 }

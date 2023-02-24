@@ -1,5 +1,7 @@
 .container {
-  padding: 15% 25%;
+  padding-top: 10%;
+  padding-left:30%;
+  padding-right: 15%;
 }
 .box {
   display: grid;
@@ -10,16 +12,13 @@
   border-radius: 20px;
   border: 1px solid black;
   box-shadow: -2px 3px 20px 4px #453a74;
-  width: 100%;
+  width: 70%;
 }
 .input {
   padding: 10px;
   font-size: 15px;
   border-radius: 10px;
   width: 50%;
-}
-mat-form-field {
-  appearance: "outline";
 }
 .boton {
   font-family: sans-serif;
