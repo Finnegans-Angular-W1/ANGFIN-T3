@@ -43,7 +43,7 @@ export class WalletComponent implements OnInit {
   ngOnInit(): void {
       this.http.get(`${baseUrl}/accounts/me`).subscribe(
         {next: (resp:any) => this.money = resp[0].money})
-
+        console.log(this.money)
       if(this.numberOperations){
         this.createMap()
       }
