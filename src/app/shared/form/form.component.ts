@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
   @Input()
   isEdition: boolean = false;
 
-  @Input() isTransf: boolean=false
+  @Input() isTransf: boolean = false
 
   @Input() isEgreso: boolean = false;
   @Input()
@@ -35,13 +35,13 @@ export class FormComponent implements OnInit {
 
   @Output() onClose: EventEmitter<boolean> = new EventEmitter()
 
-  
+
 
   accId!: number;
   usId!: number;
   toId!: number
 
-  body! : any
+  body!: any
 
   form!: FormGroup;
 
@@ -49,10 +49,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.isEgreso) {
+    if (this.isEgreso) {
       this.createFormEgreso()
-    }else{ //si no es egreso queda el formulario para un ingreso
-      this. createFormIngreso()
+    } else { //si no es egreso queda el formulario para un ingreso
+      this.createFormIngreso()
     }
 
     // asignamos los id de la cuenta (la primer cuenta) del usuario que esta logueado
@@ -67,35 +67,51 @@ export class FormComponent implements OnInit {
 
   submit() {
 
-    if(this.form.invalid) return 
+    if (this.form.invalid) return
+    let idCuentaLogeada !: any
 
-        
+
+
     this.createBody()
+    let id!: any
+    if (this.isEgreso || this.isTransf) {
+      
+      this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('idUsuario')?.value}`, {
+        "type": "payment",
+        "concept": this.form.get('concepto')?.value,
+        "amount": this.form.get('monto')?.value
 
-      if (this.isEgreso ||this.isTransf) {
-        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp)) 
-        this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('idUsuario')?.value}`, {
-            "type": "payment",
-            "concept": this.form.get('concepto')?.value,
-            "amount": this.form.get('monto')?.value
-        }, false).subscribe(resp => this.data.emit(resp)) 
-      }else{
-        this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp))
-        this.httpService.post<any>(`${baseUrl}/fixeddeposits`, {
+      }, false).subscribe(resp => {this.data.emit(resp)})
+      // this.httpService.get<any>(`${baseUrl}/accounts/${this.form.get('idUsuario')?.value}`).subscribe(res => {
+      //   id = res.userId;
+      // })
+      // this.authS.getCuenta().subscribe((res:any)=> {idCuentaLogeada = res[0].id})
+      // this.httpService.post<any>(`${baseUrl}/transactions`, {
+      //   "amount": this.form.get('monto')?.value,
+      //   "concept": this.form.get('concepto')?.value,
+      //   "date": this.form.get('fecha')?.value,
+      //   "type": "topup",
+      //   "accountId": idCuentaLogeada,
+      //   "userId": id,
+      //   "to_account_id": this.form.get('idUsuario')?.value
+      // }).subscribe(res=>console.log(res))
+    } else {
+      this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp))
+      this.httpService.post<any>(`${baseUrl}/fixeddeposits`, {
 
-          "userId": this.usId,
-          "accountId": this.accId,
-          "amount": this.form.get('monto')?.value,
-          "creation_date": "2022-10-26",
-          "closing_date": "2022-11-26"
-          
-        })
+        "userId": this.usId,
+        "accountId": this.accId,
+        "amount": this.form.get('monto')?.value,
+        "creation_date": "2022-10-26",
+        "closing_date": "2022-11-26"
 
-      }
-  
+      })
+
+    }
+
   }
 
-  createBody(){
+  createBody() {
     this.body = {
       amount: this.form.get('monto')?.value,
       concept: this.form.get('concepto')?.value,
@@ -107,18 +123,18 @@ export class FormComponent implements OnInit {
     }
   }
 
-  createFormEgreso(){
+  createFormEgreso() {
     this.form = this.fb.group({
-      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
+      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]],
       concepto: ['', [Validators.required]],
       fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
       idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
     });
   }
 
-  createFormIngreso(){
-    this.form =  this.fb.group({
-      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
+  createFormIngreso() {
+    this.form = this.fb.group({
+      monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]],
       concepto: ['', [Validators.required]],
       fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]]
     });
