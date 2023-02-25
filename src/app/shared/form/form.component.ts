@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
 
   @Output() onClose: EventEmitter<boolean> = new EventEmitter()
 
-
+  @Input() contactId?: number;
 
   accId!: number;
   usId!: number;
@@ -59,11 +59,13 @@ export class FormComponent implements OnInit {
     this.authS.getCuenta().subscribe((res: any) => {
       this.accId = res[0].id
       this.toId = res[0].id
-      this.usId = res[0].userId
+      this.usId = res[0].userIds
+      if (this.form) {
+        this.form.get('userId')?.setValue(this.contactId);
+      }
     })
 
   }
-
 
   submit() {
 
@@ -99,6 +101,8 @@ export class FormComponent implements OnInit {
       this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp))
       this.httpService.post<any>(`${baseUrl}/fixeddeposits`, {
 
+      
+
         "userId": this.usId,
         "accountId": this.accId,
         "amount": this.form.get('monto')?.value,
@@ -107,7 +111,9 @@ export class FormComponent implements OnInit {
 
       })
 
-    }
+    
+
+      }
 
   }
 
@@ -119,7 +125,7 @@ export class FormComponent implements OnInit {
       type: this.type,
       accountId: this.accId,
       userId: this.usId,
-      to_account_id: this.form.get('idUsuario')?.value || this.toId
+      to_account_id: this.form.get('userId')?.value || this.toId
     }
   }
 
@@ -128,7 +134,7 @@ export class FormComponent implements OnInit {
       monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]],
       concepto: ['', [Validators.required]],
       fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
-      idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
+      userId: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
     });
   }
 
