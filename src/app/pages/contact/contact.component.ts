@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
   addInport2 = false;
   form!: FormGroup;
   dataUser!:User
-  userId?:any;
+  contactId?:number;
   alert : Alert = {
     err:'Error',
     msg:'',
@@ -62,7 +62,8 @@ export class ContactComponent implements OnInit {
     }
     openAndClose2(id:any): void {
       this.addInport2 = !this.addInport2;
-      this.userId = id
+      this.contactId = id
+      console.log(id)
     }
     openAndClose3(): void {
       this.addInport2 = !this.addInport2;

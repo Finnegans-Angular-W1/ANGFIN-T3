@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
 
   @Output() onClose: EventEmitter<boolean> = new EventEmitter()
 
-  @Input() idUser?: number;
+  @Input() contactId?: number;
 
   accId!: number;
   usId!: number;
@@ -60,10 +60,12 @@ export class FormComponent implements OnInit {
       this.accId = res[0].id
       this.toId = res[0].id
       this.usId = res[0].userId
+      if (this.form) {
+        this.form.get('idUsuario')?.setValue(this.contactId);
+      }
     })
 
   }
-
 
   submit() {
 

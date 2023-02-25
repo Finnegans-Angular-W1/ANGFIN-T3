@@ -25,9 +25,9 @@
   <div *ngIf="isEgreso; then egreso"></div>
   <ng-template #egreso>
     <mat-form-field appearance="outline"> 
-      <mat-label>{{ idUser ? 'Se Enviara Dinero a:' : '¿A qué cuenta le querés enviar dinero?' }}</mat-label>
-      <input matInput formControlName="idUsuario" type="number" [value]="idUser" [readonly]="idUser !== null">
-      <input matInput formControlName="idUsuario" type="number" placeholder="Ingrese el ID de usuario" *ngIf="idUser === null">
+      <mat-label>{{ contactId ? 'Se Enviara Dinero al usuario con id:' : '¿A qué cuenta le querés enviar dinero?' }}</mat-label>
+      <input matInput formControlName="idUsuario" type="number" [value]="contactId" [readonly]="contactId !== null">
+      <input matInput formControlName="idUsuario" type="number" placeholder="Ingrese el ID de usuario" *ngIf="contactId === null">
     </mat-form-field>
   </ng-template>
 
