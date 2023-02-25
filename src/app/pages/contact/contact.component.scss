@@ -184,9 +184,10 @@ hr{
 }
 .card2{
     
-    height: 417px;
+    height: 457px;
     position: relative;
-    bottom: 11rem;
+    bottom: 19rem;
+    width: 50%;
 }
 .header{
     display: flex;
@@ -280,6 +281,9 @@ color: white;
     .card{
         width: 90%;
     }
+    .card2{
+        width: 60%;
+    }
     .inputs_container{
         gap: 0;
         flex-direction: column;
@@ -290,3 +294,23 @@ color: white;
     }
         
  }
+ @media (max-width:550px) {
+    .card2{
+        width: 80%;
+    }
+}
+ @media (max-width:400px) {
+    .accordion label{
+    justify-content: center;
+    column-gap: 0px;
+    padding-block: -3px;
+    padding-block: -14px;
+    }
+    .card2{
+        width: 90%;
+    }
+    .amountContainer{
+
+        min-width: 77px;
+    }
+}

@@ -4,7 +4,7 @@
     <br>
     <div class="accordion">
   
-    <ng-container *ngFor="let item of data">
+    <ng-container *ngFor="let item of lista">
   
     <article class="accordion-panel" >
         <input class="input_movement" type="radio" id="{{item?.userId}}"
@@ -68,13 +68,14 @@
     <div class="card2">
         <div class="main">
           <app-form 
+          (data)="finalized()"
           [contactId]="contactId"
-          [type]="'topup'" 
+          [type]="'payment'" 
           (onClose)="openAndClose2()" 
           [view]="addInport2"
-          [isEgreso]="true">
+          [isEgreso]="true"
           [isTransf]="true"
-          (data)="addData($event)"
+          >
         </app-form>
       </div>
     </div>
