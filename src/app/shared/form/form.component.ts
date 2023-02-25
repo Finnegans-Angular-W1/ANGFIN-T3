@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
       this.toId = res[0].id
       this.usId = res[0].userId
       if (this.form) {
-        this.form.get('idUsuario')?.setValue(this.contactId);
+        this.form.get('userId')?.setValue(this.contactId);
       }
     })
 
@@ -76,7 +76,7 @@ export class FormComponent implements OnInit {
 
       if (this.isEgreso ||this.isTransf) {
         this.httpService.post<Transferencia>(`${baseUrl}/transactions`, this.body, false).subscribe(resp => this.data.emit(resp)) 
-        this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('idUsuario')?.value}`, {
+        this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('userId')?.value}`, {
             "type": "payment",
             "concept": this.form.get('concepto')?.value,
             "amount": this.form.get('monto')?.value
@@ -105,7 +105,7 @@ export class FormComponent implements OnInit {
       type: this.type,
       accountId: this.accId,
       userId: this.usId,
-      to_account_id: this.form.get('idUsuario')?.value || this.toId
+      to_account_id: this.form.get('userId')?.value || this.toId
     }
   }
 
@@ -114,7 +114,7 @@ export class FormComponent implements OnInit {
       monto: [{ value: 0, disabled: this.isEdition }, [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]],
       concepto: ['', [Validators.required]],
       fecha: [{ value: moment().format('DD/MM/YYYY'), disabled: this.isEdition }, [Validators.required]],
-      idUsuario: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
+      userId: ['', [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]]
     });
   }
 

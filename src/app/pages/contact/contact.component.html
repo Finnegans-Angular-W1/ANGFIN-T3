@@ -18,7 +18,7 @@
        </div>
        <div class="btns_action">    
          <button class="eliminar_contacto" (click)="deleteContact(item.userId)"><mat-icon>delete</mat-icon>Eliminar </button>
-         <button class="enviar_plata" (click)="openAndClose2(item?.userId)"><mat-icon>payments</mat-icon>Enviar </button>
+         <button class="enviar_plata" (click)="openForm(item?.userId)"><mat-icon>payments</mat-icon>Enviar </button>
         </div>
         </label> 
     </article>
@@ -69,10 +69,13 @@
         <div class="main">
           <app-form 
           [contactId]="contactId"
-          [type]="'payment'" 
-          (onClose)="openAndClose3()" 
-          [view]="addInport"
-          [isEgreso]="true"></app-form>
+          [type]="'topup'" 
+          (onClose)="openAndClose2()" 
+          [view]="addInport2"
+          [isEgreso]="true">
+          [isTransf]="true"
+          (data)="addData($event)"
+        </app-form>
       </div>
     </div>
   </div>

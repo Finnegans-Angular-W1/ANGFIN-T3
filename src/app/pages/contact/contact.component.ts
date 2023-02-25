@@ -17,8 +17,8 @@ import { environment } from 'src/environments/environment';
 export class ContactComponent implements OnInit {
 
   data: Contact[] = [];
-  addInport = false;
-  addInport2 = false;
+  addInport:boolean = false;
+  addInport2:boolean = false;
   form!: FormGroup;
   dataUser!:User
   contactId?:number;
@@ -60,19 +60,14 @@ export class ContactComponent implements OnInit {
     openAndClose(): void {//cierra la ventana del form
       this.addInport = !this.addInport;
     }
-    openAndClose2(id:any): void {
-      this.addInport2 = !this.addInport2;
+    openForm(id:any): void {
+      this.openAndClose2()
       this.contactId = id
-      console.log(id)
     }
-    openAndClose3(): void {
+    openAndClose2(): void {
       this.addInport2 = !this.addInport2;
     }
     
-    envio(): void {
-      alert('Envio de plata');//aqui iria el formulario para enviar dinero
-    }
-  
     LocalContact(id:any): Contact[] {//obtine los contactos de localStorage , si no existe se establece un array vacio
       const storeContacts = localStorage.getItem(`${id}`);
       return storeContacts ? JSON.parse(storeContacts) : [];
@@ -113,7 +108,12 @@ export class ContactComponent implements OnInit {
       localStorage.setItem(`${this.dataUser}`, JSON.stringify(clear))
       this.data = clear
     }
-
+    addData(data:any):void{
+      console.log(data)
+      console.log(this.addInport2)
+      this.openAndClose2()
+    }
+  
 }
 
  /*    this.httpservice.get(`${environment.URL_BASE}/users`).subscribe((data: any) => {
