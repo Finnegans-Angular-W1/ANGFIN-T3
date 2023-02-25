@@ -168,7 +168,7 @@ hr{
     
 
 
-.card{
+.card , .card2{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -182,7 +182,12 @@ hr{
     position: relative;
     bottom: 2rem;
 }
-
+.card2{
+    
+    height: 417px;
+    position: relative;
+    bottom: 11rem;
+}
 .header{
     display: flex;
     background-color: #7768b7;
@@ -204,7 +209,6 @@ hr{
     display: flex;
     align-items: center;
 }
-
 ::ng-deep.title{
     margin-top: 0;
 }

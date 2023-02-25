@@ -18,9 +18,10 @@ export class ContactComponent implements OnInit {
 
   data: Contact[] = [];
   addInport = false;
+  addInport2 = false;
   form!: FormGroup;
   dataUser!:User
-
+  userId?:any;
   alert : Alert = {
     err:'Error',
     msg:'',
@@ -45,6 +46,7 @@ export class ContactComponent implements OnInit {
         this.dataUser = res.id
         this.data = this.LocalContact(this.dataUser)
       })
+      
     }
     
     openDialog( alert?:any , msg?:any) {//funcion para generar el dialog de error con un msg personalizado
@@ -57,6 +59,13 @@ export class ContactComponent implements OnInit {
 
     openAndClose(): void {//cierra la ventana del form
       this.addInport = !this.addInport;
+    }
+    openAndClose2(id:any): void {
+      this.addInport2 = !this.addInport2;
+      this.userId = id
+    }
+    openAndClose3(): void {
+      this.addInport2 = !this.addInport2;
     }
     
     envio(): void {

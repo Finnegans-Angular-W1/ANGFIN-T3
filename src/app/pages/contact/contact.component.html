@@ -18,7 +18,7 @@
        </div>
        <div class="btns_action">    
          <button class="eliminar_contacto" (click)="deleteContact(item.userId)"><mat-icon>delete</mat-icon>Eliminar </button>
-         <button class="enviar_plata" (click)="envio()"><mat-icon>payments</mat-icon>Enviar </button>
+         <button class="enviar_plata" (click)="openAndClose2(item?.userId)"><mat-icon>payments</mat-icon>Enviar </button>
         </div>
         </label> 
     </article>
@@ -64,4 +64,16 @@
         </div>
     </div>
   </div>
-  
+  <div class="containerMuestra" *ngIf="addInport2">
+    <div class="card2">
+        <div class="main">
+          <app-form 
+          [idUser]="userId"
+          [type]="'payment'" 
+          (onClose)="openAndClose3()" 
+          [view]="addInport"
+          [isEgreso]="true"></app-form>
+      </div>
+    </div>
+  </div>
+    

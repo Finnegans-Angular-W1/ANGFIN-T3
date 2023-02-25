@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
 
   @Output() onClose: EventEmitter<boolean> = new EventEmitter()
 
-  
+  @Input() idUser?: number;
 
   accId!: number;
   usId!: number;
