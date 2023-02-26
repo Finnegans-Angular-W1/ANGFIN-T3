@@ -223,7 +223,7 @@ div.img_img:hover{
 }
 @media (max-width:750px){
   div.img_img{
-    flex-basis: calc(40% - 160px);
+    flex-basis: calc(42% - 160px);
   }
    div.container_imgs{
     display: flex;
@@ -261,13 +261,20 @@ div.img_img:hover{
     } 
 }
 @media (max-width:600px){
+
   .user-info{
     top: -150%;
   }
   div.img_img{
-    flex-basis: calc(50% - 140px);
+    flex-basis: calc(50% - 175px);
   }
 }
+@media (max-width:540px){
+  div.img_img{ 
+    flex-basis: calc(60% - 175px);
+  }
+}
+
 @media (max-width:500px){
   div.img_img{
     flex-basis: calc(50% - 119px);
@@ -291,4 +298,3 @@ div.img_img:hover{
     height: 30rem;
   }
 }
-
