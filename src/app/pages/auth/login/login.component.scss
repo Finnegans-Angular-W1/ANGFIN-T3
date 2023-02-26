@@ -17,7 +17,10 @@ $gradiant:linear-gradient(90deg,#1f1f34d2,#2c173cb9,#1f1f34b7);
 
 
 
-
+article#about{
+    position: relative;
+    z-index: 2;
+    }
 .titulo {
     font-size: 2.4rem;
     color: #000000;
