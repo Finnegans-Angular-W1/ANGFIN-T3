@@ -1,7 +1,7 @@
 .container {
-  padding-top: 10%;
-  padding-left:30%;
-  padding-right: 15%;
+   padding-top: 10%;
+   padding-left:30%;
+   padding-right: 30%;
 }
 .box {
   display: grid;
@@ -9,16 +9,16 @@
   background-color: white;
   padding-bottom: 60px;
   padding-top: 10px;
-  border-radius: 20px;
+  border-radius: 22.5px;
   border: 1px solid black;
   box-shadow: -2px 3px 20px 4px #453a74;
-  width: 70%;
+  width: 400px;
 }
 .input {
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 15px;
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
 }
 .boton {
   font-family: sans-serif;
@@ -32,6 +32,7 @@
   padding:10px;
 }
 .res {
+  margin-top: 10%;
   font-size: 140%;
   color: rgb(23, 126, 2);
 }
@@ -48,4 +49,21 @@ letter-spacing: 1px;
 }
 label{
   color:rgb(107, 107, 107);
+}
+
+@media(max-width: 620px){
+.container{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+  .box{
+  width:100%;
+}
+.input{
+  width: 80%;
+}
+  .title{
+  width:100%;
+ 
+}
 }
