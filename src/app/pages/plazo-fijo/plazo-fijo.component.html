@@ -13,7 +13,7 @@
             
             <button mat-button class="boton" type="submit" (submit)="calcular()">Calcular</button>
             
-            <p *ngIf="show" class="res"><br/>{{resultado| currency: "US":"$":'1.2-2' }}</p>
+            <p *ngIf="show" class="res">{{resultado| currency: "US":"+$":'1.2-2' }}</p>
         </div>
     </form>
 </article>
