@@ -78,7 +78,7 @@ export class FormComponent implements OnInit {
     let id!: any
     if (this.isEgreso || this.isTransf) {
       
-      this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('idUsuario')?.value}`, {
+      this.httpService.post<any>(`${baseUrl}/accounts/${this.form.get('userId')?.value}`, {
         "type": "payment",
         "concept": this.form.get('concepto')?.value,
         "amount": this.form.get('monto')?.value
