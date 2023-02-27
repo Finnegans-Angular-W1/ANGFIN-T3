@@ -60,9 +60,9 @@ export class FormComponent implements OnInit {
       this.accId = res[0].id
       this.toId = res[0].id
       this.usId = res[0].userIds
-      if (this.form) {
+      /* if (this.form) {
         this.form.get('userId')?.setValue(this.contactId);
-      }
+      } */
     })
 
   }
